@@ -310,6 +310,36 @@ details .sol{margin-top:10px;display:grid;gap:6px;font-size:.93rem}
 .cta:hover{filter:brightness(1.08)}
 a.doc.link{text-decoration:none;color:var(--ink);border-color:var(--pumpkin)}
 a.doc.link:hover{background:var(--pumpkin-soft)}
+
+/* Bản đồ bài học */
+.mstats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:14px}
+.mstats div{padding:14px 16px;border-left:1px solid var(--line);display:grid;gap:2px;min-width:0}
+.mstats div:first-child{border-left:0}
+.mstats b{font-family:var(--font-display);font-size:1.9rem;line-height:1;color:var(--pumpkin)}
+.mstats span{font-size:.86rem;color:var(--ink-soft)}
+.mfilter{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.mfilter button{font:inherit;font-size:.86rem;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--ink-soft);border-radius:999px;padding:5px 14px;cursor:pointer}
+.mfilter button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.matrix{display:grid;gap:8px;min-width:820px}
+.mrow{display:grid;grid-template-columns:120px repeat(4,minmax(0,1fr));gap:8px}
+.mrow.mtop div{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;padding:0 4px}
+.mhead{display:flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:800;font-size:1.02rem}
+.mdot{width:12px;height:12px;border-radius:3px;background:var(--mc);flex:none}
+.mstack{display:grid;gap:8px;align-content:start;min-width:0}
+.mcell{text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-top:3px solid var(--mc);border-radius:10px;padding:12px;display:grid;gap:4px;align-content:start;min-width:0}
+.mcell b{font-size:.94rem;line-height:1.3}
+.mno{font-size:.72rem;color:var(--ink-soft)}
+.msp{font-size:.82rem;color:var(--ink-soft)}
+.mrow[data-m="toan"]{--mc:var(--pumpkin)}
+.mrow[data-m="khtn"]{--mc:var(--teal)}
+.mrow[data-m="cn"]{--mc:#7a5cc7}
+.mrow[data-m="tin"]{--mc:#2f74c0}
+.mrow.dim{opacity:.25}
+.mcell:hover{box-shadow:0 0 0 2px var(--mc)}
+.mgo{font-size:.78rem;font-weight:600;color:var(--mc)}
+.mcell.star{background:var(--pumpkin-soft)}
+.mcell.mempty{border-style:dashed;background:transparent;color:var(--ink-soft)}
+@media (max-width:860px){.mstats{grid-template-columns:repeat(2,minmax(0,1fr))}.mstats div:nth-child(3){border-left:0}.mstats div:nth-child(n+3){border-top:1px solid var(--line)}}
 footer{background:var(--night);color:var(--night-soft);font-size:.86rem}
 footer .wrap{padding-block:32px;display:grid;gap:8px}
 footer b{color:var(--night-ink)}
@@ -359,6 +389,8 @@ footer b{color:var(--night-ink)}
     <a href="#thiet-ke">Tự lên khung bài</a>
     <a href="bai-mau.html" style="color:var(--glow)">Bài mẫu Toán 8 ↗</a>
     <a href="#cach-lam">Cách làm của trường</a>
+    <a href="#ban-do">Kế hoạch STEM của tổ</a>
+    <a href="bai-hoc.html" style="color:var(--glow)">18 bài dạy ↗</a>
     <a href="#bai-hoc">Bài học minh họa</a>
     <a href="#hoc-duoc">Thầy cô học được gì</a>
     <a href="#hoc-sinh">Học sinh thay đổi</a>
@@ -593,7 +625,7 @@ Nắp hộp vừa khít đáy</textarea><span class="hint">Viết bằng số đ
 
   <div class="pillars">
     <div class="pillar"><div><span class="k">Quản lí, chỉ đạo</span><h3>Có trong kế hoạch từ đầu năm</h3></div><p>STEM nằm trong kế hoạch giáo dục của nhà trường và kế hoạch tổ chuyên môn. Hiệu trưởng phụ trách chung, Phó Hiệu trưởng chuyên môn chỉ đạo trực tiếp, Tổ KHTN xây dựng nội dung. Bài học STEM của các nhóm môn được kiểm tra qua dự giờ và hồ sơ chuyên môn.</p></div>
-    <div class="pillar"><div><span class="k">Tổ chuyên môn</span><h3>Bản đồ bài học STEM</h3></div><p>Tổ KHTN gồm 34 giáo viên thuộc 7 nhóm chuyên môn, rà soát chương trình từng khối để xác định bài nào, tiết nào thiết kế được thành bài học STEM. Sinh hoạt chuyên môn theo nghiên cứu bài học: cùng thiết kế, dạy thử, dự giờ, góp ý, điều chỉnh.</p></div>
+    <div class="pillar"><div><span class="k">Tổ chuyên môn</span><h3>Bản đồ bài học STEM</h3></div><p><a href="#ban-do">Xem 18 bài học STEM của tổ năm học 2026 – 2027.</a> Tổ KHTN gồm 34 giáo viên thuộc 7 nhóm chuyên môn, rà soát chương trình từng khối để xác định bài nào, tiết nào thiết kế được thành bài học STEM. Sinh hoạt chuyên môn theo nghiên cứu bài học: cùng thiết kế, dạy thử, dự giờ, góp ý, điều chỉnh.</p></div>
     <div class="pillar"><div><span class="k">Tổ chức dạy học</span><h3>5 hoạt động · 2 buổi/ngày</h3></div><div><p>Theo 5 hoạt động của Công văn 3089/BGDĐT-GDTrH. Điểm riêng của trường: tiết chính khóa dành cho kiến thức, luyện tập, báo cáo, phản biện; buổi học thứ hai để học sinh thiết kế, chế tạo theo nhóm có giáo viên hướng dẫn. Mỗi em một vai, em nào cũng phải dùng đến Toán:</p><div class="roles"><span>Trưởng nhóm</span><span>Kĩ sư thiết kế</span><span>Thư kí tính toán</span><span>Thợ chế tạo</span><span>Người thuyết trình</span></div></div></div>
     <div class="pillar"><div><span class="k">Kiểm tra, đánh giá</span><h3>Rubric ba phần</h3></div><p>Kiến thức Toán được vận dụng (bản vẽ, số đo, lời giải); chất lượng sản phẩm (đúng hình, chắc chắn, thẩm mĩ, tiết kiệm vật liệu); báo cáo, phản biện, hợp tác. Kết hợp giáo viên đánh giá, nhóm đánh giá lẫn nhau và học sinh tự đánh giá. Bài tự luận trong tiết luyện tập là căn cứ đánh giá từng em.</p></div>
     <div class="pillar"><div><span class="k">Chuyển đổi số, ngoại ngữ</span><h3>Thành học liệu dùng chung</h3></div><p>Bài học và sản phẩm học sinh được số hóa, đưa lên trang học tập của lớp và cổng học liệu số của trường. Tiếng Anh vào nhẹ nhàng qua thuật ngữ: <span class="en">Rhombus</span>, <span class="en">Square</span>, <span class="en">Diagonal</span>, <span class="en">Side</span>, <span class="en">Right angle</span>.</p></div>
@@ -608,10 +640,40 @@ Nắp hộp vừa khít đáy</textarea><span class="hint">Viết bằng số đ
   </div>
 </section>
 
+
+<!-- BẢN ĐỒ BÀI HỌC STEM -->
+<section id="ban-do">
+  <div class="head">
+    <span class="num">B2 · Kế hoạch STEM của Tổ KHTN</span>
+    <h2>18 bài học STEM năm học 2026 – 2027</h2>
+    <p class="muted">Tổ KHTN rà soát chương trình từng khối, đăng kí bài học STEM cho từng môn, từng khối lớp, đặt đúng bài trong SGK Kết nối tri thức. Bấm vào từng bài để xem kế hoạch bài dạy và tải bản Word.</p>
+  </div>
+  <div class="mstats">
+    <div><b class="mono">18</b><span>bài học STEM có kế hoạch bài dạy</span></div>
+    <div><b class="mono">4</b><span>nhóm môn: Toán, KHTN, Công nghệ, Tin học</span></div>
+    <div><b class="mono">6 – 9</b><span>đủ 4 khối lớp</span></div>
+    <div><b class="mono">+1</b><span>chuyên đề thành phố Toán 8</span></div>
+  </div>
+  <div class="mfilter" role="group" aria-label="Lọc theo môn">
+    <button type="button" class="on" data-f="all">Tất cả</button>
+    <button type="button" data-f="toan">Toán</button>
+    <button type="button" data-f="khtn">KHTN</button>
+    <button type="button" data-f="cn">Công nghệ</button>
+    <button type="button" data-f="tin">Tin học</button>
+  </div>
+  <div class="scroll">
+    <div class="matrix">
+      <div class="mrow mtop"><div></div><div>Lớp 6</div><div>Lớp 7</div><div>Lớp 8</div><div>Lớp 9</div></div>
+      <div class="mrow" data-m="toan"><div class="mhead"><span class="mdot"></span>Toán</div><div class="mstack"><a class="mcell" href="bai-hoc.html#toan6"><span class="mno mono">01</span><b>Bản đồ lớp học thu nhỏ</b><span class="msp">Sản phẩm: Sơ đồ lớp học vẽ theo tỉ lệ 1 : 50</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#toan7"><span class="mno mono">02</span><b>Pizza Toán học – Chia sẻ công bằng</b><span class="msp">Sản phẩm: Mô hình bánh pizza giấy chia phần theo tỉ lệ đóng góp</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#toan8a"><span class="mno mono">03</span><b>Thống kê và biểu đồ vui nhộn</b><span class="msp">Sản phẩm: Biểu đồ khảo sát lớp (bản giấy A1 hoặc bản số)</span><span class="mgo">Xem bài dạy →</span></a><a class="mcell" href="bai-hoc.html#toan8b"><span class="mno mono">04</span><b>Ứng dụng hàm số bậc nhất vào thiết kế cầu</b><span class="msp">Sản phẩm: Mô hình cầu giấy có hai dốc dẫn</span><span class="mgo">Xem bài dạy →</span></a><a class="mcell star" href="bai-mau.html"><span class="mno mono">★ Chuyên đề thành phố</span><b>Kỹ sư nhí và đêm hội Halloween: Hình thoi – Hình vuông</b><span class="msp">Sản phẩm: diều hình thoi, hộp quà hình vuông</span><span class="mgo">Xem bài mẫu →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#toan9"><span class="mno mono">05</span><b>Thiết kế cầu vòm parabol với hàm số y = ax²</b><span class="msp">Sản phẩm: Mô hình cầu vòm bằng bìa carton</span><span class="mgo">Xem bài dạy →</span></a></div></div><div class="mrow" data-m="khtn"><div class="mhead"><span class="mdot"></span>KHTN</div><div class="mstack"><a class="mcell" href="bai-hoc.html#khtn6"><span class="mno mono">06</span><b>Cầu giấy chịu lực</b><span class="msp">Sản phẩm: Mô hình cầu giấy</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#khtn7"><span class="mno mono">07</span><b>Kính tiềm vọng – phản xạ ánh sáng trên gương phẳng</b><span class="msp">Sản phẩm: Kính tiềm vọng từ hộp giấy và hai gương phẳng nhỏ</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#khtn8a"><span class="mno mono">08</span><b>Mô hình hệ tuần hoàn</b><span class="msp">Sản phẩm: Mô hình hệ tuần hoàn có thể mô phỏng dòng máu</span><span class="mgo">Xem bài dạy →</span></a><a class="mcell" href="bai-hoc.html#khtn8b"><span class="mno mono">09</span><b>Sự nở vì nhiệt của kim loại</b><span class="msp">Sản phẩm: Mô hình băng kép báo nhiệt bật đèn LED</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#khtn9"><span class="mno mono">10</span><b>Nước rửa tay sinh học từ thảo mộc</b><span class="msp">Sản phẩm: Dung dịch rửa tay từ quả bồ hòn và tinh dầu sả</span><span class="mgo">Xem bài dạy →</span></a></div></div><div class="mrow" data-m="cn"><div class="mhead"><span class="mdot"></span>Công nghệ</div><div class="mstack"><a class="mcell" href="bai-hoc.html#cn6"><span class="mno mono">11</span><b>Bao bì sinh học từ lá sen</b><span class="msp">Sản phẩm: Mẫu bao bì gói thực phẩm từ lá sen</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#cn7"><span class="mno mono">12</span><b>Trồng rau thủy canh trong chai nhựa</b><span class="msp">Sản phẩm: Mô hình trồng rau thủy canh tĩnh</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#cn8"><span class="mno mono">13</span><b>Nhà chống bão mini từ vật liệu tái chế</b><span class="msp">Sản phẩm: Mô hình nhà chống bão tỉ lệ 1 : 50</span><span class="mgo">Xem bài dạy →</span></a><a class="mcell" href="bai-hoc.html#cn8b"><span class="mno mono">14</span><b>Hệ thống tưới nước nhỏ giọt tự động</b><span class="msp">Sản phẩm: Mô hình hệ thống tưới cây tự động (nhỏ giọt, tùy chọn cảm biến độ ẩm)</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><div class="mcell mempty"><b>Đang hoàn thiện</b><span class="msp">Tổ chọn bài theo mô đun Công nghệ 9 nhà trường dạy</span></div></div></div><div class="mrow" data-m="tin"><div class="mhead"><span class="mdot"></span>Tin học</div><div class="mstack"><a class="mcell" href="bai-hoc.html#tin6"><span class="mno mono">15</span><b>Lập trình trò chơi học tập bằng Scratch</b><span class="msp">Sản phẩm: Trò chơi đố vui ôn tập trên Scratch</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#tin7"><span class="mno mono">16</span><b>Thiết kế poster STEM bằng Canva</b><span class="msp">Sản phẩm: Poster số giới thiệu một sản phẩm STEM của trường</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#tin8"><span class="mno mono">17</span><b>Lập trình mô phỏng chuyển động</b><span class="msp">Sản phẩm: Chương trình mô phỏng quả bóng rơi và nảy</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#tin9"><span class="mno mono">18</span><b>Ứng dụng AI phân loại rác</b><span class="msp">Sản phẩm: Mô hình AI nhận dạng ảnh phân loại rác</span><span class="mgo">Xem bài dạy →</span></a></div></div>
+    </div>
+  </div>
+  <p style="margin-top:12px"><a class="cta" style="margin-top:0" href="bai-hoc.html">Xem toàn bộ 18 kế hoạch bài dạy →</a></p>
+</section>
+
 <!-- 2. BÀI HỌC MINH HỌA -->
 <section id="bai-hoc">
   <div class="head">
-    <span class="num">B2 · Bài học minh họa</span>
+    <span class="num">B3 · Bài học minh họa</span>
     <h2>Hai tiết Toán, một buổi chế tạo</h2>
     <p class="muted">Học sinh nhận "đơn đặt hàng" làm đồ chơi, quà tặng cho đêm hội Halloween: nhóm 1 làm diều hình thoi, nhóm 2 làm hộp quà hình vuông "Trick or Treat". Kế hoạch bài dạy đầy đủ: <a href="bai-mau.html">Bài STEM mẫu Toán 8</a>.</p>
   </div>
@@ -734,7 +796,7 @@ Nắp hộp vừa khít đáy</textarea><span class="hint">Viết bằng số đ
 <!-- 3. HỌC ĐƯỢC GÌ -->
 <section id="hoc-duoc">
   <div class="head">
-    <span class="num">B3 · Thầy cô đến dự học hỏi được gì</span>
+    <span class="num">B4 · Thầy cô đến dự học hỏi được gì</span>
     <h2>Năm điều trong cách làm</h2>
   </div>
   <div class="takeaways">
@@ -749,7 +811,7 @@ Nắp hộp vừa khít đáy</textarea><span class="hint">Viết bằng số đ
 <!-- 4. HỌC SINH -->
 <section id="hoc-sinh">
   <div class="head">
-    <span class="num">B4 · Học sinh thay đổi được gì</span>
+    <span class="num">B5 · Học sinh thay đổi được gì</span>
     <h2>Từ "Em biết gì?" đến "Em làm được gì với điều đã học?"</h2>
   </div>
   <div class="shifts">
@@ -764,7 +826,7 @@ Nắp hộp vừa khít đáy</textarea><span class="hint">Viết bằng số đ
 <!-- 5. ÁP DỤNG -->
 <section id="ap-dung">
   <div class="head">
-    <span class="num">B5 · Áp dụng ở trường bạn</span>
+    <span class="num">B6 · Áp dụng ở trường bạn</span>
     <h2>Bắt đầu bằng ba bước</h2>
     <p class="muted">Giữ nguyên quy trình, chỉ thay bối cảnh và sản phẩm cho hợp với đơn vị mình.</p>
   </div>
@@ -806,7 +868,7 @@ Nắp hộp vừa khít đáy</textarea><span class="hint">Viết bằng số đ
 <!-- 6. TÀI LIỆU -->
 <section id="tai-lieu">
   <div class="head">
-    <span class="num">B6 · Tài liệu chia sẻ</span>
+    <span class="num">B7 · Tài liệu chia sẻ</span>
     <h2>Bộ tài liệu của chuyên đề</h2>
     <p class="muted">Nhà trường chia sẻ toàn bộ tài liệu để thầy cô tham khảo và sử dụng.</p>
     <a class="cta" style="justify-self:start;margin-top:4px" href="tai-lieu/Bo-tai-lieu-STEM-Toan8-VoThiSau.zip" download>Tải trọn bộ tài liệu (.zip)</a>
@@ -819,6 +881,7 @@ Nắp hộp vừa khít đáy</textarea><span class="hint">Viết bằng số đ
     <a class="doc link" href="tai-lieu/04_Rubric-danh-gia_STEM_Toan8.docx" download><span class="ic">RUB</span><div><b>Rubric đánh giá (Word)</b><span>Kiến thức Toán, sản phẩm, báo cáo và hợp tác · tải về</span></div></a>
     <div class="doc"><span class="ic">VID</span><div><b>Video quá trình làm sản phẩm</b><span>Do học sinh quay, dựng</span></div></div>
     <div class="doc"><span class="ic">APP</span><div><b>Web-app "Xưởng thiết kế hộp quà Halloween"</b><span>Học liệu số Đợt 1 của Tổ KHTN</span></div></div>
+    <a class="doc link" href="bai-hoc.html"><span class="ic">18</span><div><b>18 kế hoạch bài học STEM của tổ ↗</b><span>Toán, KHTN, Công nghệ, Tin học lớp 6–9 · xem và tải Word</span></div></a>
     <a class="doc link" href="tai-lieu/05_Khung-thiet-ke-bai-hoc-STEM_dung-cho-to-chuyen-mon.docx" download><span class="ic">MẪU</span><div><b>Khung thiết kế bài học STEM (Word)</b><span>Mẫu trống cho tổ chuyên môn, dùng cho mọi môn · tải về</span></div></a>
     <div class="doc"><span class="ic">SỐ</span><div><b>Học liệu số hình học khác của nhóm Toán</b><span>Toán 6 Bài 19 (mô phỏng tương tác) · Toán 7 "Công trường Kiến trúc sư góc"</span></div></div>
   </div>
@@ -827,7 +890,7 @@ Nắp hộp vừa khít đáy</textarea><span class="hint">Viết bằng số đ
 <!-- 7. TỰ KIỂM -->
 <section id="tu-kiem">
   <div class="head">
-    <span class="num">B7 · Khi thầy cô tự thiết kế</span>
+    <span class="num">B8 · Khi thầy cô tự thiết kế</span>
     <h2>Bảng tự kiểm trước khi lên lớp</h2>
     <p class="muted">Đánh dấu từng mục. Trình duyệt trên máy của thầy cô sẽ nhớ các mục đã đánh dấu.</p>
   </div>
@@ -1032,6 +1095,13 @@ Nắp hộp vừa khít đáy</textarea><span class="hint">Viết bằng số đ
     const sel = () => { const r = document.createRange(); r.selectNodeContents($('bOut')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Đã chọn, nhấn Ctrl+C'; };
     try { navigator.clipboard.writeText(txt).then(done, sel); } catch(e) { sel(); }
   });
+
+  /* Lọc bản đồ bài học */
+  const mf=[...document.querySelectorAll('.mfilter button')];
+  mf.forEach(b=>b.addEventListener('click',()=>{
+    mf.forEach(x=>x.classList.toggle('on',x===b));
+    document.querySelectorAll('.matrix .mrow[data-m]').forEach(r=>r.classList.toggle('dim',b.dataset.f!=='all'&&r.dataset.m!==b.dataset.f));
+  }));
 
   /* Đánh dấu mục đang xem trên thanh điều hướng */
   const links = [...document.querySelectorAll('nav.top a[href^="#"]')].filter(a => !a.classList.contains('brand'));
