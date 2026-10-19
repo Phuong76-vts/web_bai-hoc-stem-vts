@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bài STEM mẫu Toán 8</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Bố cục: một tờ kế hoạch bài dạy đặt trên giấy kẻ ô; mục lục dính bên trái ở màn hình rộng */
+:root{
+  --paper:#f4f6fa; --grid:#e2e7f0; --card:#ffffff; --ink:#151d33; --ink-soft:#4b5670; --line:#d0d8e5;
+  --pumpkin:#c4511a; --pumpkin-soft:#fbe8db; --teal:#0e7268; --teal-soft:#dbf0ec;
+  --night:#161a38; --night-2:#222852; --night-ink:#eef0ff; --night-soft:#aab1db; --glow:#ff8a3d;
+  --font-display:"Bricolage Grotesque","Be Vietnam Pro",system-ui,sans-serif;
+  --font-body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0e1422; --grid:#172036; --card:#141d30; --ink:#e8edf7; --ink-soft:#a5b1c6; --line:#29385a;
+    --pumpkin:#f2884c; --pumpkin-soft:#3a2317; --teal:#55d3c3; --teal-soft:#11302d; --night:#0b0e22; --night-2:#171c3e;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0e1422; --grid:#172036; --card:#141d30; --ink:#e8edf7; --ink-soft:#a5b1c6; --line:#29385a;
+  --pumpkin:#f2884c; --pumpkin-soft:#3a2317; --teal:#55d3c3; --teal-soft:#11302d; --night:#0b0e22; --night-2:#171c3e;
+  color-scheme:dark;
+}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+body{margin:0;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.65}
+img{max-width:100%}[hidden]{display:none!important}
+h1,h2,h3,h4{font-family:var(--font-display);text-wrap:balance;line-height:1.2;margin:0}
+p{margin:0}
+a{color:var(--teal)}
+:focus-visible{outline:3px solid var(--pumpkin);outline-offset:2px;border-radius:4px}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.en{font-family:var(--font-mono);font-size:.82em;font-weight:600;color:var(--teal)}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--night)}
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:6;background:var(--night);color:var(--night-ink)}
+.topbar .in{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:10px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.topbar a{color:var(--glow);text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar span{font-family:var(--font-mono);font-size:.76rem;color:var(--night-soft);letter-spacing:.06em;text-transform:uppercase}
+
+.layout{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px;display:grid;grid-template-columns:220px minmax(0,1fr);gap:28px;align-items:start}
+.toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 64px);display:grid;gap:2px;font-size:.88rem}
+.toc b{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.toc a{text-decoration:none;color:var(--ink-soft);padding:5px 10px;border-left:2px solid var(--line)}
+.toc a:hover{color:var(--ink);border-left-color:var(--pumpkin)}
+.toc a.sub{padding-left:22px;font-size:.84rem}
+
+.sheet{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:clamp(18px,4vw,44px);display:grid;gap:30px;min-width:0}
+.docmeta{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.88rem;color:var(--ink-soft);border-bottom:1px solid var(--line);padding-bottom:14px}
+.docmeta b{color:var(--ink)}
+.title{display:grid;gap:8px;text-align:center}
+.title .k{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--pumpkin);font-weight:600}
+.title h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;letter-spacing:-.015em}
+.title p{color:var(--ink-soft)}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.facts div{padding:12px 14px;border-left:1px solid var(--line);min-width:0}
+.facts div:first-child{border-left:0}
+.facts span{display:block;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.facts b{font-size:.95rem}
+
+section{display:grid;gap:14px;scroll-margin-top:80px}
+h2{font-size:1.45rem;font-weight:800;padding-bottom:6px;border-bottom:2px solid var(--ink)}
+h3{font-size:1.12rem;font-weight:700}
+h4{font-size:1rem;font-weight:700}
+ul,ol{margin:0;padding-left:1.25em;display:grid;gap:5px}
+.note{font-size:.86rem;background:var(--teal-soft);border-radius:8px;padding:10px 12px}
+.flag{font-size:.86rem;background:var(--pumpkin-soft);border-radius:8px;padding:10px 12px}
+
+.part-hd{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;background:var(--night);color:var(--night-ink);border-radius:10px;padding:12px 16px}
+.part-hd h3{color:var(--night-ink)}
+.part-hd span{font-family:var(--font-mono);font-size:.78rem;color:var(--glow)}
+.part-hd.key{background:var(--pumpkin)}
+.part-hd.key span{color:#fff}
+
+.act{border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.act > .ah{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;padding:12px 16px;background:var(--paper);border-bottom:1px solid var(--line)}
+.act > .ah h4{font-size:1.04rem}
+.act > .ah .mono{color:var(--pumpkin);font-weight:600;font-size:.86rem}
+.act .ab{padding:14px 16px;display:grid;gap:12px}
+.abcd{display:grid;grid-template-columns:110px minmax(0,1fr);gap:8px 14px;font-size:.95rem}
+.abcd > b{font-size:.86rem;color:var(--ink-soft)}
+.steps{display:grid;gap:8px}
+.steps > div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;border-top:1px dashed var(--line);padding-top:8px;font-size:.95rem}
+.steps > div > b{color:var(--teal);font-size:.88rem}
+.kbox{border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:8px;padding:12px 14px;display:grid;gap:6px;font-size:.95rem}
+.kbox.sq{border-left-color:var(--pumpkin)}
+
+.tbl{width:100%;border-collapse:collapse;font-size:.92rem;min-width:620px}
+.tbl th,.tbl td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+.tbl th{background:var(--grid);font-family:var(--font-display)}
+.scroll{overflow-x:auto}
+.blank{display:inline-block;min-width:90px;border-bottom:1px dotted var(--ink-soft)}
+.sol{background:var(--paper);border-radius:8px;padding:10px 12px;font-size:.93rem;display:grid;gap:4px}
+details summary{cursor:pointer;font-weight:600;color:var(--teal)}
+details[open] summary{margin-bottom:8px}
+.sign{display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:center;font-size:.92rem;padding-top:10px}
+.sign b{display:block}
+.sign i{color:var(--ink-soft);font-size:.85rem}
+
+
+/* Xưởng kiểm định trình chiếu */
+.lab{background:var(--night);color:var(--night-ink);border-radius:14px;padding:clamp(16px,3vw,26px);display:grid;gap:18px}
+.lab .lh{display:grid;gap:6px}
+.lab .lh .k{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--glow);font-weight:600}
+.lab h2{border:0;padding:0;color:var(--night-ink);font-size:clamp(1.4rem,3vw,1.9rem)}
+.lab .lh p{color:var(--night-soft);max-width:70ch}
+.tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.tool{background:var(--night-2);border:1px solid rgba(170,177,219,.2);border-radius:12px;padding:16px;display:grid;gap:12px;align-content:start;min-width:0}
+.tool h3{color:var(--night-ink)}
+.tool .src{font-family:var(--font-mono);font-size:.72rem;color:var(--night-soft)}
+.tool svg{width:100%;height:auto;display:block}
+.tool label{font-size:.82rem;color:var(--night-soft)}
+.tool input[type=range]{width:100%;accent-color:var(--glow)}
+.verdict{border-radius:10px;padding:12px 14px;background:rgba(255,255,255,.04);border:1px solid rgba(170,177,219,.2);display:grid;gap:4px}
+.verdict b{font-family:var(--font-display);font-size:1.35rem;color:var(--glow)}
+.verdict span{font-size:.9rem;color:var(--night-ink)}
+.inputs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.inputs div{display:grid;gap:2px}
+.inputs input{font:inherit;font-family:var(--font-mono);font-size:.92rem;width:100%;padding:6px 8px;border-radius:8px;border:1px solid rgba(170,177,219,.3);background:var(--night);color:var(--night-ink)}
+.presets{display:flex;flex-wrap:wrap;gap:6px}
+.presets button{font:inherit;font-size:.8rem;font-weight:600;border:1px solid rgba(170,177,219,.35);background:transparent;color:var(--night-ink);border-radius:999px;padding:4px 12px;cursor:pointer}
+.presets button:hover{border-color:var(--glow);color:var(--glow)}
+.checks{display:grid;gap:4px;font-size:.88rem}
+.checks div{display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:8px;align-items:baseline}
+.checks .ok{color:#7ee0c3;font-weight:700}
+.checks .no{color:#ff9d7a;font-weight:700}
+.checks .d{font-family:var(--font-mono);font-size:.8rem;color:var(--night-soft)}
+@media (max-width:900px){.tools{grid-template-columns:1fr}}
+@media (max-width:600px){.inputs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr}
+  .toc{position:static;grid-template-columns:repeat(2,minmax(0,1fr));background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
+  .toc b{grid-column:1 / -1}
+  .toc a.sub{padding-left:10px}
+}
+@media (max-width:600px){
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts div:nth-child(3){border-left:0}
+  .facts div:nth-child(n+3){border-top:1px solid var(--line)}
+  .abcd,.steps > div{grid-template-columns:1fr;gap:2px}
+  .toc{grid-template-columns:1fr}
+  .sign{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="in">
+  <a href="./">← Về trang Dạy học STEM</a>
+  <a href="tai-lieu/01_KHBD_STEM_Toan8_Hinh-thoi-Hinh-vuong.docx" download>Tải bản Word ↓</a>
+</div></div>
+
+<div class="layout">
+  <nav class="toc" aria-label="Mục lục bài mẫu">
+    <b>Mục lục</b>
+    <a href="#xuong">Xưởng kiểm định ★</a>
+    <a href="#muc-tieu">I. Mục tiêu</a>
+    <a href="#thiet-bi">II. Thiết bị, học liệu</a>
+    <a href="#tien-trinh">III. Tiến trình</a>
+    <a class="sub" href="#tiet-1">Tiết 1</a>
+    <a class="sub" href="#buoi-2">Buổi học thứ hai</a>
+    <a class="sub" href="#tiet-2">Tiết 2 · Luyện tập</a>
+    <a href="#phieu">IV. Phiếu học tập</a>
+    <a href="#bai-tap">V. Bài tập tự luận</a>
+    <a href="#phan-bien">VI. Câu hỏi phản biện</a>
+    <a href="#rubric">VII. Rubric</a>
+    <a href="#an-toan">VIII. An toàn, vật liệu</a>
+  </nav>
+
+  <article class="sheet">
+    <div class="docmeta">
+      <span>Trường: <b>THCS Võ Thị Sáu</b> · Tổ: <b>Khoa học tự nhiên</b></span>
+      <span>Giáo viên: <b>Đỗ Thị Quyên</b></span>
+    </div>
+
+    <div class="title">
+      <span class="k">Kế hoạch bài dạy · Bài học STEM</span>
+      <h1>Kỹ sư nhí và đêm hội Halloween</h1>
+      <p>Bài 14. Hình thoi và hình vuông <span class="en">(Rhombus · Square)</span> và Luyện tập · Toán 8, Chương III. Tứ giác</p>
+    </div>
+
+    <div class="facts">
+      <div><span>Thời lượng</span><b>2 tiết + 1 buổi chế tạo</b></div>
+      <div><span>Kiểu bài STEM</span><b>Thiết kế kĩ thuật</b></div>
+      <div><span>Sản phẩm</span><b>Diều hình thoi · Hộp quà hình vuông</b></div>
+      <div><span>Tổ chức</span><b>4 nhóm · 2 nhiệm vụ</b></div>
+    </div>
+
+    <p class="flag">Nội dung kiến thức đối chiếu SGK Toán 8 tập 1 (Kết nối tri thức, NXB Giáo dục Việt Nam): Bài 14. Hình thoi và hình vuông, tr.67–72; Luyện tập chung, tr.73. Định lí Pythagore học sinh đã học ở tiết đầu học kì I theo kế hoạch dạy học (phân phối chương trình) đã thống nhất của tổ.</p>
+
+    <!-- XƯỞNG -->
+    <section class="lab" id="xuong">
+      <div class="lh">
+        <span class="k">Trình chiếu trên lớp</span>
+        <h2>Xưởng kiểm định của kỹ sư nhí</h2>
+        <p>Hai công cụ dùng ngay trong tiết dạy: máy gấp giấy minh họa hoạt động mở đầu của SGK (tiết 1) và máy thẩm định sản phẩm từ số đo thật (tiết 2, phần đo kiểm chéo).</p>
+      </div>
+      <div class="tools">
+        <div class="tool">
+          <h3>Máy gấp giấy</h3>
+          <span class="src">Hoạt động mở đầu · SGK tr.67 · Hình 3.46</span>
+          <svg id="foldSvg" viewBox="0 0 320 200" aria-label="Phần giấy gấp và hình nhận được khi mở ra"></svg>
+          <div><label for="oa">OA = <span id="oav" class="mono">5</span> cm</label><input id="oa" type="range" min="2" max="9" step="0.5" value="5"></div>
+          <div><label for="ob">OB = <span id="obv" class="mono">3</span> cm</label><input id="ob" type="range" min="2" max="9" step="0.5" value="3"></div>
+          <div class="verdict" aria-live="polite"><b id="foldName">Hình thoi</b><span id="foldWhy"></span></div>
+        </div>
+        <div class="tool">
+          <h3>Máy thẩm định sản phẩm</h3>
+          <span class="src">Nhập số đo thật · kết luận kèm dấu hiệu nhận biết</span>
+          <div class="presets">
+            <button type="button" data-p="dieu">Diều đạt</button>
+            <button type="button" data-p="dieulech">Diều buộc lệch</button>
+            <button type="button" data-p="hop">Hộp đạt</button>
+            <button type="button" data-p="hopmeo">Hộp méo</button>
+          </div>
+          <div class="inputs">
+            <div><label for="sAB">AB (cm)</label><input id="sAB" type="number" step="0.1" value="36.1"></div>
+            <div><label for="sBC">BC (cm)</label><input id="sBC" type="number" step="0.1" value="36.0"></div>
+            <div><label for="sCD">CD (cm)</label><input id="sCD" type="number" step="0.1" value="36.2"></div>
+            <div><label for="sDA">DA (cm)</label><input id="sDA" type="number" step="0.1" value="36.1"></div>
+            <div><label for="sAC">AC (cm)</label><input id="sAC" type="number" step="0.1" value="60"></div>
+            <div><label for="sBD">BD (cm)</label><input id="sBD" type="number" step="0.1" value="40"></div>
+            <div><label for="sA">Góc A (°)</label><input id="sA" type="number" step="1" value=""></div>
+            <div><label for="sTol">Sai số (mm)</label><input id="sTol" type="number" step="1" value="5"></div>
+          </div>
+          <div class="checks" id="checks"></div>
+          <div class="verdict" aria-live="polite"><b id="vName"></b><span id="vWhy"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- I -->
+    <section id="muc-tieu">
+      <h2>I. Mục tiêu</h2>
+      <h3>1. Kiến thức</h3>
+      <ul>
+        <li>Mô tả khái niệm hình thoi và hình vuông.</li>
+        <li>Giải thích các tính chất của hình thoi và hình vuông.</li>
+        <li>Nhận biết dấu hiệu để một hình là hình thoi, hình vuông. <i>(SGK tr.67)</i></li>
+        <li>Vận dụng định lí Pythagore (đã học đầu học kì I theo kế hoạch dạy học của tổ) để tính cạnh, đường chéo phục vụ thiết kế sản phẩm.</li>
+        <li>Giải quyết được một số vấn đề thực tiễn gắn với hình thoi, hình vuông (thiết kế, chế tạo diều và hộp quà).</li>
+      </ul>
+      <h3>2. Năng lực</h3>
+      <ul>
+        <li><b>Năng lực chung:</b> tự chủ và tự học (tự đọc, khám phá qua gấp cắt giấy); giao tiếp và hợp tác (làm việc nhóm theo vai); giải quyết vấn đề và sáng tạo (đề xuất, chọn giải pháp thiết kế).</li>
+        <li><b>Năng lực toán học:</b> tư duy và lập luận (chứng minh khung là hình thoi, đáy là hình vuông); mô hình hóa (chuyển sản phẩm thành bài toán hình học); giải quyết vấn đề (tính cạnh, chu vi, diện tích vật liệu); giao tiếp toán học (báo cáo, phản biện, dùng thuật ngữ tiếng Anh); sử dụng công cụ (thước, ê ke, compa, kéo).</li>
+      </ul>
+      <h3>3. Phẩm chất</h3>
+      <ul>
+        <li>Chăm chỉ, trung thực khi đo và ghi số liệu.</li>
+        <li>Trách nhiệm với phần việc của mình trong nhóm; tiết kiệm, dùng vật liệu tái chế.</li>
+      </ul>
+    </section>
+
+    <!-- II -->
+    <section id="thiet-bi">
+      <h2>II. Thiết bị dạy học và học liệu</h2>
+      <ul>
+        <li><b>Giáo viên:</b> máy chiếu, bài trình chiếu; Phiếu học tập 1–5; tờ tiêu chí và rubric; giấy màu A4; thước, ê ke, compa; diều và hộp mẫu chưa hoàn chỉnh để đặt vấn đề (không phát bản vẽ đáp án).</li>
+        <li><b>Học sinh (mỗi nhóm):</b> kéo đầu tròn, thước kẻ, ê ke, bút chì; giấy A4; nan tre, chỉ hoặc dây gai; bìa carton tái chế; băng dính giấy, hồ dán; điện thoại của giáo viên để quay video (buổi học thứ hai).</li>
+        <li><b>Học liệu số:</b> web-app "Xưởng thiết kế hộp quà Halloween"; bàn tính diều, hộp trên trang Dạy học STEM.</li>
+      </ul>
+    </section>
+
+    <!-- III -->
+    <section id="tien-trinh">
+      <h2>III. Tiến trình dạy học</h2>
+      <p class="note">Năm hoạt động STEM theo CV 3089 ứng với khung Phụ lục IV: Mở đầu → HĐ1; Hình thành kiến thức → HĐ2, HĐ3; Luyện tập → HĐ4, HĐ5; Vận dụng → phần giao về nhà. Mỗi nhóm có 5 vai: trưởng nhóm, kĩ sư thiết kế, thư kí tính toán, thợ chế tạo, người thuyết trình.</p>
+
+      <div class="part-hd" id="tiet-1"><h3>TIẾT 1 · Xác định vấn đề, kiến thức nền</h3><span>45 phút · chính khóa</span></div>
+
+      <div class="act">
+        <div class="ah"><h4>Hoạt động 1. Xác định vấn đề (Mở đầu)</h4><span class="mono">7 phút</span></div>
+        <div class="ab">
+          <div class="abcd">
+            <b>a) Mục tiêu</b><p>Học sinh nhận nhiệm vụ thực tiễn, thấy cần kiến thức về hình thoi, hình vuông để làm sản phẩm.</p>
+            <b>b) Nội dung</b><p>"Đơn đặt hàng đêm hội Halloween": nhóm 1, 3 làm diều hình thoi bay được; nhóm 2, 4 làm hộp quà "Trick or Treat" đáy hình vuông, có nắp vừa khít. Đọc Phiếu 1 và tiêu chí sản phẩm.</p>
+            <b>c) Sản phẩm</b><p>Phiếu 1 điền phần "Để đạt tiêu chí, em cần biết kiến thức gì?".</p>
+          </div>
+          <div class="steps">
+            <div><b>Giao nhiệm vụ</b><p>GV chiếu tình huống, đưa diều và hộp mẫu bị lệch, méo: "Vì sao diều này bay chao đảo, hộp này nắp không đậy được?". Phát Phiếu 1.</p></div>
+            <div><b>Thực hiện</b><p>Nhóm quan sát, thảo luận 3 phút, ghi dự đoán.</p></div>
+            <div><b>Báo cáo, thảo luận</b><p>Hai nhóm nêu dự đoán (khung không cân, cạnh không bằng nhau, góc không vuông…).</p></div>
+            <div><b>Kết luận</b><p>GV chốt: muốn làm đúng phải hiểu hình thoi <span class="en">Rhombus</span>, hình vuông <span class="en">Square</span> có tính chất gì, nhận biết thế nào. Dẫn vào bài.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="ah"><h4>Hoạt động 2. Nghiên cứu kiến thức nền (Hình thành kiến thức)</h4><span class="mono">28 phút</span></div>
+        <div class="ab">
+          <div class="abcd">
+            <b>a) Mục tiêu</b><p>Nắm định nghĩa, tính chất, dấu hiệu nhận biết hình thoi, hình vuông.</p>
+            <b>b) Nội dung</b><p>Gấp cắt giấy, đo đạc, đọc SGK, hoàn thành Phiếu 2.</p>
+            <b>c) Sản phẩm</b><p>Phiếu 2; hình thoi, hình vuông cắt bằng giấy.</p>
+          </div>
+          <div class="steps">
+            <div><b>Giao nhiệm vụ</b><p>Thực hiện hoạt động mở đầu (SGK tr.67, Hình 3.46): gấp tờ giấy làm tư tạo góc vuông O, đánh dấu A, B trên hai cạnh góc vuông, cắt theo AB rồi mở ra. Tứ giác là hình gì? Làm lại với OA = OB thì được hình gì? (Có thể minh họa bằng "Máy gấp giấy" ở đầu trang.)</p></div>
+            <div><b>Thực hiện</b><p>Cặp đôi gấp, cắt, đo; điền Phiếu 2. GV quan sát, hỗ trợ nhóm chậm.</p></div>
+            <div><b>Báo cáo, thảo luận</b><p>Đại diện trình bày phát hiện; lớp bổ sung. GV đặt câu hỏi "Hình vuông có phải là hình thoi không? Có phải hình chữ nhật không?".</p></div>
+            <div><b>Kết luận</b><p>GV chốt kiến thức theo SGK (khung dưới), giới thiệu thuật ngữ <span class="en">Diagonal</span>, <span class="en">Side</span>, <span class="en">Right angle</span>. Củng cố nhanh bằng Luyện tập 1 (tr.69) và Luyện tập 2 (tr.71).</p></div>
+          </div>
+          <div class="kbox">
+            <h4>Hình thoi <span class="en">Rhombus</span></h4>
+            <p><b>Định nghĩa (tr.67):</b> Hình thoi là tứ giác có bốn cạnh bằng nhau. Hình thoi cũng là hình bình hành nên có các tính chất của hình bình hành.</p>
+            <p><b>Định lí 1 (tr.68):</b> Trong hình thoi: a) Hai đường chéo vuông góc với nhau; b) Hai đường chéo là các đường phân giác của các góc trong hình thoi.</p>
+            <p><b>Định lí 2 (tr.68):</b> a) Hình bình hành có hai cạnh kề bằng nhau là hình thoi. b) Hình bình hành có hai đường chéo vuông góc với nhau là hình thoi. c) Hình bình hành có một đường chéo là đường phân giác của một góc là hình thoi.</p>
+          </div>
+          <div class="kbox sq">
+            <h4>Hình vuông <span class="en">Square</span></h4>
+            <p><b>Định nghĩa (tr.69):</b> Hình vuông là tứ giác có bốn góc vuông và bốn cạnh bằng nhau. Hình vuông cũng là hình chữ nhật, hình thoi nên có tất cả các tính chất của hai hình đó.</p>
+            <p><b>Định lí 3 (tr.70):</b> Trong một hình vuông, hai đường chéo bằng nhau, vuông góc với nhau, cắt nhau tại trung điểm mỗi đường và là các đường phân giác của các góc của hình vuông.</p>
+            <p><b>Định lí 4 (tr.70):</b> a) Hình chữ nhật có hai cạnh kề bằng nhau là hình vuông. b) Hình chữ nhật có hai đường chéo vuông góc là hình vuông. c) Hình chữ nhật có một đường chéo là đường phân giác của một góc là hình vuông.</p>
+            <p><b>Chú ý (tr.70):</b> Hình thoi có một góc vuông là hình vuông. Hình thoi có hai đường chéo bằng nhau là hình vuông.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="ah"><h4>Hoạt động 3 (phần 1). Đề xuất giải pháp, giao bài toán thiết kế</h4><span class="mono">10 phút</span></div>
+        <div class="ab">
+          <div class="abcd">
+            <b>a) Mục tiêu</b><p>Học sinh chuyển nhiệm vụ thành bài toán, tự chọn kích thước, phác thảo.</p>
+            <b>b) Nội dung</b><p>Nhận bài tập tự luận 1 hoặc 2 (mục V); phân vai trong nhóm; phác thảo trên Phiếu 3.</p>
+            <b>c) Sản phẩm</b><p>Phiếu 3 phần phác thảo và bảng phân vai.</p>
+          </div>
+          <div class="steps">
+            <div><b>Giao nhiệm vụ</b><p>GV phát bài tự luận theo nhiệm vụ nhóm và tờ rubric. Nhấn mạnh: mỗi thông số trên bản vẽ phải ghi rõ lấy từ câu nào của lời giải.</p></div>
+            <div><b>Thực hiện</b><p>Nhóm phân vai, phác thảo, bắt đầu giải bài.</p></div>
+            <div><b>Báo cáo, thảo luận</b><p>GV đi các nhóm, hỏi nhanh "Nhóm định dùng dấu hiệu nào để kiểm tra?".</p></div>
+            <div><b>Kết luận</b><p>Giao việc buổi học thứ hai và hạn mang sản phẩm đến tiết 2.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="part-hd" id="buoi-2"><h3>BUỔI HỌC THỨ HAI · Lựa chọn giải pháp, chế tạo, thử nghiệm</h3><span>khoảng 90 phút · có GV hướng dẫn</span></div>
+
+      <div class="act">
+        <div class="ah"><h4>Hoạt động 3 (phần 2) và Hoạt động 4</h4><span class="mono">90 phút</span></div>
+        <div class="ab">
+          <div class="abcd">
+            <b>a) Mục tiêu</b><p>Hoàn thiện bản thiết kế, chế tạo, thử nghiệm, điều chỉnh sản phẩm theo tiêu chí.</p>
+            <b>b) Nội dung</b><p>Nhóm hoàn thành lời giải, bản vẽ có kích thước; chế tạo; diều thả thử, hộp đóng thử; ghi Phiếu 4; quay video quá trình (nhóm hộp quà).</p>
+            <b>c) Sản phẩm</b><p>Phiếu 3 hoàn chỉnh, Phiếu 4, sản phẩm, video 2–3 phút.</p>
+          </div>
+          <div class="steps">
+            <div><b>Bước 1 · 20'</b><p>Hoàn thiện lời giải và bản vẽ. GV duyệt nhanh bản vẽ (chỉ góp ý kiến thức, không vẽ hộ).</p></div>
+            <div><b>Bước 2 · 45'</b><p>Chế tạo. Thợ chế tạo cắt, buộc, dán; kĩ sư thiết kế đo kiểm theo bản vẽ; thư kí ghi số liệu.</p></div>
+            <div><b>Bước 3 · 20'</b><p>Thử nghiệm ngoài sân (diều) hoặc đóng thử nắp (hộp); ghi kết quả, sửa ít nhất một lần nếu chưa đạt.</p></div>
+            <div><b>Bước 4 · 5'</b><p>Thu dọn, cất dụng cụ; người thuyết trình chuẩn bị báo cáo (nhóm diều dựng tiểu phẩm).</p></div>
+          </div>
+          <p class="note">Trường học 1 buổi/ngày: giao phần chế tạo thành nhiệm vụ ở nhà trong 1–2 tuần, chỉ gồm các bước không nguy hiểm, báo cha mẹ học sinh.</p>
+        </div>
+      </div>
+
+      <div class="part-hd key" id="tiet-2"><h3>TIẾT 2 · Luyện tập · Chia sẻ, thảo luận, điều chỉnh</h3><span>45 phút · chính khóa</span></div>
+
+      <div class="act">
+        <div class="ah"><h4>Hoạt động 5.1. Luyện tập: chữa bài tập tự luận</h4><span class="mono">12 phút</span></div>
+        <div class="ab">
+          <div class="abcd">
+            <b>a) Mục tiêu</b><p>Củng cố tính chất, dấu hiệu nhận biết qua bài tập là căn cứ thiết kế sản phẩm.</p>
+            <b>b) Nội dung</b><p>Bài 1, Bài 2 (mục V) gắn với sản phẩm và Bài 4 (bài 3.36, SGK tr.73) về khung tre bị xô lệch. Học sinh nhóm khác lên bảng giải để kiểm tra lời giải của nhóm làm sản phẩm.</p>
+            <b>c) Sản phẩm</b><p>Lời giải trên bảng, vở học sinh.</p>
+          </div>
+          <div class="steps">
+            <div><b>Giao nhiệm vụ</b><p>Chiếu đề Bài 1, Bài 2. Mỗi học sinh tự làm câu a vào vở (3 phút).</p></div>
+            <div><b>Thực hiện</b><p>Hai học sinh lên bảng (một của nhóm diều, một của nhóm hộp); cả lớp làm vào vở.</p></div>
+            <div><b>Báo cáo, thảo luận</b><p>Lớp nhận xét lời giải; GV hỏi "Câu này dùng dấu hiệu nào?".</p></div>
+            <div><b>Kết luận</b><p>GV chốt lập luận và kết quả. Giữ lời giải trên bảng suốt phần báo cáo để đối chiếu.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="ah"><h4>Hoạt động 5.2. Đo kiểm chéo sản phẩm</h4><span class="mono">8 phút</span></div>
+        <div class="ab">
+          <div class="steps">
+            <div><b>Thực hiện</b><p>Nhóm diều đo hộp của nhóm bạn và ngược lại: đo bốn cạnh, hai đường chéo, một góc. Ghi Phiếu 4, nhập số đo vào "Máy thẩm định" ở đầu trang để cả lớp thấy kết luận và dấu hiệu nhận biết được dùng.</p></div>
+            <div><b>Kết luận</b><p>GV ghi nhanh kết quả lên bảng, chỉ ra chỗ lệch để đưa vào phần phản biện.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="ah"><h4>Hoạt động 5.3. Báo cáo và phản biện</h4><span class="mono">17 phút</span></div>
+        <div class="ab">
+          <div class="steps">
+            <div><b>Nhóm Diều · 7'</b><p>Báo cáo bằng tiểu phẩm "Kỹ sư nhí thả diều đêm hội". Bắt buộc có đoạn chứng minh khung là hình thoi và nêu số đo cạnh.</p></div>
+            <div><b>Nhóm Hộp quà · 7'</b><p>Chiếu video quá trình thiết kế, chế tạo; trình bày cách kiểm tra đáy là hình vuông và cách tính cạnh nắp.</p></div>
+            <div><b>Phản biện · 3'</b><p>Các nhóm đặt câu hỏi theo gợi ý mục VI. GV chỉ chấp nhận câu hỏi và câu trả lời dựa trên kiến thức Toán.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="act">
+        <div class="ah"><h4>Hoạt động 5.4. Điều chỉnh, tự đánh giá, chốt kiến thức</h4><span class="mono">8 phút</span></div>
+        <div class="ab">
+          <div class="steps">
+            <div><b>Điều chỉnh · 3'</b><p>Mỗi nhóm nêu một điều chỉnh dựa trên số đo (ví dụ: dịch điểm buộc về đúng trung điểm, cắt lại nắp rộng hơn 2 mm).</p></div>
+            <div><b>Tự đánh giá · 3'</b><p>Học sinh làm Phiếu 5; nhóm góp ý nhóm bạn theo tiêu chí.</p></div>
+            <div><b>Chốt · 2'</b><p>GV chốt sơ đồ quan hệ: hình bình hành → hình thoi, hình chữ nhật → hình vuông. Giao về nhà: Bài 3 (mục V), bài 3.31, 3.32 (SGK tr.72) và hoàn thiện sản phẩm theo điều chỉnh.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IV -->
+    <section id="phieu">
+      <h2>IV. Phiếu học tập</h2>
+      <h3>Phiếu 1 · Vấn đề và tiêu chí</h3>
+      <div class="scroll"><table class="tbl">
+        <thead><tr><th>Sản phẩm</th><th>Tiêu chí</th><th>Cách kiểm tra</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="3">Diều hình thoi</td><td>Hai nan khung vuông góc, cắt nhau tại trung điểm mỗi nan</td><td>Đo bằng thước, ê ke</td></tr>
+          <tr><td>Bốn cạnh diều bằng nhau, đúng số tính được, lệch ≤ 0,5 cm</td><td>Đo 4 cạnh</td></tr>
+          <tr><td>Diều bay lên được, không chao đảo mạnh</td><td>Thả thử</td></tr>
+          <tr><td rowspan="3">Hộp quà hình vuông</td><td>Đáy là hình vuông: 4 cạnh bằng nhau, hai đường chéo lệch ≤ 3 mm</td><td>Đo cạnh, đường chéo</td></tr>
+          <tr><td>Nắp vừa khít: cạnh nắp lớn hơn cạnh đáy 4 mm</td><td>Đậy thử, đo</td></tr>
+          <tr><td>Dùng bìa tái chế, trang trí chủ đề Halloween</td><td>Quan sát</td></tr>
+        </tbody>
+      </table></div>
+      <p>Để đạt các tiêu chí trên, nhóm em cần biết kiến thức gì? <span class="blank">&nbsp;</span></p>
+
+      <h3>Phiếu 2 · Kiến thức nền</h3>
+      <ol>
+        <li>Hình em vừa cắt có các cạnh như thế nào? Hai nếp gấp (hai đường chéo) tạo với nhau góc bao nhiêu độ?</li>
+        <li>Điền vào chỗ trống: Hình thoi là tứ giác có <span class="blank">&nbsp;</span>. Hình vuông là tứ giác có <span class="blank">&nbsp;</span>.</li>
+        <li>Hai đường chéo của hình thoi có tính chất gì? Của hình vuông có thêm tính chất gì?</li>
+        <li>Nêu hai cách nhận biết một hình bình hành là hình thoi; hai cách nhận biết một hình thoi là hình vuông.</li>
+        <li>Nối thuật ngữ: Rhombus · Square · Diagonal · Right angle với nghĩa tiếng Việt.</li>
+      </ol>
+
+      <h3>Phiếu 3 · Bản thiết kế</h3>
+      <div class="scroll"><table class="tbl">
+        <thead><tr><th>Thông số</th><th>Giá trị</th><th>Lấy từ câu nào của lời giải</th><th>Kiến thức đã dùng</th></tr></thead>
+        <tbody>
+          <tr><td>Ví dụ: điểm buộc hai nan</td><td>30 cm và 20 cm</td><td>Bài 1, câu a</td><td>Dấu hiệu: hai đường chéo cắt nhau tại trung điểm mỗi đường và vuông góc (Định lí 2b, tr.68)</td></tr>
+          <tr><td>Ví dụ: cạnh diều</td><td>36,1 cm</td><td>Bài 1, câu d</td><td>Định lí 1 (tam giác AOB vuông); định lí Pythagore</td></tr>
+          <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table></div>
+      <div class="scroll"><table class="tbl">
+        <thead><tr><th>Vai</th><th>Họ tên</th><th>Việc cụ thể</th><th>Sản phẩm cá nhân</th></tr></thead>
+        <tbody>
+          <tr><td>Trưởng nhóm</td><td></td><td>Điều phối, quản lí thời gian</td><td>Bảng tiến độ</td></tr>
+          <tr><td>Kĩ sư thiết kế</td><td></td><td>Vẽ bản thiết kế có kích thước</td><td>Bản vẽ</td></tr>
+          <tr><td>Thư kí tính toán</td><td></td><td>Giải bài, ghi số liệu</td><td>Lời giải, Phiếu 4</td></tr>
+          <tr><td>Thợ chế tạo</td><td></td><td>Cắt, buộc, dán theo bản vẽ</td><td>Sản phẩm</td></tr>
+          <tr><td>Người thuyết trình</td><td></td><td>Báo cáo, trả lời phản biện</td><td>Kịch bản hoặc video</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>Phiếu 4 · Thử nghiệm và đo kiểm</h3>
+      <div class="scroll"><table class="tbl">
+        <thead><tr><th>Đại lượng</th><th>Số tính được</th><th>Lần đo 1</th><th>Lần đo 2 (sau sửa)</th><th>Chênh lệch</th><th>Đạt / Chưa</th></tr></thead>
+        <tbody>
+          <tr><td>Cạnh</td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Đường chéo 1</td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Đường chéo 2</td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Góc</td><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table></div>
+      <p>Nhóm em sẽ sửa gì? Vì sao? <span class="blank">&nbsp;</span></p>
+
+      <h3>Phiếu 5 · Tự đánh giá</h3>
+      <ol>
+        <li>Em đã làm những việc gì trong nhóm?</li>
+        <li>Em học được kiến thức Toán nào qua sản phẩm?</li>
+        <li>Nếu làm lại, em sẽ thay đổi điều gì?</li>
+        <li>Góp ý cho nhóm bạn theo tiêu chí (không chấm điểm bạn): <span class="blank">&nbsp;</span></li>
+      </ol>
+    </section>
+
+    <!-- V -->
+    <section id="bai-tap">
+      <h2>V. Hệ thống bài tập tự luận</h2>
+      <h3>Bài 1 · Khung diều hình thoi</h3>
+      <p>Khung diều ABCD gồm hai nan tre AC = 60 cm và BD = 40 cm, buộc vuông góc với nhau tại O là trung điểm của mỗi nan.</p>
+      <ol type="a"><li>Chứng minh ABCD là hình thoi.</li><li>Bạn Minh nói: "Chỉ cần đo bốn cạnh diều bằng nhau là hai nan chắc chắn vuông góc." Bạn nói đúng hay sai? Vì sao?</li><li>Tính diện tích giấy dán mặt diều.</li><li>Tính độ dài cạnh diều (làm tròn đến 0,1 cm) và chiều dài dây viền quanh diều, biết cần thêm 10 cm để buộc.</li></ol>
+      <details><summary>Đáp án</summary><div class="sol">
+        <p>a) AC và BD cắt nhau tại trung điểm O của mỗi đường nên ABCD là hình bình hành; hình bình hành có hai đường chéo vuông góc với nhau là hình thoi (Định lí 2b, tr.68).</p>
+        <p>b) Đúng. Tứ giác có bốn cạnh bằng nhau là hình thoi (định nghĩa, tr.67); trong hình thoi hai đường chéo vuông góc với nhau (Định lí 1a, tr.68).</p>
+        <p>c) S = AC · BD : 2 = 60 · 40 : 2 = 1 200 cm² (diện tích hình thoi, đã học ở lớp 6).</p>
+        <p>d) OA = 30 cm, OB = 20 cm. Tam giác AOB vuông tại O (Định lí 1), theo định lí Pythagore: AB² = 30² + 20² = 1 300, AB ≈ 36,1 cm. Chu vi ≈ 144,2 cm; dây viền ≈ 154,2 cm.</p>
+      </div></details>
+
+      <h3>Bài 2 · Hộp quà "Trick or Treat"</h3>
+      <p>Đáy hộp là tứ giác ABCD có AB = BC = CD = DA = 12 cm. Nắp là hình vuông chụp ngoài đáy, rộng hơn đáy 2 mm mỗi phía.</p>
+      <ol type="a"><li>Đo được góc A = 90°. Chứng minh đáy hộp là hình vuông.</li><li>Không có ê ke, chỉ có thước thẳng, làm sao kiểm tra đáy hộp là hình vuông? Giải thích.</li><li>Tính cạnh của nắp; tính đường chéo đáy và đường chéo nắp (làm tròn đến 0,1 cm) để dùng làm số đo kiểm.</li></ol>
+      <details><summary>Đáp án</summary><div class="sol">
+        <p>a) Tứ giác có bốn cạnh bằng nhau là hình thoi (định nghĩa, tr.67); hình thoi có một góc vuông là hình vuông (Chú ý, tr.70).</p>
+        <p>b) Đã có bốn cạnh bằng nhau nên đáy là hình thoi. Đo hai đường chéo: nếu AC = BD thì hình thoi có hai đường chéo bằng nhau là hình vuông (Chú ý, tr.70).</p>
+        <p>c) Cạnh nắp = 12 + 2 · 0,2 = 12,4 cm. Theo định lí Pythagore: đường chéo đáy = √(12² + 12²) ≈ 17,0 cm; đường chéo nắp = √(12,4² + 12,4²) ≈ 17,5 cm.</p>
+      </div></details>
+
+      <h3>Bài 3 · Giao về nhà (vận dụng)</h3>
+      <p>Trên nắp hộp hình vuông MNPQ cạnh 12,4 cm, nhóm muốn khoét cửa sổ trang trí bằng cách nối trung điểm E, F, G, H của bốn cạnh.</p>
+      <ol type="a"><li>Tứ giác EFGH là hình gì? Chứng minh.</li><li>Diện tích cửa sổ bằng bao nhiêu phần diện tích nắp?</li></ol>
+      <details><summary>Đáp án</summary><div class="sol">
+        <p>a) Bốn tam giác vuông ở bốn góc bằng nhau (c.g.c) nên EF = FG = GH = HE (EFGH là hình thoi). Mỗi tam giác góc là tam giác vuông cân nên góc HEF = 180° − 45° − 45° = 90°. Hình thoi có một góc vuông là hình vuông.</p>
+        <p>b) S(EFGH) = S(MNPQ) − 4 · S(tam giác góc) = một nửa diện tích nắp.</p>
+      </div></details>
+
+      <h3>Bài 4 · Khung tre bị xô lệch (bài 3.36, SGK tr.73)</h3>
+      <p>Một khung tre hình chữ nhật có lắp đinh vít tại bốn đỉnh. Khi khung bị xô lệch (do các đinh vít bị lỏng), các góc không còn vuông nữa thì khung đó là hình gì? Tại sao? Hỏi khi nẹp thêm một đường chéo vào khung đó thì nó còn bị xô lệch không?</p>
+      <p class="note">Gắn với sản phẩm: vì sao khung diều cần buộc chặt hai nan chéo, vì sao hộp quà cần dán mép góc cho chắc.</p>
+      <details><summary>Gợi ý đáp án</summary><div class="sol">
+        <p>Khi xô lệch, độ dài các cạnh không đổi nên hai cặp cạnh đối vẫn bằng nhau: khung là hình bình hành. Nẹp thêm một đường chéo thì khung chia thành hai tam giác có ba cạnh cố định, không thay đổi hình dạng được nữa, nên không bị xô lệch.</p>
+      </div></details>
+    </section>
+
+    <!-- VI -->
+    <section id="phan-bien">
+      <h2>VI. Câu hỏi phản biện gợi ý</h2>
+      <div class="scroll"><table class="tbl">
+        <thead><tr><th>Hỏi nhóm Diều</th><th>Hỏi nhóm Hộp quà</th></tr></thead>
+        <tbody>
+          <tr><td>Nếu buộc hai nan vuông góc nhưng không đúng trung điểm thì khung là hình gì? Diều có cân không?</td><td>Đo được bốn cạnh bằng nhau đã đủ kết luận đáy là hình vuông chưa? Vì sao?</td></tr>
+          <tr><td>Vì sao nan dọc là trục đối xứng của diều? Điều đó giúp gì khi diều bay?</td><td>Vì sao kiểm tra hai đường chéo bằng nhau lại thay được ê ke?</td></tr>
+          <tr><td>Muốn diều to gấp đôi về diện tích mà giữ hình dạng, nan tre phải dài bao nhiêu?</td><td>Nếu đáy là hình thoi có góc 80°, nắp hình vuông có đậy được không?</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <!-- VII -->
+    <section id="rubric">
+      <h2>VII. Rubric đánh giá</h2>
+      <p class="note">Công bố từ Hoạt động 1. Kết hợp giáo viên đánh giá, đánh giá đồng đẳng và tự đánh giá; bài tự luận cá nhân là căn cứ đánh giá từng học sinh. Không chấm theo độ tốn tiền.</p>
+      <div class="scroll"><table class="tbl">
+        <thead><tr><th>Phần</th><th>Mức 1 · Chưa đạt</th><th>Mức 2 · Đạt</th><th>Mức 3 · Tốt</th></tr></thead>
+        <tbody>
+          <tr><td><b>Kiến thức Toán</b><br>(bản vẽ, số đo, lời giải)</td><td>Lời giải sai hoặc thiếu lập luận; bản vẽ không ghi nguồn số liệu</td><td>Lời giải đúng, lập luận còn thiếu ý; phần lớn thông số có nguồn</td><td>Lời giải đúng, đủ; mọi thông số truy được về lời giải</td></tr>
+          <tr><td><b>Chất lượng sản phẩm</b><br>(đúng hình, chắc chắn, thẩm mĩ, tiết kiệm)</td><td>Chưa đạt tiêu chí đo được nào</td><td>Đạt phần lớn tiêu chí</td><td>Đạt hết tiêu chí, có ít nhất một lần cải tiến dựa trên số đo</td></tr>
+          <tr><td><b>Báo cáo, phản biện, hợp tác</b></td><td>Chưa trả lời được câu hỏi chứng minh; có thành viên không tham gia</td><td>Trả lời đúng câu hỏi cơ bản; các thành viên làm đủ phần việc</td><td>Chứng minh chặt chẽ, nêu được cách kiểm tra khác; hỗ trợ nhau tốt</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <!-- VIII -->
+    <section id="an-toan">
+      <h2>VIII. An toàn và danh mục vật liệu</h2>
+      <ul>
+        <li>Dùng kéo đầu tròn; dao rọc giấy (nếu cần cắt bìa dày) do giáo viên cắt hoặc giám sát, cắt trên tấm lót.</li>
+        <li>Súng keo nhiệt (nếu dùng) đặt ở bàn riêng, giáo viên giám sát; ưu tiên băng dính giấy, hồ dán.</li>
+        <li>Thả diều ở sân trường, xa dây điện, cây cao; không chạy giật lùi.</li>
+      </ul>
+      <div class="scroll"><table class="tbl">
+        <thead><tr><th>Vật liệu</th><th>Số lượng / nhóm</th><th>Nguồn</th></tr></thead>
+        <tbody>
+          <tr><td>Nan tre (60 cm và 40 cm)</td><td>2–3 bộ</td><td>Tái chế, gia đình hỗ trợ</td></tr>
+          <tr><td>Giấy màu hoặc giấy bóng kính</td><td>2–3 tờ</td><td>Trường có</td></tr>
+          <tr><td>Bìa carton</td><td>2 tấm khổ A3</td><td>Tái chế</td></tr>
+          <tr><td>Chỉ, dây gai</td><td>1 cuộn</td><td>Trường có / tái chế</td></tr>
+          <tr><td>Kéo đầu tròn, thước, ê ke</td><td>2 bộ</td><td>Học sinh có sẵn</td></tr>
+          <tr><td>Băng dính giấy, hồ dán</td><td>1 mỗi loại</td><td>Trường có</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <div class="sign">
+      <div><b>DUYỆT CỦA TỔ CHUYÊN MÔN</b><i>(Kí, ghi rõ họ tên)</i></div>
+      <div><b>GIÁO VIÊN SOẠN</b><i>(Kí, ghi rõ họ tên)</i></div>
+    </div>
+  </article>
+</div>
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const vn=(x,d=1)=>x.toLocaleString('vi-VN',{minimumFractionDigits:d,maximumFractionDigits:d});
+  /* Máy gấp giấy */
+  function fold(){
+    const a=+$('oa').value,b=+$('ob').value; $('oav').textContent=vn(a);$('obv').textContent=vn(b);
+    const k=9, ox=20, oy=180;
+    const tri=`<polygon points="${ox},${oy} ${ox},${oy-a*k*1.6} ${ox+b*k*1.6},${oy}" fill="rgba(255,138,61,.18)" stroke="#ff8a3d" stroke-width="2"/>
+      <path d="M${ox} ${oy-10} h10 v10" fill="none" stroke="#eef0ff" stroke-width="1.5"/>
+      <g font-family="JetBrains Mono, monospace" font-size="12" fill="#eef0ff"><text x="${ox-14}" y="${oy+4}">O</text><text x="${ox-14}" y="${oy-a*k*1.6+4}">A</text><text x="${ox+b*k*1.6-4}" y="${oy+16}">B</text></g>`;
+    const cx=225, cy=100, w=b*k, h=a*k, sq=Math.abs(a-b)<0.01;
+    const col=sq?'#ff8a3d':'#aab1db';
+    const rh=`<polygon points="${cx},${cy-h} ${cx+w},${cy} ${cx},${cy+h} ${cx-w},${cy}" fill="${sq?'rgba(255,138,61,.22)':'rgba(170,177,219,.14)'}" stroke="${col}" stroke-width="2.5"/>
+      <line x1="${cx}" y1="${cy-h}" x2="${cx}" y2="${cy+h}" stroke="#eef0ff" stroke-opacity=".5" stroke-dasharray="4 4"/>
+      <line x1="${cx-w}" y1="${cy}" x2="${cx+w}" y2="${cy}" stroke="#eef0ff" stroke-opacity=".5" stroke-dasharray="4 4"/>
+      <path d="M${cx} ${cy-8} h8 v8" fill="none" stroke="#ff8a3d" stroke-width="1.5"/>
+      <text x="${cx}" y="196" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#aab1db">mở giấy ra</text>
+      <text x="85" y="196" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#aab1db">gấp làm tư, cắt AB</text>`;
+    $('foldSvg').innerHTML=tri+rh;
+    $('foldName').textContent=sq?'Hình vuông · Square':'Hình thoi · Rhombus';
+    $('foldWhy').textContent=sq
+      ? 'OA = OB nên hai đường chéo bằng nhau ('+vn(2*a)+' cm). Hình thoi có hai đường chéo bằng nhau là hình vuông (Chú ý, SGK tr.70).'
+      : 'Bốn cạnh là bốn lần cạnh AB của cùng một lần cắt nên bằng nhau: tứ giác có bốn cạnh bằng nhau là hình thoi (định nghĩa, tr.67). Hai nếp gấp là hai đường chéo, dài '+vn(2*a)+' cm và '+vn(2*b)+' cm, vuông góc tại O (Định lí 1, tr.68).';
+  }
+  ['oa','ob'].forEach(i=>$(i).addEventListener('input',fold)); fold();
+
+  /* Máy thẩm định */
+  const P={dieu:[36.1,36.0,36.2,36.1,60,40,''],dieulech:[33.5,33.6,39.0,39.1,60,40,''],hop:[12.0,12.0,12.1,12.0,17.0,17.1,90],hopmeo:[12.0,12.1,12.0,12.0,18.2,15.6,'']};
+  const ids=['sAB','sBC','sCD','sDA','sAC','sBD','sA'];
+  document.querySelectorAll('.presets button').forEach(b=>b.addEventListener('click',()=>{P[b.dataset.p].forEach((v,i)=>$(ids[i]).value=v);judge();}));
+  function judge(){
+    const g=id=>parseFloat(($(id).value||'').replace(',','.'));
+    const AB=g('sAB'),BC=g('sBC'),CD=g('sCD'),DA=g('sDA'),AC=g('sAC'),BD=g('sBD'),A=g('sA');
+    const tol=(isNaN(g('sTol'))?5:g('sTol'))/10;
+    const sides=[AB,BC,CD,DA];
+    if(sides.some(isNaN)){ $('vName').textContent='Nhập đủ bốn cạnh'; $('vWhy').textContent=''; $('checks').innerHTML=''; return; }
+    const eq=(x,y)=>Math.abs(x-y)<=tol+1e-9;
+    const spread=Math.max(...sides)-Math.min(...sides);
+    const four=spread<=tol+1e-9;
+    const opp=eq(AB,CD)&&eq(BC,DA);
+    const hasD=!isNaN(AC)&&!isNaN(BD), dEq=hasD&&eq(AC,BD);
+    const right=!isNaN(A)&&Math.abs(A-90)<=1;
+    const rows=[];
+    const row=(ok,t,d)=>rows.push(`<div><span class="${ok?'ok':'no'}">${ok?'✓':'✗'}</span><span>${t}</span><span class="d">${d||''}</span></div>`);
+    row(four,'Bốn cạnh bằng nhau','lệch '+vn(spread*10,0)+' mm');
+    row(opp,'Hai cặp cạnh đối bằng nhau','');
+    if(hasD) row(dEq,'Hai đường chéo bằng nhau','lệch '+vn(Math.abs(AC-BD)*10,0)+' mm');
+    if(!isNaN(A)) row(right,'Góc A vuông','A = '+vn(A,0)+'°');
+    $('checks').innerHTML=rows.join('');
+    let n,w;
+    if(four&&(dEq||right)){ n='Hình vuông · Đạt'; w=right&&!dEq?'Bốn cạnh bằng nhau nên là hình thoi (định nghĩa, tr.67); hình thoi có một góc vuông là hình vuông (Chú ý, tr.70).':'Bốn cạnh bằng nhau nên là hình thoi (định nghĩa, tr.67); hình thoi có hai đường chéo bằng nhau là hình vuông (Chú ý, tr.70).'; }
+    else if(four){ n='Hình thoi'; w='Tứ giác có bốn cạnh bằng nhau là hình thoi (định nghĩa, tr.67). Vì vậy hai đường chéo vuông góc và là phân giác các góc (Định lí 1, tr.68).'+(hasD?' Hai đường chéo không bằng nhau nên chưa phải hình vuông.':''); }
+    else if(opp&&dEq){ n='Hình chữ nhật'; w='Hai cặp cạnh đối bằng nhau nên là hình bình hành; hình bình hành có hai đường chéo bằng nhau là hình chữ nhật (Bài 13). Hai cạnh kề chưa bằng nhau nên chưa phải hình vuông.'; }
+    else if(opp){ n='Hình bình hành'; w='Hai cặp cạnh đối bằng nhau nên là hình bình hành (Bài 12), nhưng hai cạnh kề không bằng nhau nên chưa phải hình thoi.'; }
+    else if((eq(AB,DA)&&eq(BC,CD))||(eq(AB,BC)&&eq(CD,DA))){ n='Chưa phải hình thoi'; w='Chỉ có hai cặp cạnh kề bằng nhau, giống tứ giác MNPQ ở Ví dụ 2b (SGK tr.69). Với diều: hai nan chưa cắt nhau tại trung điểm mỗi nan, cần buộc lại.'; }
+    else { n='Tứ giác chưa đạt'; w='Các cạnh chênh lệch quá sai số cho phép. Nhóm đo lại và điều chỉnh sản phẩm.'; }
+    $('vName').textContent=n; $('vWhy').textContent=w;
+  }
+  ids.concat('sTol').forEach(i=>$(i).addEventListener('input',judge)); judge();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1048 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>html{color-scheme:light}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Dạy học STEM · Võ Thị Sáu</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Bố cục: dải mở đầu "đêm hội" màu chàm với hình thoi biến thành hình vuông; phần thân là giấy kẻ ô của kỹ sư nhí, cột đọc hẹp, khối nội dung như bản vẽ */
+:root{
+  --paper:#f4f6fa;
+  --grid:#e2e7f0;
+  --card:#ffffff;
+  --ink:#151d33;
+  --ink-soft:#4b5670;
+  --line:#d0d8e5;
+  --pumpkin:#c4511a;
+  --pumpkin-soft:#fbe8db;
+  --teal:#0e7268;
+  --teal-soft:#dbf0ec;
+  --night:#161a38;
+  --night-2:#222852;
+  --night-ink:#eef0ff;
+  --night-soft:#aab1db;
+  --glow:#ff8a3d;
+  --font-display:"Bricolage Grotesque", "Be Vietnam Pro", system-ui, sans-serif;
+  --font-body:"Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono:"JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0e1422; --grid:#172036; --card:#141d30; --ink:#e8edf7; --ink-soft:#a5b1c6; --line:#29385a;
+    --pumpkin:#f2884c; --pumpkin-soft:#3a2317; --teal:#55d3c3; --teal-soft:#11302d;
+    --night:#0b0e22; --night-2:#171c3e;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0e1422; --grid:#172036; --card:#141d30; --ink:#e8edf7; --ink-soft:#a5b1c6; --line:#29385a;
+  --pumpkin:#f2884c; --pumpkin-soft:#3a2317; --teal:#55d3c3; --teal-soft:#11302d;
+  --night:#0b0e22; --night-2:#171c3e;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px, transparent 1px),linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size:24px 24px;
+  color:var(--ink);font-family:var(--font-body);font-size:16.5px;line-height:1.65;
+}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;line-height:1.12;margin:0}
+h2{font-size:clamp(1.7rem, 4vw, 2.6rem);font-weight:800;letter-spacing:-.015em}
+h3{font-size:1.16rem;font-weight:700}
+p{margin:0}
+.eyebrow{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--pumpkin);font-weight:600}
+.muted{color:var(--ink-soft)}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+:focus-visible{outline:3px solid var(--pumpkin);outline-offset:2px;border-radius:4px}
+.en{font-family:var(--font-mono);font-size:.78em;font-weight:600;color:var(--teal);letter-spacing:.02em}
+
+/* Điều hướng */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--night)}
+nav.top{position:sticky;top:env(safe-area-inset-top, 0px);z-index:6;background:var(--night);border-bottom:1px solid var(--night-2)}
+nav.top .wrap{display:flex;gap:4px;overflow-x:auto;padding-block:8px;scrollbar-width:none}
+nav.top a{flex:none;text-decoration:none;color:var(--night-soft);font-size:.86rem;font-weight:600;padding:6px 12px;border-radius:999px}
+nav.top a:hover,nav.top a.on{color:var(--night-ink);background:var(--night-2)}
+nav.top a.brand{color:var(--glow);font-family:var(--font-display);font-weight:800}
+
+/* Mở đầu */
+.hero{background:var(--night);color:var(--night-ink);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(170,177,219,.08) 1px, transparent 1px),linear-gradient(90deg, rgba(170,177,219,.08) 1px, transparent 1px);background-size:32px 32px;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:36px;align-items:center;padding-block:56px 48px}
+.hero .kicker{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--glow);font-weight:600}
+.hero h1{font-size:clamp(2.2rem, 6vw, 4rem);font-weight:800;letter-spacing:-.025em;margin-top:14px}
+.hero h1 .o{color:var(--glow)}
+.hero .sub{margin-top:14px;font-family:var(--font-display);font-size:clamp(1.05rem,2.2vw,1.3rem);font-weight:500;color:var(--night-soft)}
+.hero .lead{margin-top:20px;max-width:54ch;color:var(--night-ink);font-size:1.05rem}
+.hero .people{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.hero .people span{font-size:.82rem;border:1px solid var(--night-2);background:rgba(255,255,255,.03);border-radius:8px;padding:5px 10px;color:var(--night-soft)}
+.hero .people b{color:var(--night-ink);font-weight:600}
+.morph{background:var(--night-2);border:1px solid rgba(170,177,219,.18);border-radius:18px;padding:18px;display:grid;gap:12px}
+.morph svg{width:100%;height:auto;display:block}
+.morph .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.morph .name{font-family:var(--font-display);font-weight:800;font-size:1.5rem;transition:color .3s}
+.morph .name.sq{color:var(--glow)}
+.morph .name small{font-family:var(--font-mono);font-size:.8rem;font-weight:600;color:var(--night-soft);margin-left:6px}
+.morph .facts{font-size:.86rem;color:var(--night-soft);min-height:2.8em}
+.morph label{font-size:.8rem;color:var(--night-soft);font-family:var(--font-mono)}
+.morph input{width:100%;accent-color:var(--glow)}
+
+/* Dải câu hỏi của chuyên gia */
+.asks{background:var(--card);border-bottom:1px solid var(--line)}
+.asks .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;padding-block:0}
+.asks a{display:grid;gap:4px;padding:18px 16px;text-decoration:none;color:var(--ink);border-left:1px solid var(--line);min-width:0}
+.asks a:first-child{border-left:0}
+.asks a:hover{background:var(--paper)}
+.asks .q{font-family:var(--font-mono);font-size:.72rem;color:var(--pumpkin);font-weight:600;letter-spacing:.08em}
+.asks b{font-family:var(--font-display);font-size:1.02rem;line-height:1.3}
+
+main{padding-bottom:72px}
+section{padding-block:64px 8px;scroll-margin-top:56px}
+.head{display:grid;gap:10px;margin-bottom:28px;max-width:68ch}
+.head .num{font-family:var(--font-display);font-weight:800;font-size:.95rem;color:var(--pumpkin)}
+
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;display:grid;gap:8px;align-content:start;min-width:0}
+.box ul{margin:0;padding-left:1.1em;display:grid;gap:6px}
+
+/* Nguyên tắc */
+.principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:16px;background:var(--card);overflow:hidden}
+.principles > div{padding:24px;display:grid;gap:10px;align-content:start;border-left:1px solid var(--line);min-width:0}
+.principles > div:first-child{border-left:0}
+.principles .big{font-family:var(--font-display);font-size:1.45rem;font-weight:800;line-height:1.15}
+.principles .big em{font-style:normal;color:var(--pumpkin)}
+
+/* Trụ cột triển khai */
+.pillars{display:grid;gap:10px;margin-top:20px}
+.pillar{display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.pillar h3{font-size:1.05rem}
+.pillar .k{font-family:var(--font-mono);font-size:.72rem;color:var(--teal);font-weight:600;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:4px}
+.pillar p{color:var(--ink-soft)}
+.roles{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.roles span{font-size:.8rem;font-weight:600;background:var(--teal-soft);color:var(--teal);border-radius:999px;padding:3px 10px}
+
+/* Lộ trình */
+.timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:20px;position:relative}
+.timeline::before{content:"";position:absolute;left:0;right:0;top:11px;height:2px;background:var(--line)}
+.tstep{position:relative;padding:30px 16px 0 0;min-width:0}
+.tstep::before{content:"";position:absolute;top:4px;left:0;width:16px;height:16px;border-radius:50%;background:var(--card);border:3px solid var(--pumpkin)}
+.tstep.now::before{background:var(--pumpkin)}
+.tstep b{font-family:var(--font-display);font-size:1.05rem;display:block}
+.tstep p{font-size:.9rem;color:var(--ink-soft);margin-top:4px}
+
+/* Bài học minh họa */
+.stages{display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:14px}
+.stage{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:10px;align-content:start;min-width:0}
+.stage.key{border:2px solid var(--pumpkin)}
+.stage .when{font-family:var(--font-mono);font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.stage.key .when{color:var(--pumpkin)}
+.stage .hd{font-size:.82rem;color:var(--teal);font-weight:600}
+.stage ul{margin:0;padding-left:1.1em;display:grid;gap:6px;font-size:.94rem}
+.badge{justify-self:start;font-size:.74rem;font-weight:700;background:var(--pumpkin);color:#fff;border-radius:6px;padding:3px 8px}
+.smat{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:16px}
+.smat div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;min-width:0}
+.smat .L{font-family:var(--font-display);font-weight:800;font-size:2rem;line-height:1;color:var(--pumpkin)}
+.smat b{display:block;margin-top:6px}
+.smat p{font-size:.88rem;color:var(--ink-soft)}
+
+/* Bài tự luận + bàn tính */
+.problems{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:28px}
+.problem{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:12px;align-content:start;min-width:0}
+.problem ol{margin:0;padding-left:1.3em;display:grid;gap:5px;font-size:.95rem}
+.ptag{justify-self:start;font-family:var(--font-mono);font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--teal-soft);color:var(--teal);border-radius:6px;padding:3px 8px}
+details{border-top:1px dashed var(--line);padding-top:10px}
+summary{cursor:pointer;font-weight:600;color:var(--teal)}
+details .sol{margin-top:10px;display:grid;gap:6px;font-size:.93rem}
+.trace{font-size:.88rem;background:var(--pumpkin-soft);border-radius:8px;padding:10px 12px}
+.trace b{color:var(--pumpkin)}
+.lab{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:12px;align-content:start;min-width:0}
+.panel svg{width:100%;height:auto;display:block;max-height:230px}
+.field{display:grid;grid-template-columns:1fr auto;gap:2px 12px;align-items:center}
+.field label{font-size:.88rem;font-weight:600}
+.field output{font-family:var(--font-mono);font-weight:600;color:var(--pumpkin)}
+.field input{grid-column:1 / -1;width:100%;accent-color:var(--pumpkin)}
+.readout{border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.readout div{display:flex;justify-content:space-between;gap:12px;padding:7px 12px;font-size:.88rem;border-bottom:1px solid var(--line)}
+.readout div:last-child{border-bottom:0}
+.readout span:last-child{font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-weight:600;text-align:right}
+
+/* Quan sát dự giờ */
+.observe{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px}
+.observe div{background:var(--night);color:var(--night-ink);border-radius:12px;padding:16px;display:grid;gap:6px;align-content:start;min-width:0}
+.observe .n{font-family:var(--font-display);font-weight:800;font-size:1.6rem;color:var(--glow);line-height:1}
+.observe p{font-size:.92rem}
+
+/* Học được / thay đổi */
+.takeaways{display:grid;gap:0;border-top:2px solid var(--ink)}
+.take{display:grid;grid-template-columns:56px 220px minmax(0,1fr);gap:16px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.take .n{font-family:var(--font-display);font-weight:800;font-size:1.7rem;color:var(--pumpkin);line-height:1}
+.take h3{font-size:1.1rem}
+.take p{color:var(--ink-soft)}
+.shifts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.shift{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:10px;min-width:0}
+.shift .fromto{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-family:var(--font-display);font-weight:700;font-size:1.12rem}
+.shift .from{color:var(--ink-soft);text-decoration:line-through;text-decoration-color:var(--pumpkin);text-decoration-thickness:2px}
+.shift .arrow{color:var(--pumpkin)}
+.shift p{font-size:.94rem;color:var(--ink-soft)}
+.proof{margin-top:14px;background:var(--teal-soft);border-radius:12px;padding:16px 18px;font-size:.95rem}
+.proof b{color:var(--teal)}
+
+/* Áp dụng */
+.steps3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.steps3 .box .n{font-family:var(--font-display);font-weight:800;font-size:2.2rem;line-height:1;color:var(--pumpkin)}
+.swap{margin-top:22px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.swap .tabs{display:flex;gap:0;overflow-x:auto;border-bottom:1px solid var(--line);background:var(--paper)}
+.swap .tabs button{flex:1 0 auto;font:inherit;font-weight:600;font-size:.92rem;background:none;border:0;border-bottom:3px solid transparent;color:var(--ink-soft);padding:12px 16px;cursor:pointer}
+.swap .tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--pumpkin);background:var(--card)}
+.swap .body{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.swap .body > div{padding:20px;border-left:1px solid var(--line);display:grid;gap:6px;align-content:start;min-width:0}
+.swap .body > div:first-child{border-left:0}
+.swap .lbl{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.swap .val{font-family:var(--font-display);font-size:1.15rem;font-weight:700}
+.swap .foot{padding:12px 20px;border-top:1px dashed var(--line);font-size:.86rem;color:var(--ink-soft)}
+.trouble{width:100%;border-collapse:collapse;background:var(--card);font-size:.94rem;min-width:600px}
+.trouble th,.trouble td{border:1px solid var(--line);padding:12px 14px;text-align:left;vertical-align:top}
+.trouble th{font-family:var(--font-display);background:var(--grid)}
+.trouble td:first-child{font-weight:700;width:24%}
+.scroll{overflow-x:auto}
+
+/* Tài liệu */
+.docs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.doc{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.doc .ic{width:44px;height:44px;border-radius:10px;background:var(--pumpkin-soft);display:grid;place-items:center;font-family:var(--font-mono);font-size:.7rem;font-weight:700;color:var(--pumpkin)}
+.doc b{display:block;line-height:1.35}
+.doc span{font-size:.84rem;color:var(--ink-soft)}
+
+/* Tự kiểm */
+.progress{display:flex;align-items:center;gap:12px;margin-bottom:12px;font-size:.92rem}
+.bar{flex:1;height:8px;background:var(--grid);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--teal);transition:width .25s}
+.btn{font:inherit;font-size:.85rem;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:6px 12px;cursor:pointer}
+.check{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.check label{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;cursor:pointer;font-size:.95rem}
+.check input{width:20px;height:20px;margin-top:3px;accent-color:var(--teal);flex:none}
+.check label.done{border-color:var(--teal)}
+
+/* Phần A: phương pháp chung */
+.part{margin-top:56px;padding:26px clamp(18px,4vw,32px);background:var(--night);color:var(--night-ink);border-radius:18px;display:grid;gap:8px}
+.part .eyebrow{color:var(--glow)}
+.part h2{color:var(--night-ink)}
+.part p{color:var(--night-soft);max-width:70ch}
+.forms{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:14px}
+.form{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:8px;align-content:start;min-width:0}
+.form.main{border:2px solid var(--teal)}
+.form .tagline{font-family:var(--font-mono);font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--teal)}
+.form p{font-size:.94rem;color:var(--ink-soft)}
+.build4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.build4 > div{padding:18px;border-left:1px solid var(--line);display:grid;gap:6px;align-content:start;min-width:0}
+.build4 > div:first-child{border-left:0}
+.build4 .n{font-family:var(--font-display);font-weight:800;font-size:1.8rem;line-height:1;color:var(--pumpkin)}
+.build4 p{font-size:.9rem;color:var(--ink-soft)}
+.acts{width:100%;border-collapse:collapse;background:var(--card);font-size:.92rem;min-width:820px}
+.acts th,.acts td{border:1px solid var(--line);padding:11px 13px;text-align:left;vertical-align:top}
+.acts th{font-family:var(--font-display);background:var(--grid);font-size:.95rem}
+.acts td:first-child{font-weight:700;width:17%}
+.acts td:first-child small{display:block;font-family:var(--font-mono);font-size:.72rem;font-weight:600;color:var(--pumpkin);letter-spacing:.04em}
+.cycle{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;counter-reset:cy}
+.cycle div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;position:relative;min-width:0}
+.cycle div::before{counter-increment:cy;content:counter(cy);font-family:var(--font-display);font-weight:800;font-size:1.3rem;color:var(--teal);display:block;line-height:1;margin-bottom:6px}
+.cycle div b{display:block;font-size:.98rem}
+.cycle div p{font-size:.86rem;color:var(--ink-soft)}
+.cycle .loop{grid-column:1 / -1;background:var(--teal-soft);border:0;font-size:.9rem;color:var(--ink)}
+.cycle .loop::before{content:"↺";color:var(--teal)}
+.vs{display:grid;gap:8px}
+.vs .row{display:grid;grid-template-columns:110px minmax(0,1fr) minmax(0,1fr);gap:12px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:.93rem}
+.vs .row.h{background:none;border:0;padding:0 14px;font-family:var(--font-mono);font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.vs .bad{color:var(--ink-soft);text-decoration:line-through;text-decoration-color:var(--pumpkin)}
+.vs .good{font-weight:600}
+.sheets{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.sheet{background:var(--card);border:1px solid var(--line);border-radius:4px 14px 14px 14px;padding:14px;display:grid;gap:6px;align-content:start;min-width:0;box-shadow:3px 3px 0 var(--grid)}
+.sheet .k{font-family:var(--font-mono);font-size:.72rem;font-weight:600;color:var(--pumpkin)}
+.sheet b{font-size:.96rem;line-height:1.3}
+.sheet p{font-size:.85rem;color:var(--ink-soft)}
+.mistakes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.mistakes div{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:.93rem}
+.mistakes div::before{content:"✕";font-weight:800;color:var(--pumpkin);font-family:var(--font-mono)}
+.subhead{margin-top:36px;margin-bottom:14px;display:grid;gap:4px}
+
+/* Trình thiết kế bài học */
+.builder{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:16px}
+.builder form{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:12px;align-content:start;min-width:0}
+.builder .f{display:grid;gap:4px}
+.builder .f2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.builder label{font-size:.84rem;font-weight:600}
+.builder input[type=text],.builder textarea,.builder select{font:inherit;font-size:.92rem;width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink)}
+.builder textarea{resize:vertical;min-height:72px}
+.builder .hint{font-size:.78rem;color:var(--ink-soft)}
+.out{background:var(--card);border:1px solid var(--line);border-radius:14px;display:grid;grid-template-rows:auto 1fr;min-width:0;overflow:hidden}
+.out .bar2{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--paper)}
+.out .bar2 span{font-family:var(--font-mono);font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.out pre{margin:0;padding:16px;white-space:pre-wrap;word-break:break-word;font-family:var(--font-body);font-size:.88rem;line-height:1.6;max-height:640px;overflow:auto}
+.btn.primary{background:var(--pumpkin);color:#fff;border-color:var(--pumpkin)}
+
+@media (max-width:860px){
+  .forms{grid-template-columns:1fr}
+  .build4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .build4 > div:nth-child(3){border-left:0}
+  .build4 > div:nth-child(n+3){border-top:1px solid var(--line)}
+  .cycle{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sheets{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .builder{grid-template-columns:1fr}
+  .vs .row{grid-template-columns:1fr}
+  .vs .row.h{display:none}
+}
+@media (max-width:600px){
+  .build4,.sheets,.mistakes{grid-template-columns:1fr}
+  .build4 > div{border-left:0;border-top:1px solid var(--line)}
+  .build4 > div:first-child{border-top:0}
+  .builder .f2{grid-template-columns:1fr}
+}
+
+.cta{display:inline-block;margin-top:22px;background:var(--glow);color:#1a1230;font-weight:700;text-decoration:none;padding:11px 18px;border-radius:10px}
+.cta:hover{filter:brightness(1.08)}
+a.doc.link{text-decoration:none;color:var(--ink);border-color:var(--pumpkin)}
+a.doc.link:hover{background:var(--pumpkin-soft)}
+footer{background:var(--night);color:var(--night-soft);font-size:.86rem}
+footer .wrap{padding-block:32px;display:grid;gap:8px}
+footer b{color:var(--night-ink)}
+
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;padding-top:40px}
+  .asks .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .asks a:nth-child(3){border-left:0}
+  .asks a:nth-child(n+3){border-top:1px solid var(--line)}
+  .principles{grid-template-columns:1fr}
+  .principles > div{border-left:0;border-top:1px solid var(--line)}
+  .principles > div:first-child{border-top:0}
+  .pillar{grid-template-columns:1fr;gap:6px}
+  .stages{grid-template-columns:1fr}
+  .smat,.observe{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .problems,.lab{grid-template-columns:1fr}
+  .take{grid-template-columns:44px minmax(0,1fr)}
+  .take p{grid-column:2}
+  .steps3,.grid3{grid-template-columns:1fr}
+  .swap .body{grid-template-columns:1fr}
+  .swap .body > div{border-left:0;border-top:1px solid var(--line)}
+  .swap .body > div:first-child{border-top:0}
+}
+@media (max-width:600px){
+  .timeline{grid-template-columns:1fr;gap:4px}
+  .timeline::before{left:7px;right:auto;top:0;bottom:0;width:2px;height:auto}
+  .tstep{padding:0 0 14px 30px}
+  .shifts,.docs,.check,.grid2{grid-template-columns:1fr}
+  .smat,.observe{grid-template-columns:1fr}
+  .asks .wrap{grid-template-columns:1fr}
+  .asks a{border-left:0;border-top:1px solid var(--line)}
+  .asks a:first-child{border-top:0}
+}
+@media (prefers-reduced-motion: reduce){ *{transition:none!important} }
+</style>
+</head>
+<body>
+
+
+<nav class="top" aria-label="Mục lục">
+  <div class="wrap">
+    <a class="brand" href="#top">STEM · VTS</a>
+    <a href="#stem-la-gi">STEM là gì</a>
+    <a href="#quy-trinh">Quy trình</a>
+    <a href="#tieu-chi">Tiêu chí sản phẩm</a>
+    <a href="#to-chuc">Phiếu · đánh giá</a>
+    <a href="#thiet-ke">Tự lên khung bài</a>
+    <a href="bai-mau.html" style="color:var(--glow)">Bài mẫu Toán 8 ↗</a>
+    <a href="#cach-lam">Cách làm của trường</a>
+    <a href="#bai-hoc">Bài học minh họa</a>
+    <a href="#hoc-duoc">Thầy cô học được gì</a>
+    <a href="#hoc-sinh">Học sinh thay đổi</a>
+    <a href="#ap-dung">Áp dụng ở trường bạn</a>
+    <a href="#tai-lieu">Tài liệu</a>
+    <a href="#tu-kiem">Bảng tự kiểm</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="kicker">Chuyên đề dạy học môn Toán cấp thành phố · Hải Phòng · 2026</p>
+      <h1>Dạy học <span class="o">STEM</span> trong từng tiết học</h1>
+      <p class="sub">Phương pháp chung · Minh chứng qua môn Toán: chuyên đề "Kết nối Toán học với thực tiễn qua hoạt động STEM – Hình thoi, Hình vuông – Sắc màu Halloween"</p>
+      <p class="lead">Mời thầy cô đến xem một tiết dạy và mang về một cách làm. Phần đầu trang trình bày phương pháp dạy học STEM dùng được cho mọi môn; phần sau ghi lại cách Trường THCS Võ Thị Sáu đã triển khai, minh chứng qua môn Toán.</p>
+      <div class="people">
+        <span>Xây dựng kế hoạch: <b>Phạm Nguyễn Phương Thủy</b> (Phó Hiệu trưởng), <b>Ngô Thị Phương</b> (Tổ trưởng Tổ KHTN) và nhóm Toán</span>
+        <span>Thực hiện tiết dạy: <b>Cô Đỗ Thị Quyên</b> cùng học sinh khối 8</span>
+      </div>
+      <a class="cta" href="bai-mau.html">Xem bài STEM mẫu Toán 8 →</a>
+    </div>
+    <figure class="morph" style="margin:0" aria-label="Hình thoi biến thành hình vuông khi có một góc vuông">
+      <div class="row">
+        <div class="name" id="mName">Hình thoi <small>Rhombus</small></div>
+        <span class="mono" id="mAng" style="color:var(--night-soft)">60°</span>
+      </div>
+      <svg id="morphSvg" viewBox="0 0 320 240" aria-hidden="true"></svg>
+      <p class="facts" id="mFacts"></p>
+      <div><label for="mRange">Kéo để đổi góc A của hình thoi</label><input id="mRange" type="range" min="30" max="150" step="1" value="60"></div>
+    </figure>
+  </div>
+</header>
+
+<div class="asks">
+  <div class="wrap">
+    <a href="#cach-lam"><span class="q">CÂU HỎI 1</span><b>Nhà trường đã triển khai STEM như thế nào?</b></a>
+    <a href="#hoc-duoc"><span class="q">CÂU HỎI 2</span><b>Thầy cô đến dự học hỏi được gì?</b></a>
+    <a href="#hoc-sinh"><span class="q">CÂU HỎI 3</span><b>Học sinh thay đổi được gì?</b></a>
+    <a href="#tai-lieu"><span class="q">CÂU HỎI 4</span><b>Tài liệu nào để thầy cô tham khảo?</b></a>
+  </div>
+</div>
+
+<main>
+<div class="wrap">
+
+<div class="part">
+  <span class="eyebrow">Phần A</span>
+  <h2>Phương pháp dạy học STEM</h2>
+  <p>Theo Công văn 3089/BGDĐT-GDTrH ngày 14/8/2020 của Bộ GDĐT về triển khai giáo dục STEM trong giáo dục trung học. Dùng được cho Toán, Khoa học tự nhiên, Công nghệ, Tin học và các môn muốn làm bài học liên môn.</p>
+</div>
+
+<!-- A1 -->
+<section id="stem-la-gi">
+  <div class="head">
+    <span class="num">A1 · STEM là gì trong nhà trường</span>
+    <h2>Học sinh dùng kiến thức của bài để giải quyết một vấn đề thực tiễn</h2>
+    <p class="muted">STEM là Khoa học (Science), Công nghệ (Technology), Kĩ thuật (Engineering), Toán học (Mathematics). Giáo dục STEM theo cách tiếp cận liên môn: học sinh vận dụng kiến thức các lĩnh vực này để làm ra một sản phẩm hoặc một giải pháp cho vấn đề có thật. Ở trường trung học có ba hình thức.</p>
+  </div>
+  <div class="forms">
+    <div class="form main"><span class="tagline">Hình thức chủ yếu · trong giờ chính khóa</span><h3>Bài học STEM trong các môn</h3><p>Dạy kiến thức của bài thông qua giải quyết vấn đề, đúng chương trình và thời lượng môn học. Đây là hình thức trang này tập trung hướng dẫn.</p></div>
+    <div class="form"><span class="tagline">Theo kế hoạch năm của trường</span><h3>Hoạt động trải nghiệm STEM</h3><p>Câu lạc bộ, ngày hội, tham quan, trải nghiệm thực tế. Học sinh tham gia tự nguyện.</p></div>
+    <div class="form"><span class="tagline">Học sinh có năng lực, sở thích</span><h3>Nghiên cứu khoa học, kĩ thuật</h3><p>Dự án khoa học, kĩ thuật, có thể dự thi các cấp. Ví dụ ở trường: đề tài RUST GUARD của học sinh lớp 9A7.</p></div>
+  </div>
+</section>
+
+<!-- A2 -->
+<section id="quy-trinh">
+  <div class="head">
+    <span class="num">A2 · Quy trình</span>
+    <h2>Xây dựng bài học STEM qua 4 bước</h2>
+  </div>
+  <div class="build4">
+    <div><span class="n">1</span><h3>Chọn nội dung</h3><p>Từ yêu cầu cần đạt của bài trong SGK, SGV. Chọn nội dung gắn được với một hiện tượng, quy trình hay sản phẩm trong đời sống.</p></div>
+    <div><span class="n">2</span><h3>Xác định vấn đề</h3><p>Một vấn đề thực tiễn mà muốn giải quyết thì học sinh phải học và dùng đúng kiến thức đó.</p></div>
+    <div><span class="n">3</span><h3>Xây dựng tiêu chí</h3><p>3–5 tiêu chí sản phẩm đo được, có ít nhất một tiêu chí buộc dùng kiến thức mới.</p></div>
+    <div><span class="n">4</span><h3>Thiết kế tiến trình</h3><p>Xếp 5 hoạt động của bài học STEM vào các tiết, phần nào trên lớp, phần nào ngoài giờ.</p></div>
+  </div>
+
+  <div class="subhead"><h3>Tiến trình 5 hoạt động của bài học STEM</h3><p class="muted">Hoạt động 4 và 5 có thể linh hoạt trong và ngoài lớp; các bước có thể đan xen.</p></div>
+  <div class="scroll">
+    <table class="acts">
+      <thead><tr><th>Hoạt động</th><th>Mục đích</th><th>Giáo viên</th><th>Học sinh</th><th>Sản phẩm</th></tr></thead>
+      <tbody>
+        <tr><td>HĐ1. Xác định vấn đề<small>KHBD: Mở đầu</small></td><td>Đặt học sinh trước vấn đề thực tiễn, nêu rõ nhiệm vụ.</td><td>Giao nhiệm vụ kèm <b>tiêu chí sản phẩm</b>.</td><td>Tìm hiểu vấn đề, xác định cần biết kiến thức gì.</td><td>Phiếu 1: vấn đề, tiêu chí.</td></tr>
+        <tr><td>HĐ2. Nghiên cứu kiến thức nền, đề xuất giải pháp<small>KHBD: Hình thành kiến thức</small></td><td>Học kiến thức mới của bài và dùng nó để nghĩ giải pháp.</td><td>Tổ chức cho học sinh tự đọc, thí nghiệm, khám phá; chốt kiến thức <b>theo SGK</b>.</td><td>Tiếp nhận kiến thức, phác thảo giải pháp.</td><td>Phiếu 2: kiến thức nền; bản phác thảo.</td></tr>
+        <tr><td>HĐ3. Lựa chọn giải pháp<small>KHBD: Hình thành kiến thức</small></td><td>Chọn phương án tối ưu, có lập luận.</td><td>Góp ý, xác nhận tính đúng của kiến thức trong thiết kế.</td><td>Trình bày, bảo vệ bản thiết kế có thuyết minh.</td><td>Phiếu 3: bản thiết kế có kích thước, lí giải.</td></tr>
+        <tr><td>HĐ4. Chế tạo mẫu, thử nghiệm, đánh giá<small>KHBD: Luyện tập</small></td><td>Biến thiết kế thành sản phẩm, kiểm tra theo tiêu chí.</td><td>Hỗ trợ, giám sát an toàn.</td><td>Chế tạo, thử, ghi số liệu, sửa.</td><td>Phiếu 4: sản phẩm, bảng thử nghiệm.</td></tr>
+        <tr><td>HĐ5. Chia sẻ, thảo luận, điều chỉnh<small>KHBD: Luyện tập · Vận dụng</small></td><td>Báo cáo, phản biện, củng cố kiến thức.</td><td>Điều hành, đặt câu hỏi phản biện mang tính bộ môn, chốt kiến thức.</td><td>Báo cáo, trả lời phản biện, nêu hướng cải tiến.</td><td>Phiếu 5: tự đánh giá; sản phẩm điều chỉnh.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subhead"><h3>Quy trình thiết kế kĩ thuật học sinh đi qua</h3><p class="muted">Đây là "đường đi" của nhóm học sinh khi làm sản phẩm. Giáo viên dùng nó để kiểm tra nhóm đang ở bước nào.</p></div>
+  <div class="cycle">
+    <div><b>Xác định vấn đề</b><p>Cần làm gì, đạt tiêu chí nào.</p></div>
+    <div><b>Nghiên cứu kiến thức nền</b><p>Kiến thức bài học giúp gì.</p></div>
+    <div><b>Đề xuất giải pháp</b><p>Ít nhất hai phương án.</p></div>
+    <div><b>Lựa chọn giải pháp</b><p>So sánh, chọn, lí giải bằng kiến thức.</p></div>
+    <div><b>Chế tạo mẫu</b><p>Làm nguyên mẫu theo bản vẽ.</p></div>
+    <div><b>Thử nghiệm, đánh giá</b><p>Đo, ghi kết quả theo tiêu chí.</p></div>
+    <div><b>Chia sẻ, thảo luận</b><p>Báo cáo, nghe phản biện.</p></div>
+    <div><b>Điều chỉnh thiết kế</b><p>Sửa dựa trên số liệu.</p></div>
+    <div class="loop">Sản phẩm chưa đạt tiêu chí thì quay lại bước đề xuất hoặc lựa chọn giải pháp. Vòng lặp này chính là chỗ học sinh hiểu sâu kiến thức.</div>
+  </div>
+</section>
+
+<!-- A3 -->
+<section id="tieu-chi">
+  <div class="head">
+    <span class="num">A3 · Tiêu chí sản phẩm</span>
+    <h2>Mở về cách làm, cụ thể về tiêu chí</h2>
+    <p class="muted">Công văn 3089 yêu cầu hoạt động học mở về điều kiện thực hiện nhưng cụ thể về tiêu chí sản phẩm; quyết định giải pháp là của học sinh. Tiêu chí tốt là tiêu chí đo được và buộc học sinh dùng kiến thức của bài.</p>
+  </div>
+  <div class="vs">
+    <div class="row h"><span>Ví dụ</span><span>Tiêu chí mơ hồ</span><span>Tiêu chí đo được, gắn kiến thức</span></div>
+    <div class="row"><b>Toán · diều</b><span class="bad">Diều đẹp, cân đối</span><span class="good">Hai thanh khung vuông góc, cắt nhau tại trung điểm mỗi thanh; bốn cạnh diều bằng nhau, lệch ≤ 0,5 cm</span></div>
+    <div class="row"><b>Toán · hộp</b><span class="bad">Hộp vuông vắn, nắp vừa</span><span class="good">Hai đường chéo đáy bằng nhau, lệch ≤ 3 mm; cạnh nắp lớn hơn cạnh đáy 4 mm</span></div>
+    <div class="row"><b>KHTN · xe</b><span class="bad">Xe chạy được</span><span class="good">Xe chạy thẳng ít nhất 2 m bằng lực đẩy của luồng khí từ bóng bay; giải thích được bằng kiến thức về lực</span></div>
+    <div class="row"><b>KHTN · lọc nước</b><span class="bad">Nước sạch hơn</span><span class="good">Lọc 500 ml nước đục trong ≤ 10 phút; nước sau lọc trong hơn mẫu đối chứng khi so trên nền chữ in</span></div>
+    <div class="row"><b>Công nghệ · cầu</b><span class="bad">Cầu chắc chắn</span><span class="good">Nhịp cầu dài 40 cm, dùng ≤ 100 que kem, chịu tải ≥ 2 kg trong 30 giây</span></div>
+  </div>
+  <p class="muted" style="margin-top:10px;font-size:.88rem">Ví dụ KHTN, Công nghệ chỉ minh họa cách viết tiêu chí. Thầy cô đặt con số theo yêu cầu cần đạt của bài và điều kiện của trường.</p>
+
+  <div class="subhead"><h3>Hai kiểu bài học STEM</h3></div>
+  <div class="grid2">
+    <div class="box"><span class="eyebrow">Đích là làm ra sản phẩm</span><h3>Thiết kế kĩ thuật</h3><p class="muted">Làm vật, mô hình, giải pháp: cầu, xe, bộ lọc, diều, hộp. Đi theo 5 hoạt động. Tiêu chí là số đo của sản phẩm: kích thước, tải trọng, quãng đường, thời gian, chi phí vật liệu.</p></div>
+    <div class="box"><span class="eyebrow">Đích là trả lời câu hỏi "vì sao"</span><h3>Điều tra khoa học</h3><p class="muted">Tìm yếu tố ảnh hưởng: tốc độ hòa tan, sự nảy mầm, dao động. Đi theo: câu hỏi nghiên cứu → giả thuyết, biến số → thí nghiệm → thu thập, phân tích số liệu → kết luận, chia sẻ.</p></div>
+  </div>
+</section>
+
+<!-- A4 -->
+<section id="to-chuc">
+  <div class="head">
+    <span class="num">A4 · Học liệu, đánh giá, an toàn</span>
+    <h2>Bộ năm phiếu học tập</h2>
+    <p class="muted">Mỗi phiếu in một trang, học sinh điền. Đi kèm 5 hoạt động, là hồ sơ minh chứng quá trình học của từng nhóm.</p>
+  </div>
+  <div class="sheets">
+    <div class="sheet"><span class="k">PHIẾU 1</span><b>Vấn đề và tiêu chí</b><p>Vấn đề 1–2 câu, bảng tiêu chí; câu hỏi "Để đạt tiêu chí, em cần hiểu kiến thức gì?"</p></div>
+    <div class="sheet"><span class="k">PHIẾU 2</span><b>Kiến thức nền</b><p>Câu hỏi theo SGK (ghi trang) để học sinh tự đọc, trả lời. Đáp án để trang riêng cho giáo viên.</p></div>
+    <div class="sheet"><span class="k">PHIẾU 3</span><b>Bản thiết kế</b><p>Hình vẽ có kích thước, vật liệu; giải thích bằng kiến thức đã học vì sao đạt tiêu chí; bảng phân công từng em.</p></div>
+    <div class="sheet"><span class="k">PHIẾU 4</span><b>Thử nghiệm</b><p>Bảng lần thử, kết quả đo, đạt hay chưa; "Em sẽ sửa gì? Vì sao?"</p></div>
+    <div class="sheet"><span class="k">PHIẾU 5</span><b>Tự đánh giá, góp ý bạn</b><p>Em đã làm gì, học được gì, làm lại sẽ đổi gì. Góp ý nhóm bạn theo tiêu chí, không chấm điểm bạn.</p></div>
+  </div>
+
+  <div class="subhead"><h3>Rubric đánh giá dùng chung</h3><p class="muted">Tổ thống nhất và báo cho học sinh trước. Đánh giá theo Thông tư 22/2021/TT-BGDĐT; điểm nhóm quy về từng học sinh theo phần việc đã giao.</p></div>
+  <div class="scroll">
+    <table class="trouble" style="min-width:720px">
+      <thead><tr><th>Tiêu chí</th><th>Mức 1 · Chưa đạt</th><th>Mức 2 · Đạt</th><th>Mức 3 · Tốt</th></tr></thead>
+      <tbody>
+        <tr><td>Kiến thức</td><td>Giải thích sai hoặc không dùng kiến thức bài</td><td>Giải thích đúng, còn thiếu ý</td><td>Đúng, đủ, liên hệ được với số liệu thử nghiệm</td></tr>
+        <tr><td>Thiết kế</td><td>Bản vẽ thiếu kích thước</td><td>Đủ thông tin để làm theo</td><td>So sánh ít nhất 2 phương án, lí do chọn rõ</td></tr>
+        <tr><td>Sản phẩm</td><td>Chưa đạt tiêu chí đo được nào</td><td>Đạt phần lớn tiêu chí</td><td>Đạt hết tiêu chí, đã thử lặp lại</td></tr>
+        <tr><td>Thử nghiệm, cải tiến</td><td>Không ghi lần thử</td><td>Có ghi lần thử, có một điều chỉnh</td><td>Điều chỉnh dựa trên số liệu, ghi rõ trước và sau</td></tr>
+        <tr><td>Trình bày, phản biện</td><td>Chưa nói rõ sản phẩm làm gì</td><td>Trình bày rõ, trả lời được câu hỏi cơ bản</td><td>Nêu được hạn chế và hướng cải tiến</td></tr>
+        <tr><td>Phần việc cá nhân</td><td>Chưa hoàn thành phần được giao</td><td>Hoàn thành phần được giao</td><td>Hoàn thành và hỗ trợ bạn trong nhóm</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subhead"><h3>An toàn và vật liệu</h3></div>
+  <div class="grid3">
+    <div class="box"><span class="eyebrow">Dụng cụ</span><ul><li>Dao rọc giấy, kéo: giáo viên phát và thu, cắt trên tấm lót. Lớp 6–7 dùng kéo đầu tròn.</li><li>Súng keo nhiệt: khu vực riêng, có giáo viên giám sát.</li></ul></div>
+    <div class="box"><span class="eyebrow">Điện, hóa chất</span><ul><li>Chỉ dùng pin, nguồn điện áp thấp; không dùng điện lưới 220 V trong sản phẩm học sinh.</li><li>Chỉ hóa chất trong danh mục của trường hoặc đồ gia dụng an toàn.</li></ul></div>
+    <div class="box"><span class="eyebrow">Vật liệu</span><ul><li>Bìa carton, que kem, ống hút, đũa tre, chai nhựa, giấy báo.</li><li>Ưu tiên thiết bị dạy học tối thiểu của trường. Không bắt học sinh mua đồ đắt.</li></ul></div>
+  </div>
+
+  <div class="subhead"><h3>Những lỗi hay gặp</h3></div>
+  <div class="mistakes">
+    <div>Bài STEM thành giờ thủ công, không dạy kiến thức của bài.</div>
+    <div>Tiết báo cáo chỉ là trưng bày, không có bài tập, không có phản biện bằng kiến thức bộ môn.</div>
+    <div>Tiêu chí mơ hồ: "đẹp", "chắc", "chạy được".</div>
+    <div>Phát sẵn bản thiết kế mẫu trước khi học sinh tự đề xuất.</div>
+    <div>Chấm theo độ đẹp, độ tốn tiền; chấm "ba nhóm đẹp nhất".</div>
+    <div>Giao phần có bước nguy hiểm (dao, keo nóng, điện, bếp) về nhà.</div>
+  </div>
+</section>
+
+<!-- A5 -->
+<section id="thiet-ke">
+  <div class="head">
+    <span class="num">A5 · Công cụ cho giáo viên</span>
+    <h2>Tự lên khung bài học STEM</h2>
+    <p class="muted">Điền thông tin bài dạy của thầy cô, khung bài học theo 5 hoạt động hiện ngay bên cạnh. Sao chép sang Word để soạn tiếp kế hoạch bài dạy. Đang điền sẵn ví dụ của chuyên đề Toán 8. Muốn xem một kế hoạch bài dạy hoàn chỉnh, mở <a href="bai-mau.html">Bài STEM mẫu Toán 8</a>.</p>
+  </div>
+  <div class="builder">
+    <form id="bForm" autocomplete="off">
+      <div class="f2">
+        <div class="f"><label for="bMon">Môn</label><input type="text" id="bMon" value="Toán"></div>
+        <div class="f"><label for="bLop">Lớp</label><input type="text" id="bLop" value="8"></div>
+      </div>
+      <div class="f"><label for="bBai">Bài học (tên bài, trang SGK)</label><input type="text" id="bBai" value="Hình thoi và hình vuông"></div>
+      <div class="f"><label for="bKT">Kiến thức cốt lõi học sinh phải dùng</label><textarea id="bKT">Định nghĩa, tính chất, dấu hiệu nhận biết hình thoi, hình vuông; tính độ dài, chu vi, diện tích</textarea></div>
+      <div class="f"><label for="bVD">Vấn đề thực tiễn (bối cảnh)</label><textarea id="bVD">Lớp nhận "đơn đặt hàng" làm đồ chơi và quà tặng cho đêm hội Halloween</textarea></div>
+      <div class="f"><label for="bSP">Sản phẩm</label><input type="text" id="bSP" value="Diều hình thoi; hộp quà hình vuông Trick or Treat"></div>
+      <div class="f"><label for="bTC">Tiêu chí sản phẩm (mỗi dòng một tiêu chí)</label><textarea id="bTC" rows="4">Hai thanh khung diều vuông góc, cắt nhau tại trung điểm mỗi thanh
+Bốn cạnh diều bằng nhau, lệch ≤ 0,5 cm
+Hai đường chéo đáy hộp bằng nhau, lệch ≤ 3 mm
+Nắp hộp vừa khít đáy</textarea><span class="hint">Viết bằng số đo. Ít nhất một tiêu chí buộc dùng kiến thức mới.</span></div>
+      <div class="f2">
+        <div class="f"><label for="bTiet">Số tiết chính khóa</label><select id="bTiet"><option value="1">1 tiết</option><option value="2" selected>2 tiết</option><option value="3">3 tiết</option></select></div>
+        <div class="f"><label for="bCT">Phần chế tạo làm ở đâu</label><select id="bCT"><option value="b2" selected>Buổi học thứ hai</option><option value="nha">Ở nhà, 1–2 tuần</option><option value="lop">Trên lớp</option></select></div>
+      </div>
+      <div class="f"><label for="bNhom">Số nhóm</label><input type="text" id="bNhom" value="4"></div>
+    </form>
+    <div class="out">
+      <div class="bar2"><span>Khung bài học</span><button class="btn primary" id="bCopy" type="button">Sao chép</button></div>
+      <pre id="bOut" tabindex="0"></pre>
+    </div>
+  </div>
+</section>
+
+<div class="part">
+  <span class="eyebrow">Phần B</span>
+  <h2>Minh chứng qua môn Toán tại Trường THCS Võ Thị Sáu</h2>
+  <p>Nhà trường đã đưa phương pháp trên vào tiết học như thế nào, đạt được gì, và các trường khác có thể áp dụng ra sao.</p>
+</div>
+
+<!-- 1. CÁCH LÀM -->
+<section id="cach-lam">
+  <div class="head">
+    <span class="num">B1 · Cách làm của nhà trường</span>
+    <h2>STEM trong từng tiết học, không phải STEM cho ngày hội</h2>
+    <p class="muted">Nhiều trường vẫn trăn trở: làm sao để STEM thành hoạt động thường xuyên trong tiết học, chứ không chỉ là sản phẩm trưng bày hay một tiết thao giảng. Nhà trường bắt đầu bằng ba nguyên tắc.</p>
+  </div>
+  <div class="principles">
+    <div><span class="eyebrow">Nguyên tắc 1</span><p class="big">Đúng <em>chương trình</em></p><p class="muted">Bài học STEM xuất phát từ yêu cầu cần đạt của bài trong SGK, đặt vào tiết luyện tập, vận dụng sẵn có trong kế hoạch dạy học. Không tăng thời lượng.</p></div>
+    <div><span class="eyebrow">Nguyên tắc 2</span><p class="big"><em>Toán học</em> là trung tâm</p><p class="muted">Sản phẩm chỉ là phương tiện. Học sinh làm đúng sản phẩm khi vận dụng đúng kiến thức Toán, và phải giải thích thiết kế bằng lập luận toán học.</p></div>
+    <div><span class="eyebrow">Nguyên tắc 3</span><p class="big">Vừa sức, <em>dễ nhân rộng</em></p><p class="muted">Dùng vật liệu sẵn có, tái chế. Giáo viên Toán nào cũng tổ chức được, không cần phòng STEM hay thiết bị đắt tiền.</p></div>
+  </div>
+
+  <div class="pillars">
+    <div class="pillar"><div><span class="k">Quản lí, chỉ đạo</span><h3>Có trong kế hoạch từ đầu năm</h3></div><p>STEM nằm trong kế hoạch giáo dục của nhà trường và kế hoạch tổ chuyên môn. Hiệu trưởng phụ trách chung, Phó Hiệu trưởng chuyên môn chỉ đạo trực tiếp, Tổ KHTN xây dựng nội dung. Bài học STEM của các nhóm môn được kiểm tra qua dự giờ và hồ sơ chuyên môn.</p></div>
+    <div class="pillar"><div><span class="k">Tổ chuyên môn</span><h3>Bản đồ bài học STEM</h3></div><p>Tổ KHTN gồm 34 giáo viên thuộc 7 nhóm chuyên môn, rà soát chương trình từng khối để xác định bài nào, tiết nào thiết kế được thành bài học STEM. Sinh hoạt chuyên môn theo nghiên cứu bài học: cùng thiết kế, dạy thử, dự giờ, góp ý, điều chỉnh.</p></div>
+    <div class="pillar"><div><span class="k">Tổ chức dạy học</span><h3>5 hoạt động · 2 buổi/ngày</h3></div><div><p>Theo 5 hoạt động của Công văn 3089/BGDĐT-GDTrH. Điểm riêng của trường: tiết chính khóa dành cho kiến thức, luyện tập, báo cáo, phản biện; buổi học thứ hai để học sinh thiết kế, chế tạo theo nhóm có giáo viên hướng dẫn. Mỗi em một vai, em nào cũng phải dùng đến Toán:</p><div class="roles"><span>Trưởng nhóm</span><span>Kĩ sư thiết kế</span><span>Thư kí tính toán</span><span>Thợ chế tạo</span><span>Người thuyết trình</span></div></div></div>
+    <div class="pillar"><div><span class="k">Kiểm tra, đánh giá</span><h3>Rubric ba phần</h3></div><p>Kiến thức Toán được vận dụng (bản vẽ, số đo, lời giải); chất lượng sản phẩm (đúng hình, chắc chắn, thẩm mĩ, tiết kiệm vật liệu); báo cáo, phản biện, hợp tác. Kết hợp giáo viên đánh giá, nhóm đánh giá lẫn nhau và học sinh tự đánh giá. Bài tự luận trong tiết luyện tập là căn cứ đánh giá từng em.</p></div>
+    <div class="pillar"><div><span class="k">Chuyển đổi số, ngoại ngữ</span><h3>Thành học liệu dùng chung</h3></div><p>Bài học và sản phẩm học sinh được số hóa, đưa lên trang học tập của lớp và cổng học liệu số của trường. Tiếng Anh vào nhẹ nhàng qua thuật ngữ: <span class="en">Rhombus</span>, <span class="en">Square</span>, <span class="en">Diagonal</span>, <span class="en">Side</span>, <span class="en">Right angle</span>.</p></div>
+  </div>
+
+  <h3 style="margin-top:36px">Lộ trình của chuyên đề này</h3>
+  <div class="timeline">
+    <div class="tstep"><b>Tháng 8/2026</b><p>Lập kế hoạch, chọn nội dung hình thoi – hình vuông, ý tưởng bối cảnh Halloween.</p></div>
+    <div class="tstep"><b>Tháng 9/2026</b><p>Nhóm Toán cùng soạn kế hoạch bài dạy, phiếu học tập, rubric. Hướng dẫn học sinh từ tuần 2.</p></div>
+    <div class="tstep"><b>Đầu tháng 10</b><p>Dạy thử, tiếp thu góp ý của chuyên viên Sở GDĐT: điều chỉnh tiết 2 thành tiết luyện tập đúng nghĩa.</p></div>
+    <div class="tstep now"><b>19 · 23 · 27/10</b><p>Tổng duyệt 3 lần trước buổi chuyên đề chính thức.</p></div>
+  </div>
+</section>
+
+<!-- 2. BÀI HỌC MINH HỌA -->
+<section id="bai-hoc">
+  <div class="head">
+    <span class="num">B2 · Bài học minh họa</span>
+    <h2>Hai tiết Toán, một buổi chế tạo</h2>
+    <p class="muted">Học sinh nhận "đơn đặt hàng" làm đồ chơi, quà tặng cho đêm hội Halloween: nhóm 1 làm diều hình thoi, nhóm 2 làm hộp quà hình vuông "Trick or Treat". Kế hoạch bài dạy đầy đủ: <a href="bai-mau.html">Bài STEM mẫu Toán 8</a>.</p>
+  </div>
+  <div class="stages">
+    <article class="stage">
+      <span class="when">Tiết 1 · chính khóa</span>
+      <h3>Xác định vấn đề, kiến thức nền</h3>
+      <span class="hd">HĐ1 · HĐ2</span>
+      <ul>
+        <li>Nhận đơn đặt hàng và tiêu chí sản phẩm.</li>
+        <li>Gấp, cắt giấy để tự khám phá định nghĩa, tính chất, dấu hiệu nhận biết hình thoi, hình vuông.</li>
+        <li>Nhận nhiệm vụ thiết kế theo nhóm.</li>
+      </ul>
+    </article>
+    <article class="stage">
+      <span class="when">Buổi học thứ hai</span>
+      <h3>Lựa chọn giải pháp, chế tạo, thử nghiệm</h3>
+      <span class="hd">HĐ3 · HĐ4</span>
+      <ul>
+        <li>Lập bản vẽ, tính toán số đo.</li>
+        <li>Chế tạo, thả thử diều, đóng thử hộp, sửa lại.</li>
+        <li>Ghi lại quá trình bằng ảnh, video.</li>
+      </ul>
+    </article>
+    <article class="stage key">
+      <span class="badge">Theo góp ý của chuyên viên Sở</span>
+      <span class="when">Tiết 2 · tiết luyện tập</span>
+      <h3>Luyện tập, chia sẻ, phản biện, điều chỉnh</h3>
+      <span class="hd">HĐ5</span>
+      <ul>
+        <li><b>Giải bài tập tự luận</b> làm căn cứ toán học cho thiết kế.</li>
+        <li>Nhóm Diều báo cáo bằng tiểu phẩm; nhóm Hộp quà báo cáo bằng video quá trình.</li>
+        <li>Các nhóm phản biện lẫn nhau bằng ngôn ngữ toán học.</li>
+        <li>Giáo viên chốt kiến thức, định hướng cải tiến sản phẩm.</li>
+      </ul>
+    </article>
+  </div>
+
+  <div class="smat">
+    <div><span class="L">S</span><b>Khoa học</b><p>Tính đối xứng, độ vững chắc của khung hình học.</p></div>
+    <div><span class="L">T</span><b>Công nghệ</b><p>Dụng cụ đo, vẽ, cắt; phần mềm dựng video.</p></div>
+    <div><span class="L">E</span><b>Kĩ thuật</b><p>Thiết kế, chế tạo, thử nghiệm, cải tiến.</p></div>
+    <div><span class="L">M</span><b>Toán học</b><p>Tính chất, dấu hiệu nhận biết; độ dài, chu vi, diện tích.</p></div>
+  </div>
+
+  <div class="problems">
+    <article class="problem">
+      <span class="ptag">Bài tự luận 1 · Diều hình thoi</span>
+      <p>Khung diều ABCD gồm hai thanh tre AC = 60 cm, BD = 40 cm, buộc vuông góc tại O là trung điểm của mỗi thanh.</p>
+      <ol type="a">
+        <li>Chứng minh ABCD là hình thoi.</li>
+        <li>Bạn Minh nói: "Chỉ cần bốn cạnh diều bằng nhau là hai nan chắc chắn vuông góc." Đúng hay sai? Vì sao?</li>
+        <li>Tính diện tích giấy dán mặt diều.</li>
+        <li>Tính độ dài cạnh diều và chiều dài dây viền quanh diều (thêm 10 cm để buộc).</li>
+      </ol>
+      <details><summary>Đáp án tóm tắt</summary>
+        <div class="sol">
+          <p>a) Hai đường chéo cắt nhau tại trung điểm mỗi đường nên ABCD là hình bình hành; lại có hai đường chéo vuông góc nên ABCD là hình thoi.</p>
+          <p>b) Đúng. Tứ giác có bốn cạnh bằng nhau là hình thoi (định nghĩa, SGK tr.67); trong hình thoi hai đường chéo vuông góc với nhau (Định lí 1, tr.68).</p>
+          <p>c) S = 60 · 40 : 2 = <span class="mono">1 200 cm²</span> (công thức diện tích hình thoi đã học ở lớp 6).</p>
+          <p>d) OA = 30 cm, OB = 20 cm; tam giác AOB vuông tại O, theo định lí Pythagore (đã học đầu học kì I theo kế hoạch dạy học của tổ): AB = √(30² + 20²) ≈ <span class="mono">36,1 cm</span>. Dây viền ≈ 4 · 36,1 + 10 ≈ <span class="mono">154 cm</span>.</p>
+        </div>
+      </details>
+      <p class="trace"><b>Lên sản phẩm:</b> buộc tre đúng điểm 30 cm và 20 cm, vuông góc; cắt dây viền 154 cm; đo kiểm bốn cạnh đều ≈ 36,1 cm; giấy 1 200 cm² cộng mép dán.</p>
+    </article>
+    <article class="problem">
+      <span class="ptag">Bài tự luận 2 · Hộp quà hình vuông</span>
+      <p>Hộp quà có đáy là tứ giác ABCD cạnh 12 cm, nắp là hình vuông chụp vừa khít bên ngoài đáy, rộng hơn đáy 2 mm mỗi phía.</p>
+      <ol type="a">
+        <li>Bạn An đo được bốn cạnh đáy bằng nhau và một góc vuông. Đáy hộp là hình gì? Vì sao?</li>
+        <li>Không có ê ke, chỉ có thước thẳng, làm sao kiểm tra đáy là hình vuông?</li>
+        <li>Tính cạnh của nắp và độ dài đường chéo đáy, đường chéo nắp (làm tròn đến 0,1 cm) để làm số đo kiểm.</li>
+      </ol>
+      <details><summary>Đáp án tóm tắt</summary>
+        <div class="sol">
+          <p>a) Bốn cạnh bằng nhau nên là hình thoi; hình thoi có một góc vuông là hình vuông.</p>
+          <p>a) theo Chú ý, SGK tr.70. b) Đo bốn cạnh bằng nhau (hình thoi), rồi đo hai đường chéo bằng nhau thì hình thoi đó là hình vuông (Chú ý, tr.70).</p>
+          <p>c) Cạnh nắp 12 + 2 · 0,2 = <span class="mono">12,4 cm</span>. Theo định lí Pythagore: đường chéo đáy = √(12² + 12²) ≈ <span class="mono">17,0 cm</span>; đường chéo nắp = √(12,4² + 12,4²) ≈ <span class="mono">17,5 cm</span>.</p>
+        </div>
+      </details>
+      <p class="trace"><b>Lên sản phẩm:</b> hai đường chéo đáy phải cùng ≈ 17,0 cm, lệch quá 3 mm là đáy méo. Cắt nắp cạnh 12,4 cm (đường chéo ≈ 17,5 cm) để đậy vừa khít.</p>
+    </article>
+  </div>
+
+  <div class="lab">
+    <div class="panel">
+      <h3>Bàn tính · Diều hình thoi</h3>
+      <svg id="kiteSvg" viewBox="0 0 300 210" aria-label="Hình thoi theo kích thước đã chọn"></svg>
+      <div class="field"><label for="d1">Thanh dọc AC (cm)</label><output id="d1o">60</output><input id="d1" type="range" min="20" max="100" step="2" value="60"></div>
+      <div class="field"><label for="d2">Thanh ngang BD (cm)</label><output id="d2o">40</output><input id="d2" type="range" min="16" max="100" step="2" value="40"></div>
+      <div class="readout">
+        <div><span>Cạnh diều (Pythagore)</span><span id="kA"></span></div>
+        <div><span>Chu vi</span><span id="kP"></span></div>
+        <div><span>Diện tích giấy</span><span id="kS"></span></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Bàn tính · Hộp quà hình vuông</h3>
+      <svg id="boxSvg" viewBox="0 0 300 210" aria-label="Hình khai triển hộp và nắp"></svg>
+      <div class="field"><label for="ba">Cạnh đáy (cm)</label><output id="bao">12</output><input id="ba" type="range" min="6" max="24" step="1" value="12"></div>
+      <div class="field"><label for="bg">Khe hở nắp mỗi phía (mm)</label><output id="bgo">2</output><input id="bg" type="range" min="1" max="6" step="1" value="2"></div>
+      <div class="readout">
+        <div><span>Đường chéo đáy</span><span id="bD"></span></div>
+        <div><span>Cạnh nắp</span><span id="bL"></span></div>
+        <div><span>Đường chéo nắp</span><span id="bLD"></span></div>
+      </div>
+    </div>
+  </div>
+  <p class="muted" style="margin-top:10px;font-size:.9rem">Thầy cô thay số để ra đề khác nhau cho từng nhóm, hoặc chiếu lên bảng để học sinh tự kiểm tra lời giải. Cạnh diều và đường chéo tính bằng định lí Pythagore, học sinh đã học đầu học kì I theo kế hoạch dạy học của tổ.</p>
+
+  <h3 style="margin-top:36px">Gợi ý bốn điểm quan sát khi dự giờ</h3>
+  <div class="observe">
+    <div><span class="n">1</span><p>Học sinh đã dùng tính chất, dấu hiệu nhận biết nào để làm ra sản phẩm?</p></div>
+    <div><span class="n">2</span><p>Bài tập tự luận gắn với sản phẩm ra sao?</p></div>
+    <div><span class="n">3</span><p>Các em lập luận thế nào khi được phản biện?</p></div>
+    <div><span class="n">4</span><p>Giáo viên tổ chức, điều hành và chốt kiến thức như thế nào?</p></div>
+  </div>
+</section>
+
+<!-- 3. HỌC ĐƯỢC GÌ -->
+<section id="hoc-duoc">
+  <div class="head">
+    <span class="num">B3 · Thầy cô đến dự học hỏi được gì</span>
+    <h2>Năm điều trong cách làm</h2>
+  </div>
+  <div class="takeaways">
+    <div class="take"><span class="n">1</span><h3>Cách chọn bài</h3><p>Đi từ yêu cầu cần đạt, chọn nội dung "nhìn thấy, cầm nắm được" trong đời sống, đặt vào tiết luyện tập, vận dụng có sẵn.</p></div>
+    <div class="take"><span class="n">2</span><h3>Cách thiết kế nhiệm vụ</h3><p>Một bối cảnh gần gũi với học sinh, một sản phẩm buộc học sinh phải dùng kiến thức Toán mới làm đúng.</p></div>
+    <div class="take"><span class="n">3</span><h3>Cách giữ "chất Toán"</h3><p>Bài tập tự luận làm căn cứ thiết kế; phản biện bằng ngôn ngữ toán học. Mỗi con số trên sản phẩm là một kiến thức đã vận dụng.</p></div>
+    <div class="take"><span class="n">4</span><h3>Cách tổ chức thời gian và nhóm</h3><p>Chia hợp lí giữa tiết chính khóa và buổi học thứ hai; phân vai trong nhóm; đánh giá bằng rubric công khai.</p></div>
+    <div class="take"><span class="n">5</span><h3>Cách làm trong tổ chuyên môn</h3><p>Cùng thiết kế, dạy thử, góp ý, điều chỉnh; số hóa sản phẩm thành học liệu dùng chung.</p></div>
+  </div>
+</section>
+
+<!-- 4. HỌC SINH -->
+<section id="hoc-sinh">
+  <div class="head">
+    <span class="num">B4 · Học sinh thay đổi được gì</span>
+    <h2>Từ "Em biết gì?" đến "Em làm được gì với điều đã học?"</h2>
+  </div>
+  <div class="shifts">
+    <div class="shift"><div class="fromto"><span class="from">Học thuộc</span><span class="arrow">→</span><span>Hiểu bản chất</span></div><p>Hiểu vì sao hai thanh khung diều phải cắt nhau tại trung điểm mỗi thanh và vuông góc; vì sao hộp vuông cần các cạnh bằng nhau và góc vuông.</p></div>
+    <div class="shift"><div class="fromto"><span class="from">Ngại phát biểu</span><span class="arrow">→</span><span>Tự tin</span></div><p>Thuyết trình, phản biện, bảo vệ thiết kế của nhóm trước thầy cô và bạn bè.</p></div>
+    <div class="shift"><div class="fromto"><span class="from">Làm một mình</span><span class="arrow">→</span><span>Hợp tác</span></div><p>Biết phân công, lắng nghe, hỗ trợ nhau. Học sinh còn yếu Toán cũng có vai trò và được bạn kèm.</p></div>
+    <div class="shift"><div class="fromto"><span class="from">Toán trên giấy</span><span class="arrow">→</span><span>Toán trong đời sống</span></div><p>Hứng thú hơn với môn học, làm quen thuật ngữ Toán bằng tiếng Anh, thêm kĩ năng dùng công nghệ.</p></div>
+  </div>
+  <p class="proof"><b>Minh chứng lan tỏa:</b> tinh thần STEM còn đi tới nghiên cứu khoa học. Đề tài "RUST GUARD – Tái sử dụng bã chè xanh để bảo vệ thép khỏi ăn mòn" của học sinh lớp 9A7 được chọn dự thi cấp thành phố.</p>
+</section>
+
+<!-- 5. ÁP DỤNG -->
+<section id="ap-dung">
+  <div class="head">
+    <span class="num">B5 · Áp dụng ở trường bạn</span>
+    <h2>Bắt đầu bằng ba bước</h2>
+    <p class="muted">Giữ nguyên quy trình, chỉ thay bối cảnh và sản phẩm cho hợp với đơn vị mình.</p>
+  </div>
+  <div class="steps3">
+    <div class="box"><span class="n">1</span><h3>Chọn một bài mỗi khối</h3><p class="muted">Mỗi học kì, mỗi khối lớp chọn một bài có tiết luyện tập, vận dụng phù hợp.</p></div>
+    <div class="box"><span class="n">2</span><h3>Một nhóm cùng làm</h3><p class="muted">Giao cho một nhóm giáo viên cùng thiết kế và dạy thử, rồi góp ý, điều chỉnh.</p></div>
+    <div class="box"><span class="n">3</span><h3>Dùng ngay bộ mẫu</h3><p class="muted">Kế hoạch bài dạy, phiếu học tập, rubric nhà trường chia sẻ ở mục Tài liệu.</p></div>
+  </div>
+
+  <div class="swap" id="swap">
+    <div class="tabs" role="tablist" aria-label="Chọn bối cảnh">
+      <button role="tab" id="t-halloween" aria-selected="true" data-k="halloween">Halloween</button>
+      <button role="tab" id="t-trungthu" aria-selected="false" data-k="trungthu">Tết Trung thu</button>
+      <button role="tab" id="t-2011" aria-selected="false" data-k="2011">Ngày 20/11</button>
+      <button role="tab" id="t-tet" aria-selected="false" data-k="tet">Tết Nguyên đán</button>
+    </div>
+    <div class="body" role="tabpanel" aria-live="polite">
+      <div><span class="lbl">Khối lớp</span><span class="val" id="swGrade"></span></div>
+      <div><span class="lbl">Sản phẩm</span><span class="val" id="swProd"></span></div>
+      <div><span class="lbl">Kiến thức Toán dùng để làm</span><span class="val" id="swMath"></span></div>
+    </div>
+    <p class="foot" id="swNote"></p>
+  </div>
+
+  <h3 style="margin-top:36px;margin-bottom:12px">Khó khăn đã gặp và cách khắc phục</h3>
+  <div class="scroll">
+    <table class="trouble">
+      <thead><tr><th>Khó khăn</th><th>Cách nhà trường khắc phục</th></tr></thead>
+      <tbody>
+        <tr><td>Thời gian</td><td>Đặt bài học STEM vào tiết luyện tập có sẵn, dùng buổi học thứ hai cho phần chế tạo. Trường học 1 buổi/ngày có thể giao phần chế tạo thành nhiệm vụ ở nhà trong 1–2 tuần.</td></tr>
+        <tr><td>Kinh phí, vật liệu</td><td>Ưu tiên vật liệu tái chế, sẵn có: bìa các-tông, que tre, giấy màu.</td></tr>
+        <tr><td>Học sinh chênh lệch trình độ</td><td>Phân vai trong nhóm, giao nhiệm vụ vừa sức từng em.</td></tr>
+        <tr><td>Đánh giá công bằng trong nhóm</td><td>Rubric công khai từ đầu; kết hợp đánh giá đồng đẳng, tự đánh giá và bài tự luận cá nhân.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 6. TÀI LIỆU -->
+<section id="tai-lieu">
+  <div class="head">
+    <span class="num">B6 · Tài liệu chia sẻ</span>
+    <h2>Bộ tài liệu của chuyên đề</h2>
+    <p class="muted">Nhà trường chia sẻ toàn bộ tài liệu để thầy cô tham khảo và sử dụng.</p>
+    <a class="cta" style="justify-self:start;margin-top:4px" href="tai-lieu/Bo-tai-lieu-STEM-Toan8-VoThiSau.zip" download>Tải trọn bộ tài liệu (.zip)</a>
+  </div>
+  <div class="docs">
+    <a class="doc link" href="bai-mau.html"><span class="ic">WEB</span><div><b>Kế hoạch bài dạy 2 tiết · xem trên web ↗</b><span>Bài STEM mẫu Toán 8, có Xưởng kiểm định để trình chiếu</span></div></a>
+    <a class="doc link" href="tai-lieu/01_KHBD_STEM_Toan8_Hinh-thoi-Hinh-vuong.docx" download><span class="ic">KHBD</span><div><b>Kế hoạch bài dạy 2 tiết (Word)</b><span>Theo 5 hoạt động STEM, khung Phụ lục IV · tải về</span></div></a>
+    <a class="doc link" href="tai-lieu/02_Phieu-hoc-tap_STEM_Toan8.docx" download><span class="ic">PHT</span><div><b>Phiếu học tập 1–5 (Word)</b><span>Vấn đề, kiến thức nền, bản thiết kế, thử nghiệm, tự đánh giá · tải về</span></div></a>
+    <a class="doc link" href="tai-lieu/03_Bai-tap-tu-luan_kem-dap-an.docx" download><span class="ic">BT</span><div><b>Bài tập tự luận kèm đáp án (Word)</b><span>Gắn với sản phẩm, có câu hỏi phản biện · tải về</span></div></a>
+    <a class="doc link" href="tai-lieu/04_Rubric-danh-gia_STEM_Toan8.docx" download><span class="ic">RUB</span><div><b>Rubric đánh giá (Word)</b><span>Kiến thức Toán, sản phẩm, báo cáo và hợp tác · tải về</span></div></a>
+    <div class="doc"><span class="ic">VID</span><div><b>Video quá trình làm sản phẩm</b><span>Do học sinh quay, dựng</span></div></div>
+    <div class="doc"><span class="ic">APP</span><div><b>Web-app "Xưởng thiết kế hộp quà Halloween"</b><span>Học liệu số Đợt 1 của Tổ KHTN</span></div></div>
+    <a class="doc link" href="tai-lieu/05_Khung-thiet-ke-bai-hoc-STEM_dung-cho-to-chuyen-mon.docx" download><span class="ic">MẪU</span><div><b>Khung thiết kế bài học STEM (Word)</b><span>Mẫu trống cho tổ chuyên môn, dùng cho mọi môn · tải về</span></div></a>
+    <div class="doc"><span class="ic">SỐ</span><div><b>Học liệu số hình học khác của nhóm Toán</b><span>Toán 6 Bài 19 (mô phỏng tương tác) · Toán 7 "Công trường Kiến trúc sư góc"</span></div></div>
+  </div>
+</section>
+
+<!-- 7. TỰ KIỂM -->
+<section id="tu-kiem">
+  <div class="head">
+    <span class="num">B7 · Khi thầy cô tự thiết kế</span>
+    <h2>Bảng tự kiểm trước khi lên lớp</h2>
+    <p class="muted">Đánh dấu từng mục. Trình duyệt trên máy của thầy cô sẽ nhớ các mục đã đánh dấu.</p>
+  </div>
+  <div class="progress"><span id="ckCount" class="mono">0/10</span><div class="bar"><i id="ckBar"></i></div><button class="btn" id="ckReset" type="button">Bỏ đánh dấu</button></div>
+  <div class="check" id="checklist">
+    <label><input type="checkbox" id="c1"><span>Bài học xuất phát từ yêu cầu cần đạt trong SGK, không tăng thời lượng.</span></label>
+    <label><input type="checkbox" id="c2"><span>Bài STEM đặt vào tiết <b>luyện tập</b>, vận dụng có sẵn trong kế hoạch dạy học.</span></label>
+    <label><input type="checkbox" id="c3"><span>Có bài tập tự luận; lời giải là căn cứ cho thông số sản phẩm.</span></label>
+    <label><input type="checkbox" id="c4"><span>Tiêu chí sản phẩm ghi bằng số đo, phát cho học sinh từ tiết 1.</span></label>
+    <label><input type="checkbox" id="c5"><span>Sản phẩm chỉ làm đúng được khi dùng đúng kiến thức Toán của bài.</span></label>
+    <label><input type="checkbox" id="c6"><span>Mỗi học sinh có một vai và một phần việc cụ thể.</span></label>
+    <label><input type="checkbox" id="c7"><span>Chuẩn bị sẵn câu hỏi phản biện mang tính toán học cho từng nhóm.</span></label>
+    <label><input type="checkbox" id="c8"><span>Rubric công khai từ đầu; có tự đánh giá và đánh giá đồng đẳng.</span></label>
+    <label><input type="checkbox" id="c9"><span>Vật liệu tái chế, rẻ; dụng cụ cắt, súng keo có giáo viên giám sát.</span></label>
+    <label><input type="checkbox" id="c10"><span>Lên kế hoạch số hóa sản phẩm thành học liệu dùng chung.</span></label>
+  </div>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Trường THCS Võ Thị Sáu</b> · phường An Biên, thành phố Hải Phòng · Tổ Khoa học tự nhiên · Năm học 2026 – 2027</p>
+    <p>Căn cứ: Chương trình GDPT 2018; Công văn 3089/BGDĐT-GDTrH ngày 14/8/2020 về triển khai giáo dục STEM trong giáo dục trung học; góp ý của chuyên viên Sở GDĐT Hải Phòng cho chuyên đề.</p>
+    <p>Biên soạn trang: Ngô Thị Phương – Tổ trưởng Tổ KHTN.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+  const vn = (x, d=1) => x.toLocaleString('vi-VN',{minimumFractionDigits:d,maximumFractionDigits:d});
+  const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Hình thoi → hình vuông */
+  const R = $('mRange');
+  function morph(){
+    const A = +R.value, side = 110, cx = 160, cy = 120;
+    const half = A*Math.PI/360;               // nửa góc A
+    const dAC = 2*side*Math.cos(half);        // đường chéo qua A, C (nằm ngang)
+    const dBD = 2*side*Math.sin(half);
+    const sc = Math.min(1, 280/dAC, 210/dBD);
+    const w = dAC*sc/2, h = dBD*sc/2;
+    const sq = Math.abs(A-90) < 1;
+    $('mAng').textContent = 'Â = ' + A + '°';
+    const nm = $('mName');
+    nm.innerHTML = sq ? 'Hình vuông <small>Square</small>' : 'Hình thoi <small>Rhombus</small>';
+    nm.classList.toggle('sq', sq);
+    $('mFacts').textContent = sq
+      ? 'Hình thoi có một góc vuông là hình vuông. Hai đường chéo bằng nhau: ' + vn(dAC/10) + ' = ' + vn(dBD/10) + ' (đơn vị).'
+      : 'Bốn cạnh bằng nhau. Hai đường chéo vuông góc, cắt nhau tại trung điểm mỗi đường: ' + vn(dAC/10) + ' và ' + vn(dBD/10) + ' (đơn vị).';
+    const stroke = sq ? 'var(--glow)' : '#aab1db';
+    const fill = sq ? 'rgba(255,138,61,.22)' : 'rgba(170,177,219,.12)';
+    $('morphSvg').innerHTML =
+      `<polygon points="${cx-w},${cy} ${cx},${cy-h} ${cx+w},${cy} ${cx},${cy+h}" fill="${fill}" stroke="${stroke}" stroke-width="3" stroke-linejoin="round"/>
+       <line x1="${cx-w}" y1="${cy}" x2="${cx+w}" y2="${cy}" stroke="#eef0ff" stroke-opacity=".55" stroke-width="1.5" stroke-dasharray="5 5"/>
+       <line x1="${cx}" y1="${cy-h}" x2="${cx}" y2="${cy+h}" stroke="#eef0ff" stroke-opacity=".55" stroke-width="1.5" stroke-dasharray="5 5"/>
+       <path d="M${cx} ${cy-10} h10 v10" fill="none" stroke="var(--glow)" stroke-width="1.8"/>
+       <g font-family="JetBrains Mono, monospace" font-size="13" fill="#eef0ff">
+         <text x="${cx-w-16}" y="${cy+5}">A</text><text x="${cx-5}" y="${cy-h-8}">B</text>
+         <text x="${cx+w+6}" y="${cy+5}">C</text><text x="${cx-5}" y="${cy+h+18}">D</text>
+       </g>`;
+  }
+  let auto = !reduce, dir = 1, t;
+  function tick(){
+    if(!auto) return;
+    let v = +R.value + dir;
+    if (v >= 90 && dir > 0 && +R.value < 90) { v = 90; R.value = v; morph(); t = setTimeout(tick, 1600); return; }
+    if (v > 120 || v < 50) { dir = -dir; v = +R.value + dir; }
+    R.value = v; morph(); t = setTimeout(tick, 45);
+  }
+  R.addEventListener('input', () => { auto = false; clearTimeout(t); morph(); });
+  morph(); if (auto) t = setTimeout(tick, 800);
+
+  /* Diều */
+  function kite(){
+    const d1 = +$('d1').value, d2 = +$('d2').value;
+    $('d1o').textContent = d1; $('d2o').textContent = d2;
+    const a = Math.hypot(d1/2, d2/2);
+    $('kA').textContent = vn(a)+' cm'; $('kP').textContent = vn(4*a)+' cm'; $('kS').textContent = vn(d1*d2/2,0)+' cm²';
+    const s = 180/Math.max(d1,d2), cx=150, cy=105, h=d1*s/2, w=d2*s/2;
+    $('kiteSvg').innerHTML =
+      `<polygon points="${cx},${cy-h} ${cx+w},${cy} ${cx},${cy+h} ${cx-w},${cy}" fill="var(--pumpkin-soft)" stroke="var(--pumpkin)" stroke-width="2.5"/>
+       <line x1="${cx}" y1="${cy-h}" x2="${cx}" y2="${cy+h}" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="5 4"/>
+       <line x1="${cx-w}" y1="${cy}" x2="${cx+w}" y2="${cy}" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="5 4"/>
+       <path d="M${cx} ${cy-9} h9 v9" fill="none" stroke="var(--teal)" stroke-width="1.5"/>
+       <text x="${cx+w/2+8}" y="${cy-h/2}" font-family="JetBrains Mono, monospace" font-size="12" fill="var(--pumpkin)">${vn(a)} cm</text>`;
+  }
+  /* Hộp */
+  function box(){
+    const a = +$('ba').value, g = +$('bg').value/10;
+    $('bao').textContent = a; $('bgo').textContent = $('bg').value;
+    const L = a + 2*g;
+    $('bD').textContent = vn(a*Math.SQRT2)+' cm'; $('bL').textContent = vn(L,1)+' cm'; $('bLD').textContent = vn(L*Math.SQRT2)+' cm';
+    const s = 150/24, A = a*s, LL = L*s, cy = 105;
+    const x1 = 80 - A/2, x2 = 220 - LL/2;
+    $('boxSvg').innerHTML =
+      `<rect x="${x1}" y="${cy-A/2}" width="${A}" height="${A}" fill="var(--pumpkin-soft)" stroke="var(--ink)" stroke-width="1.5"/>
+       <line x1="${x1}" y1="${cy-A/2}" x2="${x1+A}" y2="${cy+A/2}" stroke="var(--teal)" stroke-width="1.5" stroke-dasharray="4 3"/>
+       <line x1="${x1+A}" y1="${cy-A/2}" x2="${x1}" y2="${cy+A/2}" stroke="var(--teal)" stroke-width="1.5" stroke-dasharray="4 3"/>
+       <rect x="${x2}" y="${cy-LL/2}" width="${LL}" height="${LL}" fill="var(--card)" stroke="var(--pumpkin)" stroke-width="2"/>
+       <rect x="${x2+g*s}" y="${cy-LL/2+g*s}" width="${A}" height="${A}" fill="none" stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="3 3"/>
+       <g font-family="JetBrains Mono, monospace" font-size="11" fill="var(--ink)" text-anchor="middle">
+         <text x="80" y="${cy+A/2+18}">đáy ${a} cm</text>
+         <text x="220" y="${cy+LL/2+18}">nắp ${vn(L,1)} cm</text>
+       </g>`;
+  }
+  ['d1','d2'].forEach(id => $(id).addEventListener('input', kite));
+  ['ba','bg'].forEach(id => $(id).addEventListener('input', box));
+  kite(); box();
+
+  /* Đổi bối cảnh */
+  const SW = {
+    halloween:{g:'Toán 8', p:'Diều hình thoi, hộp quà đáy hình vuông', m:'Định nghĩa, tính chất, dấu hiệu nhận biết hình thoi, hình vuông (SGK Toán 8 tập 1, tr.67–72); định lí Pythagore; diện tích hình thoi', n:'Đây là bài học minh họa của chuyên đề.'},
+    trungthu:{g:'Toán 6', p:'Đèn lồng có mặt hình lục giác đều, khay bánh hình vuông', m:'Tam giác đều, hình vuông, lục giác đều: nhận biết, vẽ, chu vi, diện tích', n:'Gợi ý để tổ tham khảo. Thầy cô đối chiếu yêu cầu cần đạt trong SGK trước khi dùng.'},
+    '2011':{g:'Toán 7', p:'Hộp quà tặng thầy cô dạng hình hộp chữ nhật hoặc lăng trụ đứng tam giác', m:'Hình hộp chữ nhật, hình lăng trụ đứng: diện tích xung quanh, thể tích, hình khai triển', n:'Gợi ý để tổ tham khảo. Thầy cô đối chiếu yêu cầu cần đạt trong SGK trước khi dùng.'},
+    tet:{g:'Toán 8', p:'Đèn lồng, hộp mứt dạng hình chóp tứ giác đều', m:'Hình chóp tứ giác đều: diện tích xung quanh, thể tích, hình khai triển', n:'Gợi ý để tổ tham khảo. Thầy cô đối chiếu yêu cầu cần đạt trong SGK trước khi dùng.'}
+  };
+  const tabs = [...document.querySelectorAll('#swap [role=tab]')];
+  function show(k){
+    const d = SW[k];
+    $('swGrade').textContent = d.g; $('swProd').textContent = d.p; $('swMath').textContent = d.m; $('swNote').textContent = d.n;
+    tabs.forEach(b => b.setAttribute('aria-selected', b.dataset.k === k ? 'true' : 'false'));
+  }
+  tabs.forEach(b => b.addEventListener('click', () => show(b.dataset.k)));
+  show('halloween');
+
+  /* Tự kiểm */
+  const KEY = 'stem-toan-vts-tu-kiem';
+  const boxes = [...document.querySelectorAll('#checklist input')];
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e) { saved = {}; }
+  function render(){
+    const n = boxes.filter(b => b.checked).length;
+    $('ckCount').textContent = n + '/' + boxes.length;
+    $('ckBar').style.width = (n/boxes.length*100) + '%';
+    boxes.forEach(b => b.closest('label').classList.toggle('done', b.checked));
+  }
+  boxes.forEach(b => {
+    b.checked = !!saved[b.id];
+    b.addEventListener('change', () => { saved[b.id] = b.checked; try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch(e) {} render(); });
+  });
+  $('ckReset').addEventListener('click', () => { boxes.forEach(b => b.checked = false); saved = {}; try { localStorage.removeItem(KEY); } catch(e) {} render(); });
+  render();
+
+  /* Trình lên khung bài học */
+  const F = id => ($(id).value || '').trim();
+  function plan(){
+    const mon=F('bMon')||'…', lop=F('bLop')||'…', bai=F('bBai')||'…', kt=F('bKT')||'…', vd=F('bVD')||'…', sp=F('bSP')||'…', nhom=F('bNhom')||'…';
+    const tc=F('bTC').split('\n').map(x=>x.trim()).filter(Boolean);
+    const tiet=+$('bTiet').value, ct=$('bCT').value;
+    const ctTxt = ct==='b2' ? 'buổi học thứ hai, có giáo viên hướng dẫn' : ct==='nha' ? 'ở nhà trong 1–2 tuần (chỉ giao phần không có bước nguy hiểm, báo cha mẹ học sinh)' : 'trên lớp';
+    const L=[];
+    L.push('BÀI HỌC STEM: '+sp.toUpperCase());
+    L.push('Môn '+mon+' – Lớp '+lop+' · Bài: '+bai+' · '+tiet+' tiết chính khóa · '+nhom+' nhóm');
+    L.push('Căn cứ: CV 3089/BGDĐT-GDTrH; khung KHBD Phụ lục IV CV 5512.');
+    L.push('');
+    L.push('I. MỤC TIÊU');
+    L.push('1. Kiến thức (yêu cầu cần đạt – ghi theo SGV/SGK, có số trang): '+kt+'.');
+    L.push('2. Năng lực: vận dụng kiến thức '+mon+' giải quyết vấn đề thực tiễn; hợp tác, giao tiếp; thiết kế, chế tạo sản phẩm.');
+    L.push('3. Phẩm chất: chăm chỉ, trung thực khi ghi số liệu, trách nhiệm với phần việc trong nhóm.');
+    L.push('');
+    L.push('II. VẤN ĐỀ VÀ TIÊU CHÍ SẢN PHẨM');
+    L.push('Vấn đề: '+vd+'.');
+    L.push('Sản phẩm: '+sp+'.');
+    L.push('Tiêu chí:');
+    (tc.length?tc:['…']).forEach((t,i)=>L.push('  '+(i+1)+'. '+t));
+    L.push('');
+    L.push('III. TIẾN TRÌNH (5 hoạt động STEM)');
+    const T1 = 'Tiết 1';
+    const TL = tiet>=2 ? 'Tiết '+tiet+' (tiết luyện tập)' : 'Cuối tiết 1 / tiết luyện tập kế tiếp trong KHDH';
+    L.push('HĐ1. Xác định vấn đề – '+T1+' (Mở đầu, khoảng 5–7 phút)');
+    L.push('  GV giao vấn đề và Phiếu 1 (tiêu chí). HS xác định cần biết kiến thức gì.');
+    L.push('HĐ2. Nghiên cứu kiến thức nền, đề xuất giải pháp – '+T1+' (Hình thành kiến thức)');
+    L.push('  HS khám phá, GV chốt theo SGK: '+kt+'. HS phác thảo ý tưởng (Phiếu 2).');
+    L.push('HĐ3. Lựa chọn giải pháp – cuối '+(tiet>=3?'tiết 2':'tiết 1')+' và '+ctTxt);
+    L.push('  Nhóm lập bản thiết kế có kích thước, giải thích bằng kiến thức đã học (Phiếu 3); phân vai: trưởng nhóm, kĩ sư thiết kế, thư kí tính toán, thợ chế tạo, người thuyết trình.');
+    L.push('HĐ4. Chế tạo, thử nghiệm, đánh giá – '+ctTxt);
+    L.push('  Chế tạo theo bản thiết kế, thử, ghi số liệu, sửa (Phiếu 4). Ghi lại quá trình bằng ảnh, video.');
+    L.push('HĐ5. Chia sẻ, thảo luận, điều chỉnh – '+TL+' (Luyện tập, Vận dụng)');
+    L.push('  • Bài tập tự luận cá nhân: lời giải là căn cứ cho thông số sản phẩm.');
+    L.push('  • Đo kiểm sản phẩm, đối chiếu với kết quả tính / tiêu chí.');
+    L.push('  • Nhóm báo cáo; các nhóm phản biện bằng kiến thức '+mon+'.');
+    L.push('  • GV chốt kiến thức, HS nêu điều chỉnh, làm Phiếu 5 (tự đánh giá).');
+    L.push('');
+    L.push('IV. ĐÁNH GIÁ');
+    L.push('Rubric công bố từ HĐ1: kiến thức · thiết kế · sản phẩm · thử nghiệm, cải tiến · trình bày, phản biện · phần việc cá nhân.');
+    L.push('Kết hợp GV đánh giá, đánh giá đồng đẳng, tự đánh giá; bài tự luận cá nhân để đánh giá từng HS (TT 22/2021).');
+    L.push('');
+    L.push('V. AN TOÀN, VẬT LIỆU');
+    L.push('Phiếu an toàn đọc ở HĐ1; dụng cụ cắt, súng keo có GV giám sát; không dùng điện lưới 220 V.');
+    L.push('Vật liệu tái chế, sẵn có; danh mục ghi: tên · số lượng/nhóm · nguồn (trường có / tái chế).');
+    $('bOut').textContent = L.join('\n');
+  }
+  $('bForm').addEventListener('input', plan);
+  $('bForm').addEventListener('submit', e => e.preventDefault());
+  plan();
+  $('bCopy').addEventListener('click', () => {
+    const txt = $('bOut').textContent, btn = $('bCopy');
+    const done = () => { btn.textContent = 'Đã sao chép'; setTimeout(() => btn.textContent = 'Sao chép', 1800); };
+    const sel = () => { const r = document.createRange(); r.selectNodeContents($('bOut')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Đã chọn, nhấn Ctrl+C'; };
+    try { navigator.clipboard.writeText(txt).then(done, sel); } catch(e) { sel(); }
+  });
+
+  /* Đánh dấu mục đang xem trên thanh điều hướng */
+  const links = [...document.querySelectorAll('nav.top a[href^="#"]')].filter(a => !a.classList.contains('brand'));
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
+    }), {rootMargin:'-40% 0px -55% 0px'});
+    document.querySelectorAll('main section').forEach(s => io.observe(s));
+  }
+})();
+</script>
+
+</body>
+</html>
