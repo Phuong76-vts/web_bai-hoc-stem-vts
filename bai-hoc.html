@@ -1,6 +1,12 @@
 <!doctype html>
 <html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Bài học STEM của tổ</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%23ff8a3d%22/%3E%3Cstop offset=%221%22 stop-color=%22%23a855f7%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon points=%2232,2 60,32 32,62 4,32%22 fill=%22url(%23g)%22/%3E%3Ctext x=%2232%22 y=%2240%22 font-size=%2220%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22 font-weight=%22bold%22%3ES%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#1c1250">
+<meta property="og:title" content="18 bài học STEM · Tổ KHTN THCS Võ Thị Sáu">
+<meta property="og:description" content="Kế hoạch bài dạy STEM Toán, KHTN, Công nghệ, Tin học lớp 6–9, năm học 2026 – 2027.">
+<meta property="og:type" content="website">
+<meta name="description" content="Kế hoạch bài dạy STEM Toán, KHTN, Công nghệ, Tin học lớp 6–9, năm học 2026 – 2027.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
@@ -119,8 +125,137 @@ details[open] summary{margin-bottom:8px}
 .intro{background:var(--night);color:var(--night-ink);border-radius:14px;padding:22px clamp(18px,4vw,32px);display:grid;gap:8px}
 .intro h1{font-size:clamp(1.6rem,4vw,2.4rem);color:var(--night-ink)}
 .intro p{color:var(--night-soft);max-width:70ch}
+</style>
+<style id="hoi">.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.rv.in{opacity:1;transform:none}
+
+.layout > *{min-width:0}.lh2 > div{min-width:0;flex:1 1 220px}.lh2 h2,.lh2 .tag{overflow-wrap:anywhere}
+@media (max-width:900px){.layout{grid-template-columns:minmax(0,1fr)!important}}
+
+/* ===== Lớp màu "Đêm hội Kỹ sư nhí" — dùng chung cho mọi trang ===== */
+:root{--violet:#6d28d9;--magenta:#d6246e;--sun:#f5a300;--sky:#1d7fd6;--lime:#16a34a;
+  --hoi:linear-gradient(120deg,#ff8a3d 0%,#ff4f8b 45%,#a855f7 100%);
+  --hoi-soft:linear-gradient(120deg,rgba(255,138,61,.14),rgba(255,79,139,.12),rgba(168,85,247,.14));
+  --s-c:#0e9f8e;--t-c:#1d7fd6;--e-c:#8b3fd9;--m-c:#e8590c;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--s-c:#3dd6c3;--t-c:#5fb0ff;--e-c:#b98cff;--m-c:#ff9a52}}
+:root[data-theme="dark"]{--s-c:#3dd6c3;--t-c:#5fb0ff;--e-c:#b98cff;--m-c:#ff9a52}
+.grad{background:var(--hoi);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* Thanh điều hướng, thanh trên */
+nav.top,.topbar{background:linear-gradient(90deg,#140f33,#26145a 55%,#3a1450)!important;box-shadow:0 2px 0 0 rgba(255,138,61,.5)}
+nav.top a.brand{background:var(--hoi);color:#fff!important;border-radius:999px}
+
+/* Hero đêm hội */
+.hero{background:radial-gradient(900px 500px at 85% 10%,rgba(168,85,247,.45),transparent 60%),radial-gradient(700px 480px at 5% 100%,rgba(255,79,139,.35),transparent 60%),radial-gradient(500px 400px at 50% 50%,rgba(255,138,61,.18),transparent 70%),linear-gradient(160deg,#0f0b2e,#1c1250 50%,#2a0f3f)!important}
+.hero h1 .o{background:var(--hoi);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .morph{background:rgba(34,24,82,.72);backdrop-filter:blur(6px);border:1px solid rgba(255,138,61,.35);box-shadow:0 20px 60px -20px rgba(255,79,139,.55)}
+.sky{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.sky svg{position:absolute;opacity:.9;animation:bay 9s ease-in-out infinite}
+.sky .s1{left:4%;top:12%;width:46px;animation-delay:-2s}
+.sky .s2{right:14%;top:3%;width:30px;animation-delay:-5s}
+.sky .s3{right:6%;bottom:10%;width:40px;animation-delay:-1s}
+.sky .s4{left:50%;top:4%;width:26px;animation-delay:-7s}
+.sky .s5{right:40%;top:30%;width:18px;animation-delay:-3s}
+.sky .st{width:8px;height:8px;border-radius:50%;background:#ffe9a8;position:absolute;box-shadow:0 0 10px 2px rgba(255,220,140,.7);animation:nhay 3s ease-in-out infinite}
+@keyframes bay{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-14px) rotate(6deg)}}
+@keyframes nhay{0%,100%{opacity:.25}50%{opacity:1}}
+.school{display:inline-flex;align-items:center;gap:10px;margin-bottom:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 14px 6px 6px;font-weight:700;font-size:.9rem;color:#fff}
+.school i{width:30px;height:30px;border-radius:50%;background:var(--hoi);display:grid;place-items:center;font-style:normal;font-family:var(--font-display);font-weight:800;font-size:.8rem}
+.cta{background:var(--hoi)!important;color:#fff!important;box-shadow:0 10px 26px -10px rgba(255,79,139,.8);transition:transform .2s}
+.cta:hover{transform:translateY(-2px)}
+.cta.ghost{background:transparent!important;border:2px solid #ffb37d;color:#ffd9bd!important;box-shadow:none;margin-left:8px}
+.ctas{display:flex;flex-wrap:wrap;gap:0 4px;align-items:center}
+
+/* Dải S T E M */
+.stemband{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.stemband div{padding:20px 18px;color:#fff;display:grid;gap:4px;align-content:start;min-width:0}
+.stemband div:nth-child(1){background:linear-gradient(140deg,#0e9f8e,#0b7a6e)}
+.stemband div:nth-child(2){background:linear-gradient(140deg,#1d7fd6,#1660a8)}
+.stemband div:nth-child(3){background:linear-gradient(140deg,#8b3fd9,#6a28b0)}
+.stemband div:nth-child(4){background:linear-gradient(140deg,#f07a1f,#d6246e)}
+.stemband b{font-family:var(--font-display);font-size:2.6rem;line-height:1;font-weight:800}
+.stemband span{font-weight:700}
+.stemband p{font-size:.88rem;opacity:.92}
+
+/* Con số */
+.numbers{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:28px}
+.numbers div{background:var(--card);border-radius:16px;padding:18px 16px;border:1px solid var(--line);position:relative;overflow:hidden;min-width:0}
+.numbers div::before{content:"";position:absolute;inset:0 0 auto;height:5px;background:var(--hoi)}
+.numbers b{font-family:var(--font-display);font-size:2.4rem;line-height:1;font-weight:800;background:var(--hoi);-webkit-background-clip:text;background-clip:text;color:transparent;display:block}
+.numbers span{font-size:.88rem;color:var(--ink-soft)}
+
+/* Căn cứ văn bản */
+.canu{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:10px}
+.canu div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:12px 14px;display:grid;gap:4px;align-content:start;min-width:0}
+.canu .so{font-family:var(--font-mono);font-size:.76rem;font-weight:700;color:#ffb37d;letter-spacing:.03em}
+.canu b{color:#fff;font-size:.95rem;line-height:1.3}
+.canu p{font-size:.84rem!important;color:var(--night-soft)}
+.canu .new{border-color:#ff7eb0;background:rgba(255,79,139,.14)}
+.canu .new .so::after{content:" · MỚI";color:#ff7eb0}
+
+/* Tiêu đề mục, khối, thẻ */
+.head .num{display:inline-block;justify-self:start;background:var(--hoi);color:#fff!important;border-radius:999px;padding:3px 12px;font-size:.82rem}
+.head h2::after{content:"";display:block;width:84px;height:6px;border-radius:6px;background:var(--hoi);margin-top:12px}
+.part{background:radial-gradient(600px 300px at 100% 0%,rgba(255,79,139,.35),transparent 70%),linear-gradient(135deg,#1a1150,#3b1466)!important;box-shadow:0 24px 50px -28px rgba(109,40,217,.8)}
+.box,.form,.stage,.shift,.problem,.panel,.mcell,.doc,.sheet,.check label,.cycle div,.pillar,.rep,.act{transition:transform .2s,box-shadow .2s}
+.box:hover,.form:hover,.stage:hover,.shift:hover,.problem:hover,.pillar:hover,.doc:hover,.rep:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(109,40,217,.55)}
+.build4 > div:nth-child(1) .n,.smat div:nth-child(1) .L{color:var(--s-c)}
+.build4 > div:nth-child(2) .n,.smat div:nth-child(2) .L{color:var(--t-c)}
+.build4 > div:nth-child(3) .n,.smat div:nth-child(3) .L{color:var(--e-c)}
+.build4 > div:nth-child(4) .n,.smat div:nth-child(4) .L{color:var(--m-c)}
+.principles > div:nth-child(1){border-top:5px solid var(--s-c)}
+.principles > div:nth-child(2){border-top:5px solid var(--e-c)}
+.principles > div:nth-child(3){border-top:5px solid var(--m-c)}
+.observe div{background:linear-gradient(150deg,#1c1250,#3b1466)!important}
+.observe .n{background:var(--hoi);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+.doc .ic{background:var(--hoi)!important;color:#fff!important}
+footer{background:linear-gradient(120deg,#140f33,#3a1450)!important}
+
+/* Thẻ nổi bật: tiết minh họa */
+.feature{margin-top:18px;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:0;border-radius:20px;overflow:hidden;text-decoration:none;color:#fff;background:linear-gradient(135deg,#1c1250,#4a1670 60%,#a3245f);box-shadow:0 24px 50px -24px rgba(214,36,110,.7);transition:transform .2s}
+.feature:hover{transform:translateY(-3px)}
+.feature .ftxt{padding:24px 26px;display:grid;gap:10px;align-content:start}
+.feature .k{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:#ffb37d;font-weight:700}
+.feature h3{font-size:clamp(1.3rem,3vw,1.75rem);font-weight:800;color:#fff}
+.feature p{color:#e6dcff;font-size:.95rem}
+.feature .chips{display:flex;flex-wrap:wrap;gap:6px}
+.feature .chips span{font-size:.78rem;font-weight:700;border-radius:999px;padding:3px 10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2)}
+.feature .go{justify-self:start;background:var(--hoi);border-radius:10px;padding:9px 16px;font-weight:700}
+.feature .fart{display:grid;place-items:center;padding:18px;background:radial-gradient(circle at 50% 45%,rgba(255,138,61,.35),transparent 65%)}
+.feature .fart svg{width:100%;max-width:260px;height:auto}
+
+/* Trang kế hoạch bài dạy */
+article.sheet{box-shadow:0 30px 60px -40px rgba(109,40,217,.55)}
+.title .k{background:var(--hoi);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+.title h1{background:linear-gradient(120deg,var(--ink) 30%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+div.facts{border:0!important;background:var(--hoi-soft)}
+div.facts b{color:var(--ink)}
+section > h2{border-bottom:0!important;position:relative;padding-bottom:12px!important}
+section > h2::after{content:"";position:absolute;left:0;bottom:0;width:72px;height:5px;border-radius:5px;background:var(--hoi)}
+.lab > .lh h2::after,.lab h2::after{display:none}
+.part-hd{background:linear-gradient(110deg,#1c1250,#4a1670)!important}
+.part-hd.key{background:var(--hoi)!important}
+.act{border-left:5px solid var(--e-c)}
+.act:nth-of-type(5n+1){border-left-color:var(--m-c)}
+.act:nth-of-type(5n+2){border-left-color:var(--s-c)}
+.act:nth-of-type(5n+3){border-left-color:var(--t-c)}
+.act:nth-of-type(5n+4){border-left-color:var(--e-c)}
+.act:nth-of-type(5n){border-left-color:#d6246e}
+.act > .ah{background:var(--hoi-soft)!important}
+section.lab{background:radial-gradient(500px 260px at 100% 0%,rgba(255,79,139,.3),transparent 70%),linear-gradient(140deg,#140f33,#2c1460)!important}
+.toc a:hover{border-left-color:#ff4f8b!important}
+.stem4 div:nth-child(1){border-top-color:var(--s-c)!important}.stem4 div:nth-child(1) b{color:var(--s-c)}
+.stem4 div:nth-child(2){border-top-color:var(--t-c)!important}.stem4 div:nth-child(2) b{color:var(--t-c)}
+.stem4 div:nth-child(3){border-top-color:var(--e-c)!important}.stem4 div:nth-child(3) b{color:var(--e-c)}
+.stem4 div:nth-child(4){border-top-color:var(--m-c)!important}.stem4 div:nth-child(4) b{color:var(--m-c)}
+.rep{border-top:4px solid var(--e-c)}
+.rep:nth-child(1){border-top-color:var(--m-c)}.rep:nth-child(2){border-top-color:#d6246e}.rep:nth-child(3){border-top-color:var(--t-c)}.rep:nth-child(4){border-top-color:var(--s-c)}
+
+@media (max-width:860px){.stemband{grid-template-columns:repeat(2,minmax(0,1fr))}.numbers{grid-template-columns:repeat(2,minmax(0,1fr))}.canu{grid-template-columns:repeat(2,minmax(0,1fr))}.feature{grid-template-columns:1fr}.feature .fart{display:none}}
+@media (max-width:600px){.canu{grid-template-columns:1fr}.stemband b{font-size:2rem}.cta.ghost{margin-left:0}}
+@media (max-width:600px){.sky svg{opacity:.35}}
+@media (prefers-reduced-motion: reduce){.sky svg,.sky .st{animation:none!important}}
 </style></head><body>
-<div class="topbar"><div class="in"><a href="./#ban-do">← Về trang Dạy học STEM</a><span>Tổ KHTN · THCS Võ Thị Sáu · 2026 – 2027</span></div></div>
+<div class="topbar"><div class="in"><a href="./#ban-do">← Về trang Dạy học STEM</a><span>Tổ KHTN · THCS Võ Thị Sáu · 2026 – 2027</span><a href="tiet-minh-hoa.html" style="color:#ffd27d">★ Tiết dạy minh họa Toán 8</a></div></div>
 <div class="layout"><nav class="toc" aria-label="Danh sách bài học"><b>18 bài học STEM</b><span class="grp">Toán</span><a class="sub" href="#toan6">Toán 6 · Bản đồ lớp học thu nhỏ</a><a class="sub" href="#toan7">Toán 7 · Pizza Toán học – Chia sẻ công bằng</a><a class="sub" href="#toan8a">Toán 8 · Thống kê và biểu đồ vui nhộn</a><a class="sub" href="#toan8b">Toán 8 · Ứng dụng hàm số bậc nhất vào thiết kế cầu</a><a class="sub" href="#toan9">Toán 9 · Thiết kế cầu vòm parabol với hàm số y = ax²</a><span class="grp">KHTN</span><a class="sub" href="#khtn6">KHTN 6 · Cầu giấy chịu lực</a><a class="sub" href="#khtn7">KHTN 7 · Kính tiềm vọng – phản xạ ánh sáng trên gương phẳng</a><a class="sub" href="#khtn8a">KHTN 8 · Mô hình hệ tuần hoàn</a><a class="sub" href="#khtn8b">KHTN 8 · Sự nở vì nhiệt của kim loại</a><a class="sub" href="#khtn9">KHTN 9 · Nước rửa tay sinh học từ thảo mộc</a><span class="grp">Công nghệ</span><a class="sub" href="#cn6">Công nghệ 6 · Bao bì sinh học từ lá sen</a><a class="sub" href="#cn7">Công nghệ 7 · Trồng rau thủy canh trong chai nhựa</a><a class="sub" href="#cn8">Công nghệ 8 · Nhà chống bão mini từ vật liệu tái chế</a><a class="sub" href="#cn8b">Công nghệ 8 · Hệ thống tưới nước nhỏ giọt tự động</a><span class="grp">Tin học</span><a class="sub" href="#tin6">Tin học 6 · Lập trình trò chơi học tập bằng Scratch</a><a class="sub" href="#tin7">Tin học 7 · Thiết kế poster STEM bằng Canva</a><a class="sub" href="#tin8">Tin học 8 · Lập trình mô phỏng chuyển động</a><a class="sub" href="#tin9">Tin học 9 · Ứng dụng AI phân loại rác</a><span class="grp">Chuyên đề thành phố</span><a class="sub" href="bai-mau.html">Toán 8 · Hình thoi – Hình vuông ↗</a></nav>
 <div class="stack">
 <div class="intro"><span class="eyebrow" style="color:var(--glow)">Kế hoạch bài dạy</span><h1>18 bài học STEM của Tổ KHTN</h1><p>Mỗi bài theo 5 hoạt động của Công văn 3089/BGDĐT-GDTrH: 2 tiết chính khóa và 1 buổi chế tạo, tiết 2 là tiết luyện tập có bài tập gắn với sản phẩm. Cả 18 bài đã đối chiếu SGK bộ Kết nối tri thức, ghi rõ bài và số trang. Mỗi bài có bản Word để chỉnh sửa.</p></div>
@@ -449,4 +584,26 @@ details[open] summary{margin-bottom:8px}
 <p>Rubric 3 phần, công bố từ HĐ1: (1) kiến thức được vận dụng (bản thiết kế, số liệu, lời giải); (2) chất lượng sản phẩm theo tiêu chí ở mục II; (3) báo cáo, phản biện, hợp tác. Mỗi phần 3 mức: chưa đạt, đạt, tốt. Kết hợp GV đánh giá, đánh giá đồng đẳng, tự đánh giá; bài tập cá nhân ở tiết 2 là căn cứ đánh giá từng HS (Thông tư 22/2021/TT-BGDĐT).</p>
 <h3>VIII. An toàn</h3><ul><li>Rác dùng làm mẫu phải sạch; rửa tay sau khi thao tác; không chụp ảnh người khi chưa được đồng ý.</li><li>Đọc phiếu an toàn ở Hoạt động 1; dụng cụ cắt, dán nóng có giáo viên giám sát.</li></ul>
 </article>
-</div></div></body></html>
+</div></div><script>
+/* Hiệu ứng hiện dần khi cuộn và con số tự chạy */
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var sel='main section .head, .box, .form, .stage, .shift, .problem, .pillar, .doc, .mcell, .numbers > div, .stemband > div, .feature, .oneperiod, .act, .rep, .stem4 > div, .lesson, .principles > div, .build4 > div, .take';
+  var els=[].slice.call(document.querySelectorAll(sel));
+  if(!reduce){
+    els.forEach(function(e){e.classList.add('rv')});
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e)});
+  }
+  var nums=[].slice.call(document.querySelectorAll('.numbers b'));
+  var io2=new IntersectionObserver(function(es){es.forEach(function(x){
+    if(!x.isIntersecting) return; io2.unobserve(x.target);
+    var t=x.target.textContent.trim(); if(!/^\d+$/.test(t)||reduce) return;
+    var n=+t,i=0,st=performance.now();
+    (function f(now){var k=Math.min(1,(now-st)/900);x.target.textContent=Math.round(n*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f)})(st);
+  })});
+  nums.forEach(function(e){io2.observe(e)});
+})();
+</script>
+</body></html>

@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tiết minh họa Toán 8</title>
+<meta name="description" content="Kế hoạch bài dạy tiết minh họa chuyên đề Toán cấp thành phố: vận dụng tính chất hình thoi, hình vuông trong thiết kế sản phẩm STEM – Trường THCS Võ Thị Sáu, Hải Phòng.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%23ff8a3d%22/%3E%3Cstop offset=%221%22 stop-color=%22%23a855f7%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon points=%2232,2 60,32 32,62 4,32%22 fill=%22url(%23g)%22/%3E%3Ctext x=%2232%22 y=%2240%22 font-size=%2220%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22 font-weight=%22bold%22%3ES%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#1c1250">
+<meta property="og:title" content="Tiết minh họa STEM Toán 8 · THCS Võ Thị Sáu">
+<meta property="og:description" content="Vận dụng tính chất hình thoi, hình vuông trong thiết kế sản phẩm STEM – tiết dạy minh họa lớp 8B1, đối chiếu tiến trình 5 hoạt động theo CV 3089.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Bố cục: một tờ kế hoạch bài dạy đặt trên giấy kẻ ô; mục lục dính bên trái ở màn hình rộng */
+:root{
+  --paper:#f4f6fa; --grid:#e2e7f0; --card:#ffffff; --ink:#151d33; --ink-soft:#4b5670; --line:#d0d8e5;
+  --pumpkin:#c4511a; --pumpkin-soft:#fbe8db; --teal:#0e7268; --teal-soft:#dbf0ec;
+  --night:#161a38; --night-2:#222852; --night-ink:#eef0ff; --night-soft:#aab1db; --glow:#ff8a3d;
+  --font-display:"Bricolage Grotesque","Be Vietnam Pro",system-ui,sans-serif;
+  --font-body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0e1422; --grid:#172036; --card:#141d30; --ink:#e8edf7; --ink-soft:#a5b1c6; --line:#29385a;
+    --pumpkin:#f2884c; --pumpkin-soft:#3a2317; --teal:#55d3c3; --teal-soft:#11302d; --night:#0b0e22; --night-2:#171c3e;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0e1422; --grid:#172036; --card:#141d30; --ink:#e8edf7; --ink-soft:#a5b1c6; --line:#29385a;
+  --pumpkin:#f2884c; --pumpkin-soft:#3a2317; --teal:#55d3c3; --teal-soft:#11302d; --night:#0b0e22; --night-2:#171c3e;
+  color-scheme:dark;
+}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+body{margin:0;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.65}
+img{max-width:100%}[hidden]{display:none!important}
+h1,h2,h3,h4{font-family:var(--font-display);text-wrap:balance;line-height:1.2;margin:0}
+p{margin:0}
+a{color:var(--teal)}
+:focus-visible{outline:3px solid var(--pumpkin);outline-offset:2px;border-radius:4px}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.en{font-family:var(--font-mono);font-size:.82em;font-weight:600;color:var(--teal)}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--night)}
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:6;background:var(--night);color:var(--night-ink)}
+.topbar .in{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:10px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.topbar a{color:var(--glow);text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar span{font-family:var(--font-mono);font-size:.76rem;color:var(--night-soft);letter-spacing:.06em;text-transform:uppercase}
+
+.layout{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px;display:grid;grid-template-columns:220px minmax(0,1fr);gap:28px;align-items:start}
+.toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 64px);display:grid;gap:2px;font-size:.88rem}
+.toc b{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.toc a{text-decoration:none;color:var(--ink-soft);padding:5px 10px;border-left:2px solid var(--line)}
+.toc a:hover{color:var(--ink);border-left-color:var(--pumpkin)}
+.toc a.sub{padding-left:22px;font-size:.84rem}
+
+.sheet{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:clamp(18px,4vw,44px);display:grid;gap:30px;min-width:0}
+.docmeta{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.88rem;color:var(--ink-soft);border-bottom:1px solid var(--line);padding-bottom:14px}
+.docmeta b{color:var(--ink)}
+.title{display:grid;gap:8px;text-align:center}
+.title .k{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--pumpkin);font-weight:600}
+.title h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;letter-spacing:-.015em}
+.title p{color:var(--ink-soft)}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.facts div{padding:12px 14px;border-left:1px solid var(--line);min-width:0}
+.facts div:first-child{border-left:0}
+.facts span{display:block;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.facts b{font-size:.95rem}
+
+section{display:grid;gap:14px;scroll-margin-top:80px}
+h2{font-size:1.45rem;font-weight:800;padding-bottom:6px;border-bottom:2px solid var(--ink)}
+h3{font-size:1.12rem;font-weight:700}
+h4{font-size:1rem;font-weight:700}
+ul,ol{margin:0;padding-left:1.25em;display:grid;gap:5px}
+.note{font-size:.86rem;background:var(--teal-soft);border-radius:8px;padding:10px 12px}
+.flag{font-size:.86rem;background:var(--pumpkin-soft);border-radius:8px;padding:10px 12px}
+
+.part-hd{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;background:var(--night);color:var(--night-ink);border-radius:10px;padding:12px 16px}
+.part-hd h3{color:var(--night-ink)}
+.part-hd span{font-family:var(--font-mono);font-size:.78rem;color:var(--glow)}
+.part-hd.key{background:var(--pumpkin)}
+.part-hd.key span{color:#fff}
+
+.act{border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.act > .ah{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;padding:12px 16px;background:var(--paper);border-bottom:1px solid var(--line)}
+.act > .ah h4{font-size:1.04rem}
+.act > .ah .mono{color:var(--pumpkin);font-weight:600;font-size:.86rem}
+.act .ab{padding:14px 16px;display:grid;gap:12px}
+.abcd{display:grid;grid-template-columns:110px minmax(0,1fr);gap:8px 14px;font-size:.95rem}
+.abcd > b{font-size:.86rem;color:var(--ink-soft)}
+.steps{display:grid;gap:8px}
+.steps > div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;border-top:1px dashed var(--line);padding-top:8px;font-size:.95rem}
+.steps > div > b{color:var(--teal);font-size:.88rem}
+.kbox{border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:8px;padding:12px 14px;display:grid;gap:6px;font-size:.95rem}
+.kbox.sq{border-left-color:var(--pumpkin)}
+
+.tbl{width:100%;border-collapse:collapse;font-size:.92rem;min-width:620px}
+.tbl th,.tbl td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+.tbl th{background:var(--grid);font-family:var(--font-display)}
+.scroll{overflow-x:auto}
+.blank{display:inline-block;min-width:90px;border-bottom:1px dotted var(--ink-soft)}
+.sol{background:var(--paper);border-radius:8px;padding:10px 12px;font-size:.93rem;display:grid;gap:4px}
+details summary{cursor:pointer;font-weight:600;color:var(--teal)}
+details[open] summary{margin-bottom:8px}
+.sign{display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:center;font-size:.92rem;padding-top:10px}
+.sign b{display:block}
+.sign i{color:var(--ink-soft);font-size:.85rem}
+
+
+/* Xưởng kiểm định trình chiếu */
+.lab{background:var(--night);color:var(--night-ink);border-radius:14px;padding:clamp(16px,3vw,26px);display:grid;gap:18px}
+.lab .lh{display:grid;gap:6px}
+.lab .lh .k{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--glow);font-weight:600}
+.lab h2{border:0;padding:0;color:var(--night-ink);font-size:clamp(1.4rem,3vw,1.9rem)}
+.lab .lh p{color:var(--night-soft);max-width:70ch}
+.tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.tool{background:var(--night-2);border:1px solid rgba(170,177,219,.2);border-radius:12px;padding:16px;display:grid;gap:12px;align-content:start;min-width:0}
+.tool h3{color:var(--night-ink)}
+.tool .src{font-family:var(--font-mono);font-size:.72rem;color:var(--night-soft)}
+.tool svg{width:100%;height:auto;display:block}
+.tool label{font-size:.82rem;color:var(--night-soft)}
+.tool input[type=range]{width:100%;accent-color:var(--glow)}
+.verdict{border-radius:10px;padding:12px 14px;background:rgba(255,255,255,.04);border:1px solid rgba(170,177,219,.2);display:grid;gap:4px}
+.verdict b{font-family:var(--font-display);font-size:1.35rem;color:var(--glow)}
+.verdict span{font-size:.9rem;color:var(--night-ink)}
+.inputs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.inputs div{display:grid;gap:2px}
+.inputs input{font:inherit;font-family:var(--font-mono);font-size:.92rem;width:100%;padding:6px 8px;border-radius:8px;border:1px solid rgba(170,177,219,.3);background:var(--night);color:var(--night-ink)}
+.presets{display:flex;flex-wrap:wrap;gap:6px}
+.presets button{font:inherit;font-size:.8rem;font-weight:600;border:1px solid rgba(170,177,219,.35);background:transparent;color:var(--night-ink);border-radius:999px;padding:4px 12px;cursor:pointer}
+.presets button:hover{border-color:var(--glow);color:var(--glow)}
+.checks{display:grid;gap:4px;font-size:.88rem}
+.checks div{display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:8px;align-items:baseline}
+.checks .ok{color:#7ee0c3;font-weight:700}
+.checks .no{color:#ff9d7a;font-weight:700}
+.checks .d{font-family:var(--font-mono);font-size:.8rem;color:var(--night-soft)}
+@media (max-width:900px){.tools{grid-template-columns:1fr}}
+@media (max-width:600px){.inputs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr}
+  .toc{position:static;grid-template-columns:repeat(2,minmax(0,1fr));background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
+  .toc b{grid-column:1 / -1}
+  .toc a.sub{padding-left:10px}
+}
+@media (max-width:600px){
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts div:nth-child(3){border-left:0}
+  .facts div:nth-child(n+3){border-top:1px solid var(--line)}
+  .abcd,.steps > div{grid-template-columns:1fr;gap:2px}
+  .toc{grid-template-columns:1fr}
+  .sign{grid-template-columns:1fr}
+}
+
+/* Bổ sung riêng cho trang tiết minh họa */
+.stem4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.stem4 div{border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:10px;padding:12px;display:grid;gap:6px;align-content:start;font-size:.92rem;min-width:0}
+.stem4 div:nth-child(2n){border-top-color:var(--pumpkin)}
+.stem4 b{font-family:var(--font-display);font-size:1.5rem;line-height:1}
+.stem4 b small{font-family:var(--font-body);font-size:.8rem;font-weight:600;color:var(--ink-soft);margin-left:6px}
+.reports{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.rep{border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;gap:6px;align-content:start;font-size:.93rem;min-width:0}
+.rep .k{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pumpkin);font-weight:600}
+.rep h4{font-size:1.02rem}
+.rep .t{font-family:var(--font-mono);font-size:.8rem;color:var(--teal);font-weight:600}
+.add{border:1px dashed var(--teal);border-radius:10px;padding:12px 14px;display:grid;gap:10px}
+.add > .k{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);font-weight:600}
+.cmp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.cmp figure{margin:0;display:grid;gap:8px;min-width:0}
+.cmp figcaption{font-size:.88rem;color:var(--night-soft)}
+.cmp figcaption b{color:var(--night-ink)}
+.big{font-family:var(--font-display);font-size:1.5rem;color:var(--glow);font-weight:800}
+.ctrl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.ctrl div{display:grid;gap:4px}
+.ctrl label{font-size:.85rem;color:var(--night-soft)}
+.ctrl input[type=range]{width:100%;accent-color:var(--glow)}
+@media (max-width:900px){.stem4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.stem4,.reports,.cmp,.ctrl{grid-template-columns:1fr}}
+</style>
+<style id="hoi">.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.rv.in{opacity:1;transform:none}
+/* Một tiết STEM 45 phút */
+.oneperiod{display:grid;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:6px}
+.op-top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+.op-top b{font-family:var(--font-display);font-size:1.15rem}
+.op-top span{font-family:var(--font-mono);font-size:.74rem;color:var(--ink-soft)}
+.op-pre{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:center;font-size:.9rem;border:1px dashed var(--e-c);border-radius:10px;padding:10px 12px}
+.op-pre i{font-style:normal;font-family:var(--font-mono);font-size:.72rem;font-weight:700;color:#fff;background:var(--e-c);border-radius:6px;padding:3px 8px}
+.op-bar{display:flex;border-radius:12px;overflow:hidden;min-height:64px}
+.op-bar div{color:#fff;padding:8px 10px;display:grid;align-content:center;gap:2px;min-width:0}
+.op-bar b{font-family:var(--font-display);font-size:.98rem;line-height:1.2}
+.op-bar span{font-family:var(--font-mono);font-size:.72rem;opacity:.92}
+.op-bar .h1{background:#e8590c}.op-bar .h2{background:#0e9f8e}.op-bar .h3{background:#1d7fd6}.op-bar .h4{background:#8b3fd9}.op-bar .h5{background:#d6246e}
+.op-list{display:grid;gap:8px}
+.op-list div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;font-size:.92rem;border-top:1px solid var(--line);padding-top:8px}
+.op-list div > b{font-size:.9rem}
+.op-list .t1{color:#e8590c}.op-list .t2{color:#0e9f8e}.op-list .t3{color:#1d7fd6}.op-list .t4{color:#8b3fd9}.op-list .t5{color:#d6246e}
+.op-note{font-size:.84rem;color:var(--ink-soft)}
+.map{width:100%;border-collapse:collapse;font-size:.92rem;min-width:640px}
+.map th,.map td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+.map th{background:var(--hoi-soft);font-family:var(--font-display)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .op-list .t1,:root:not([data-theme="light"]) .op-list .t2,:root:not([data-theme="light"]) .op-list .t3,:root:not([data-theme="light"]) .op-list .t4,:root:not([data-theme="light"]) .op-list .t5{filter:brightness(1.5)}}
+@media (max-width:700px){.op-bar{flex-direction:column}.op-bar div{flex:none!important}.op-list div{grid-template-columns:1fr;gap:2px}}
+
+
+/* ===== Lớp màu "Đêm hội Kỹ sư nhí" — dùng chung cho mọi trang ===== */
+:root{--violet:#6d28d9;--magenta:#d6246e;--sun:#f5a300;--sky:#1d7fd6;--lime:#16a34a;
+  --hoi:linear-gradient(120deg,#ff8a3d 0%,#ff4f8b 45%,#a855f7 100%);
+  --hoi-soft:linear-gradient(120deg,rgba(255,138,61,.14),rgba(255,79,139,.12),rgba(168,85,247,.14));
+  --s-c:#0e9f8e;--t-c:#1d7fd6;--e-c:#8b3fd9;--m-c:#e8590c;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--s-c:#3dd6c3;--t-c:#5fb0ff;--e-c:#b98cff;--m-c:#ff9a52}}
+:root[data-theme="dark"]{--s-c:#3dd6c3;--t-c:#5fb0ff;--e-c:#b98cff;--m-c:#ff9a52}
+.grad{background:var(--hoi);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* Thanh điều hướng, thanh trên */
+nav.top,.topbar{background:linear-gradient(90deg,#140f33,#26145a 55%,#3a1450)!important;box-shadow:0 2px 0 0 rgba(255,138,61,.5)}
+nav.top a.brand{background:var(--hoi);color:#fff!important;border-radius:999px}
+
+/* Hero đêm hội */
+.hero{background:radial-gradient(900px 500px at 85% 10%,rgba(168,85,247,.45),transparent 60%),radial-gradient(700px 480px at 5% 100%,rgba(255,79,139,.35),transparent 60%),radial-gradient(500px 400px at 50% 50%,rgba(255,138,61,.18),transparent 70%),linear-gradient(160deg,#0f0b2e,#1c1250 50%,#2a0f3f)!important}
+.hero h1 .o{background:var(--hoi);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .morph{background:rgba(34,24,82,.72);backdrop-filter:blur(6px);border:1px solid rgba(255,138,61,.35);box-shadow:0 20px 60px -20px rgba(255,79,139,.55)}
+.sky{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.sky svg{position:absolute;opacity:.9;animation:bay 9s ease-in-out infinite}
+.sky .s1{left:4%;top:12%;width:46px;animation-delay:-2s}
+.sky .s2{right:14%;top:3%;width:30px;animation-delay:-5s}
+.sky .s3{right:6%;bottom:10%;width:40px;animation-delay:-1s}
+.sky .s4{left:50%;top:4%;width:26px;animation-delay:-7s}
+.sky .s5{right:40%;top:30%;width:18px;animation-delay:-3s}
+.sky .st{width:8px;height:8px;border-radius:50%;background:#ffe9a8;position:absolute;box-shadow:0 0 10px 2px rgba(255,220,140,.7);animation:nhay 3s ease-in-out infinite}
+@keyframes bay{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-14px) rotate(6deg)}}
+@keyframes nhay{0%,100%{opacity:.25}50%{opacity:1}}
+.school{display:inline-flex;align-items:center;gap:10px;margin-bottom:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 14px 6px 6px;font-weight:700;font-size:.9rem;color:#fff}
+.school i{width:30px;height:30px;border-radius:50%;background:var(--hoi);display:grid;place-items:center;font-style:normal;font-family:var(--font-display);font-weight:800;font-size:.8rem}
+.cta{background:var(--hoi)!important;color:#fff!important;box-shadow:0 10px 26px -10px rgba(255,79,139,.8);transition:transform .2s}
+.cta:hover{transform:translateY(-2px)}
+.cta.ghost{background:transparent!important;border:2px solid #ffb37d;color:#ffd9bd!important;box-shadow:none;margin-left:8px}
+.ctas{display:flex;flex-wrap:wrap;gap:0 4px;align-items:center}
+
+/* Dải S T E M */
+.stemband{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.stemband div{padding:20px 18px;color:#fff;display:grid;gap:4px;align-content:start;min-width:0}
+.stemband div:nth-child(1){background:linear-gradient(140deg,#0e9f8e,#0b7a6e)}
+.stemband div:nth-child(2){background:linear-gradient(140deg,#1d7fd6,#1660a8)}
+.stemband div:nth-child(3){background:linear-gradient(140deg,#8b3fd9,#6a28b0)}
+.stemband div:nth-child(4){background:linear-gradient(140deg,#f07a1f,#d6246e)}
+.stemband b{font-family:var(--font-display);font-size:2.6rem;line-height:1;font-weight:800}
+.stemband span{font-weight:700}
+.stemband p{font-size:.88rem;opacity:.92}
+
+/* Con số */
+.numbers{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:28px}
+.numbers div{background:var(--card);border-radius:16px;padding:18px 16px;border:1px solid var(--line);position:relative;overflow:hidden;min-width:0}
+.numbers div::before{content:"";position:absolute;inset:0 0 auto;height:5px;background:var(--hoi)}
+.numbers b{font-family:var(--font-display);font-size:2.4rem;line-height:1;font-weight:800;background:var(--hoi);-webkit-background-clip:text;background-clip:text;color:transparent;display:block}
+.numbers span{font-size:.88rem;color:var(--ink-soft)}
+
+/* Căn cứ văn bản */
+.canu{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:10px}
+.canu div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:12px 14px;display:grid;gap:4px;align-content:start;min-width:0}
+.canu .so{font-family:var(--font-mono);font-size:.76rem;font-weight:700;color:#ffb37d;letter-spacing:.03em}
+.canu b{color:#fff;font-size:.95rem;line-height:1.3}
+.canu p{font-size:.84rem!important;color:var(--night-soft)}
+.canu .new{border-color:#ff7eb0;background:rgba(255,79,139,.14)}
+.canu .new .so::after{content:" · MỚI";color:#ff7eb0}
+
+/* Tiêu đề mục, khối, thẻ */
+.head .num{display:inline-block;justify-self:start;background:var(--hoi);color:#fff!important;border-radius:999px;padding:3px 12px;font-size:.82rem}
+.head h2::after{content:"";display:block;width:84px;height:6px;border-radius:6px;background:var(--hoi);margin-top:12px}
+.part{background:radial-gradient(600px 300px at 100% 0%,rgba(255,79,139,.35),transparent 70%),linear-gradient(135deg,#1a1150,#3b1466)!important;box-shadow:0 24px 50px -28px rgba(109,40,217,.8)}
+.box,.form,.stage,.shift,.problem,.panel,.mcell,.doc,.sheet,.check label,.cycle div,.pillar,.rep,.act{transition:transform .2s,box-shadow .2s}
+.box:hover,.form:hover,.stage:hover,.shift:hover,.problem:hover,.pillar:hover,.doc:hover,.rep:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(109,40,217,.55)}
+.build4 > div:nth-child(1) .n,.smat div:nth-child(1) .L{color:var(--s-c)}
+.build4 > div:nth-child(2) .n,.smat div:nth-child(2) .L{color:var(--t-c)}
+.build4 > div:nth-child(3) .n,.smat div:nth-child(3) .L{color:var(--e-c)}
+.build4 > div:nth-child(4) .n,.smat div:nth-child(4) .L{color:var(--m-c)}
+.principles > div:nth-child(1){border-top:5px solid var(--s-c)}
+.principles > div:nth-child(2){border-top:5px solid var(--e-c)}
+.principles > div:nth-child(3){border-top:5px solid var(--m-c)}
+.observe div{background:linear-gradient(150deg,#1c1250,#3b1466)!important}
+.observe .n{background:var(--hoi);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+.doc .ic{background:var(--hoi)!important;color:#fff!important}
+footer{background:linear-gradient(120deg,#140f33,#3a1450)!important}
+
+/* Thẻ nổi bật: tiết minh họa */
+.feature{margin-top:18px;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:0;border-radius:20px;overflow:hidden;text-decoration:none;color:#fff;background:linear-gradient(135deg,#1c1250,#4a1670 60%,#a3245f);box-shadow:0 24px 50px -24px rgba(214,36,110,.7);transition:transform .2s}
+.feature:hover{transform:translateY(-3px)}
+.feature .ftxt{padding:24px 26px;display:grid;gap:10px;align-content:start}
+.feature .k{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:#ffb37d;font-weight:700}
+.feature h3{font-size:clamp(1.3rem,3vw,1.75rem);font-weight:800;color:#fff}
+.feature p{color:#e6dcff;font-size:.95rem}
+.feature .chips{display:flex;flex-wrap:wrap;gap:6px}
+.feature .chips span{font-size:.78rem;font-weight:700;border-radius:999px;padding:3px 10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2)}
+.feature .go{justify-self:start;background:var(--hoi);border-radius:10px;padding:9px 16px;font-weight:700}
+.feature .fart{display:grid;place-items:center;padding:18px;background:radial-gradient(circle at 50% 45%,rgba(255,138,61,.35),transparent 65%)}
+.feature .fart svg{width:100%;max-width:260px;height:auto}
+
+/* Trang kế hoạch bài dạy */
+article.sheet{box-shadow:0 30px 60px -40px rgba(109,40,217,.55)}
+.title .k{background:var(--hoi);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+.title h1{background:linear-gradient(120deg,var(--ink) 30%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+div.facts{border:0!important;background:var(--hoi-soft)}
+div.facts b{color:var(--ink)}
+section > h2{border-bottom:0!important;position:relative;padding-bottom:12px!important}
+section > h2::after{content:"";position:absolute;left:0;bottom:0;width:72px;height:5px;border-radius:5px;background:var(--hoi)}
+.lab > .lh h2::after,.lab h2::after{display:none}
+.part-hd{background:linear-gradient(110deg,#1c1250,#4a1670)!important}
+.part-hd.key{background:var(--hoi)!important}
+.act{border-left:5px solid var(--e-c)}
+.act:nth-of-type(5n+1){border-left-color:var(--m-c)}
+.act:nth-of-type(5n+2){border-left-color:var(--s-c)}
+.act:nth-of-type(5n+3){border-left-color:var(--t-c)}
+.act:nth-of-type(5n+4){border-left-color:var(--e-c)}
+.act:nth-of-type(5n){border-left-color:#d6246e}
+.act > .ah{background:var(--hoi-soft)!important}
+section.lab{background:radial-gradient(500px 260px at 100% 0%,rgba(255,79,139,.3),transparent 70%),linear-gradient(140deg,#140f33,#2c1460)!important}
+.toc a:hover{border-left-color:#ff4f8b!important}
+.stem4 div:nth-child(1){border-top-color:var(--s-c)!important}.stem4 div:nth-child(1) b{color:var(--s-c)}
+.stem4 div:nth-child(2){border-top-color:var(--t-c)!important}.stem4 div:nth-child(2) b{color:var(--t-c)}
+.stem4 div:nth-child(3){border-top-color:var(--e-c)!important}.stem4 div:nth-child(3) b{color:var(--e-c)}
+.stem4 div:nth-child(4){border-top-color:var(--m-c)!important}.stem4 div:nth-child(4) b{color:var(--m-c)}
+.rep{border-top:4px solid var(--e-c)}
+.rep:nth-child(1){border-top-color:var(--m-c)}.rep:nth-child(2){border-top-color:#d6246e}.rep:nth-child(3){border-top-color:var(--t-c)}.rep:nth-child(4){border-top-color:var(--s-c)}
+
+@media (max-width:860px){.stemband{grid-template-columns:repeat(2,minmax(0,1fr))}.numbers{grid-template-columns:repeat(2,minmax(0,1fr))}.canu{grid-template-columns:repeat(2,minmax(0,1fr))}.feature{grid-template-columns:1fr}.feature .fart{display:none}}
+@media (max-width:600px){.canu{grid-template-columns:1fr}.stemband b{font-size:2rem}.cta.ghost{margin-left:0}}
+@media (max-width:600px){.sky svg{opacity:.35}}
+@media (prefers-reduced-motion: reduce){.sky svg,.sky .st{animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="in">
+  <a href="./">← Về trang Dạy học STEM</a>
+  <span>Kỹ sư nhí · Tiết dạy minh họa</span>
+  <a href="tai-lieu/06_KHBD_Tiet-minh-hoa_Hinh-thoi-Hinh-vuong.docx" download>Tải bản Word ↓</a>
+</div></div>
+
+<div class="layout">
+  <nav class="toc" aria-label="Mục lục tiết minh họa">
+    <b>Mục lục</b>
+    <a href="#ban-dieu">Bàn so sánh hai cánh diều ★</a>
+    <a href="#chuan">Tiến trình chuẩn của Bộ ★</a>
+    <a href="#muc-tieu">I. Mục tiêu</a>
+    <a class="sub" href="#stem">Định hướng STEM</a>
+    <a href="#thiet-bi">II. Thiết bị, học liệu</a>
+    <a href="#tien-trinh">III. Tiến trình</a>
+    <a class="sub" href="#hd1">HĐ1 · Khởi động</a>
+    <a class="sub" href="#hd2">HĐ2 · Huy động kiến thức</a>
+    <a class="sub" href="#hd3">HĐ3 · Bài tập</a>
+    <a class="sub" href="#hd4">HĐ4 · Thiết kế sản phẩm</a>
+    <a class="sub" href="#hd5">HĐ5 · Mở rộng</a>
+    <a href="#loi-giai">Gợi ý lời giải</a>
+    <a href="bai-mau.html">Bài mẫu 2 tiết ↗</a>
+  </nav>
+
+  <article class="sheet">
+    <div class="docmeta">
+      <span>Trường: <b>THCS Võ Thị Sáu</b> · Tổ: <b>Khoa học tự nhiên</b></span>
+      <span>Giáo viên: <b>Đỗ Thị Quyên</b> · Lớp dạy: <b>8B1</b></span>
+    </div>
+
+    <div class="title">
+      <span class="k">Chuyên đề dạy học môn Toán cấp thành phố · Bài giảng minh họa</span>
+      <h1>Vận dụng tính chất hình thoi, hình vuông trong thiết kế sản phẩm STEM</h1>
+      <p>Tổ chức dạy học môn Toán theo định hướng STEM nhằm phát triển năng lực vận dụng kiến thức toán học vào thực tiễn · Toán 8 · <span class="en">Rhombus · Square</span></p>
+    </div>
+
+    <div class="facts">
+      <div><span>Thời lượng</span><b>01 tiết · 45 phút</b></div>
+      <div><span>Tiến trình</span><b>5 hoạt động</b></div>
+      <div><span>Sản phẩm</span><b>Diều hình thoi · Hộp kẹo hình vuông</b></div>
+      <div><span>Tổ chức</span><b>4 nhóm · 4 hình thức báo cáo</b></div>
+    </div>
+
+    <p class="flag">Đây là kế hoạch bài dạy của tiết lên lớp tại buổi chuyên đề (bản ngày 24/10/2026). Thiết kế đầy đủ của chủ đề "Kỹ sư nhí và đêm hội Halloween" (tiết lý thuyết, làm sản phẩm ở nhà, phiếu học tập, rubric) xem ở <a href="bai-mau.html">Bài STEM mẫu Toán 8</a>.</p>
+
+    <!-- CÔNG CỤ -->
+    <section class="lab" id="ban-dieu">
+      <div class="lh">
+        <span class="k">Trình chiếu ở Hoạt động 5 · Tối ưu vật liệu</span>
+        <h2>Bàn so sánh hai cánh diều</h2>
+        <p>Cùng một tờ giấy hình chữ nhật ABCD (AB &gt; BC). Cánh diều MNPQ nối trung điểm bốn cạnh (Bài toán 1a); cánh diều EBFD có đường chéo EF vuông góc với BD tại O (Bài toán 1b). Kéo để đổi kích thước tờ giấy, xem cánh diều nào dùng được nhiều giấy hơn.</p>
+      </div>
+      <div class="ctrl">
+        <div><label for="ka">AB = <span id="kav" class="mono">80</span> cm</label><input id="ka" type="range" min="30" max="120" step="1" value="80"></div>
+        <div><label for="kb">BC = <span id="kbv" class="mono">60</span> cm</label><input id="kb" type="range" min="20" max="110" step="1" value="60"></div>
+      </div>
+      <div class="cmp">
+        <figure class="tool"><svg id="k1" viewBox="0 0 300 230" role="img" aria-label="Hình thoi MNPQ trong hình chữ nhật"></svg>
+          <figcaption><b>MNPQ</b> · S = AB·BC : 2 = <span class="big mono" id="s1"></span></figcaption></figure>
+        <figure class="tool"><svg id="k2" viewBox="0 0 300 230" role="img" aria-label="Hình thoi EBFD trong hình chữ nhật"></svg>
+          <figcaption><b>EBFD</b> · BE = (AB² + BC²) : (2·AB) = <span class="mono" id="be"></span> · S = BE·BC = <span class="big mono" id="s2"></span></figcaption></figure>
+      </div>
+      <div class="verdict" aria-live="polite"><b id="kName"></b><span id="kWhy"></span></div>
+    </section>
+
+    <section id="chuan">
+      <h2>Đối chiếu tiến trình chuẩn của Bộ</h2>
+      <p>Bài học STEM gồm 5 hoạt động theo Công văn 3089/BGDĐT-GDTrH (mục IV.2). Tiết minh họa là tiết luyện tập – vận dụng; sản phẩm đã được các nhóm chế tạo trước tiết.</p>
+      <div class="oneperiod" id="mot-tiet">
+    <div class="op-top"><b>Bài học STEM trong 1 tiết 45 phút ở THCS</b><span>Theo CV 3089/BGDĐT-GDTrH, mục IV.2 · khung KHBD Phụ lục IV CV 5512</span></div>
+    <div class="op-pre"><i>TRƯỚC TIẾT</i><p>Giao vấn đề và <b>tiêu chí sản phẩm</b> từ tiết trước; các nhóm nghiên cứu, phác thảo và <b>chế tạo mẫu ngoài giờ</b> (CV 3089 cho phép Hoạt động 4, 5 linh hoạt trong và ngoài lớp). Phần ngoài giờ ghi rõ hạn nộp, không giao bước nguy hiểm về nhà.</p></div>
+    <div class="op-bar" role="img" aria-label="Phân bổ 45 phút cho 5 hoạt động">
+      <div class="h1" style="flex:4"><b>HĐ1</b><span>4′</span></div>
+      <div class="h2" style="flex:8"><b>HĐ2 · Kiến thức nền</b><span>8′</span></div>
+      <div class="h3" style="flex:10"><b>HĐ3 · Lựa chọn giải pháp</b><span>10′</span></div>
+      <div class="h4" style="flex:10"><b>HĐ4 · Thử nghiệm, đánh giá</b><span>10′</span></div>
+      <div class="h5" style="flex:13"><b>HĐ5 · Chia sẻ, điều chỉnh</b><span>13′</span></div>
+    </div>
+    <div class="op-list">
+      <div><b class="t1">HĐ1 · Xác định vấn đề</b><p><b>Mở đầu.</b> Tình huống thực tiễn, nhắc lại nhiệm vụ và tiêu chí sản phẩm. Sản phẩm: học sinh nêu được cần dùng kiến thức gì.</p></div>
+      <div><b class="t2">HĐ2 · Nghiên cứu kiến thức nền, đề xuất giải pháp</b><p><b>Hình thành kiến thức.</b> Kiến thức của bài bám SGK; tiết luyện tập thì hệ thống hóa, kiểm chứng. Kết luận dựa trên lập luận, không dựa vào hình vẽ hay kết quả AI.</p></div>
+      <div><b class="t3">HĐ3 · Lựa chọn giải pháp</b><p><b>Hình thành kiến thức / Luyện tập.</b> Học sinh trình bày, bảo vệ bản thiết kế có thuyết minh bằng kiến thức (bài toán, chứng minh, tính toán); giáo viên góp ý, xác nhận tính đúng của kiến thức.</p></div>
+      <div><b class="t4">HĐ4 · Chế tạo mẫu, thử nghiệm, đánh giá</b><p><b>Luyện tập.</b> Mẫu làm sẵn ngoài giờ; trên lớp đo kiểm, thử theo tiêu chí, ghi số liệu.</p></div>
+      <div><b class="t5">HĐ5 · Chia sẻ, thảo luận, điều chỉnh</b><p><b>Vận dụng.</b> Báo cáo, phản biện mang tính bộ môn, nêu một điều chỉnh có lí do; giáo viên chốt kiến thức, giao phần vận dụng, mở rộng.</p></div>
+    </div>
+    <p class="op-note">Số phút là gợi ý của tổ chuyên môn cho tiết 45 phút; CV 3089 không quy định thời lượng từng hoạt động. Mỗi hoạt động trong KHBD ghi đủ: a) mục tiêu, b) nội dung, c) sản phẩm, d) tổ chức thực hiện (giao nhiệm vụ → thực hiện → báo cáo, thảo luận → kết luận, nhận định).</p>
+  </div>
+
+      <div class="scroll"><table class="map">
+        <thead><tr><th>Hoạt động STEM (CV 3089)</th><th>Hoạt động trong tiết minh họa</th><th>Minh chứng trên lớp</th></tr></thead>
+        <tbody>
+          <tr><td><b>HĐ1.</b> Xác định vấn đề</td><td><a href="#hd1">HĐ1. Khởi động, nêu vấn đề thiết kế</a></td><td>Video lễ hội Halloween; câu hỏi “chúng ta có thể tạo ra chúng không?”</td></tr>
+          <tr><td><b>HĐ2.</b> Nghiên cứu kiến thức nền</td><td><a href="#hd2">HĐ2. Huy động kiến thức</a></td><td>Bài vè, sơ đồ tư duy trên Padlet; kiểm chứng kết quả AI bằng lập luận</td></tr>
+          <tr><td><b>HĐ3.</b> Lựa chọn giải pháp</td><td><a href="#hd3">HĐ3. Thực hiện bài tập</a> · phần trình bày phương án ở <a href="#hd4">HĐ4</a></td><td>Phương pháp chứng minh hình thoi, hình vuông làm căn cứ cho thiết kế diều, hộp kẹo</td></tr>
+          <tr><td><b>HĐ4.</b> Chế tạo mẫu, thử nghiệm, đánh giá</td><td>Chế tạo trước tiết · <a href="#hd4">HĐ4</a>: kiểm định, mổ xẻ sản phẩm</td><td>Nhóm bạn đo cạnh, hai xương diều và đọc số đo; đối chiếu tiêu chí</td></tr>
+          <tr><td><b>HĐ5.</b> Chia sẻ, thảo luận, điều chỉnh</td><td><a href="#hd4">HĐ4</a>: bán hàng, gọi vốn · <a href="#hd5">HĐ5. Mở rộng</a></td><td>Phản biện, bỏ phiếu; bài toán tối ưu giấy làm diều giao về nhà</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <!-- I -->
+    <section id="muc-tieu">
+      <h2>I. Mục tiêu</h2>
+      <h3>1. Kiến thức</h3>
+      <p>Học xong bài này, học sinh đạt các yêu cầu sau:</p>
+      <ul>
+        <li>Nhắc lại và vận dụng được định nghĩa, tính chất, dấu hiệu nhận biết của hình thoi và hình vuông.</li>
+        <li>Giải thích được cách sử dụng các tính chất của hình thoi, hình vuông để thiết kế, tạo hình, gấp, ghép hoặc cố định các bộ phận trong sản phẩm.</li>
+        <li>Nhận biết được vai trò của cạnh, góc, đường chéo, tâm đối xứng và trục đối xứng trong quá trình thiết kế sản phẩm.</li>
+        <li>Đánh giá được mức độ chính xác về hình học, tính chắc chắn, tính thẩm mỹ và khả năng sử dụng của sản phẩm STEM.</li>
+        <li>Tích hợp ngôn ngữ Tiếng Anh.</li>
+      </ul>
+      <h3>2. Năng lực</h3>
+      <h4>a) Năng lực chung</h4>
+      <ul>
+        <li><b>Tự chủ và tự học:</b> chủ động chuẩn bị sản phẩm, ôn tập kiến thức nền và hoàn thành nhiệm vụ được giao.</li>
+        <li><b>Giao tiếp và hợp tác:</b> phân công nhiệm vụ, trình bày ý tưởng, lắng nghe và phản hồi ý kiến của nhóm khác.</li>
+        <li><b>Giải quyết vấn đề và sáng tạo:</b> điều chỉnh thiết kế khi sản phẩm chưa cân đối, chưa khít hoặc chưa đáp ứng yêu cầu.</li>
+      </ul>
+      <h4>b) Năng lực Toán học</h4>
+      <ul>
+        <li><b>Tư duy và lập luận toán học:</b> đưa ra căn cứ hình học để giải thích vì sao một bộ phận của sản phẩm có dạng hình thoi hoặc hình vuông.</li>
+        <li><b>Mô hình hóa toán học:</b> chuyển kiến thức hình học thành bản vẽ, nếp gấp, khung hoặc chi tiết cụ thể của sản phẩm.</li>
+        <li><b>Giao tiếp toán học:</b> sử dụng đúng thuật ngữ, ký hiệu và trình bày mạch lạc các tính chất, dấu hiệu nhận biết đã vận dụng.</li>
+        <li><b>Giải quyết vấn đề toán học:</b> phát hiện sai lệch hình học, xác định nguyên nhân và đề xuất cách khắc phục.</li>
+      </ul>
+      <h4>c) Năng lực số</h4>
+      <ul>
+        <li><b>Tiêu chuẩn TC 2.3.1:</b> sử dụng trình chiếu, hình ảnh hoặc video để minh họa quy trình thiết kế; khai thác công cụ số để trình bày và kiểm tra thông tin, đồng thời tự kiểm chứng kết quả bằng kiến thức toán học.</li>
+        <li><b>Tiêu chuẩn 5.2.TC2b (Xác định giải pháp công nghệ):</b> học sinh biết sử dụng phần mềm GeoGebra để vẽ hình minh họa, vận dụng các tính chất hình học kết hợp các giải pháp để tìm ra điều kiện để hình A chuyển thành hình B và biểu đồ thống kê lỗi để xử lý bài toán kỹ thuật, đời sống và sửa sai kiến thức.</li>
+        <li><b>Tiêu chuẩn 6.1.TC2:</b> học sinh thực hiện các thao tác cơ bản trên các công cụ AI.</li>
+      </ul>
+      <h3>3. Phẩm chất</h3>
+      <ul>
+        <li><b>Chăm chỉ:</b> tích cực chuẩn bị, hoàn thiện sản phẩm và tham gia hoạt động báo cáo.</li>
+        <li><b>Trung thực:</b> trình bày đúng quá trình thực hiện, ghi nhận ưu điểm và hạn chế của sản phẩm.</li>
+        <li><b>Trách nhiệm:</b> thực hiện nhiệm vụ được phân công, bảo quản đồ dùng và phối hợp với các thành viên.</li>
+      </ul>
+      <h3 id="stem">4. Định hướng STEM</h3>
+      <div class="stem4">
+        <div><b>S<small>Khoa học</small></b><p>Quan sát, thử nghiệm sản phẩm trong điều kiện phù hợp; mô tả các yếu tố có thể ảnh hưởng đến khả năng sử dụng. Không kết luận về khả năng bay của diều chỉ từ hình dạng khung.</p></div>
+        <div><b>T<small>Công nghệ</small></b><p>Sử dụng công cụ số/AI để tham khảo hoặc trình bày bản thiết kế; kiểm tra, chọn lọc và hiệu chỉnh thông tin.</p></div>
+        <div><b>E<small>Kĩ thuật</small></b><p>Thiết kế, chế tạo, kiểm tra cấu trúc, phát hiện lỗi và đề xuất cải tiến sản phẩm.</p></div>
+        <div><b>M<small>Toán học</small></b><p>Dùng tính chất hình thoi, hình vuông; tính toán kích thước/diện tích; đo đạc, kiểm tra đường chéo, góc vuông, trung điểm và tính đối xứng.</p></div>
+      </div>
+    </section>
+
+    <!-- II -->
+    <section id="thiet-bi">
+      <h2>II. Thiết bị dạy học và học liệu</h2>
+      <h3>1. Chuẩn bị của giáo viên</h3>
+      <ul>
+        <li>Máy tính, tivi/máy chiếu.</li>
+        <li>Bảng tiêu chí đánh giá sản phẩm STEM đã phát từ tiết trước.</li>
+        <li>Phiếu đánh giá của giáo viên, phiếu nhận xét/phản biện giữa các nhóm; bảng tổng hợp điểm.</li>
+        <li>Nguyên vật liệu để học sinh lựa chọn khi thiết kế tạo ra sản phẩm STEM.</li>
+      </ul>
+      <h3>2. Chuẩn bị của học sinh</h3>
+      <ul>
+        <li>Ôn lại định nghĩa, tính chất và dấu hiệu nhận biết hình thoi, hình vuông.</li>
+        <li>Máy tính, điện thoại thông minh.</li>
+        <li>Bút, giấy ghi chú và các vật liệu cần thiết để minh họa hoặc điều chỉnh sản phẩm.</li>
+      </ul>
+    </section>
+
+    <!-- III -->
+    <section id="tien-trinh">
+      <h2>III. Tiến trình dạy học</h2>
+
+      <div class="act" id="hd1">
+        <div class="ah"><h4>Hoạt động 1. Khởi động, nêu vấn đề thiết kế</h4><span class="mono">Xác định vấn đề</span></div>
+        <div class="ab">
+          <div class="abcd">
+            <b>a) Mục tiêu</b><p>Kích thích tò mò, nhận diện về hình thoi, hình vuông và tính chất của hình thoi, hình vuông.</p>
+            <b>b) Nội dung</b><p>Trình chiếu (xem video) hình ảnh các sản phẩm trong lễ hội Halloween. Nêu tình huống: “Qua video trên, các em thấy để trang hoàng cho lễ hội Halloween, người ta đã sử dụng rất nhiều các sản phẩm: diều, hộp kẹo… với nhiều hình dạng khác nhau, trong đó có hình thoi, hình vuông. Vậy chúng ta có thể tạo ra chúng không? Để có thể làm ra các sản phẩm như vậy, cô mời các em vào bài học hôm nay.”</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="act" id="hd2">
+        <div class="ah"><h4>Hoạt động 2. Huy động kiến thức</h4><span class="mono">Kiến thức nền</span></div>
+        <div class="ab">
+          <div class="abcd">
+            <b>a) Mục tiêu</b><div><p>Huy động kiến thức về hình thoi, hình vuông để thực hiện các nhiệm vụ học tập.</p><p>Học sinh nhận thức được rằng hệ thống kiến thức phải dựa trên lập luận và kiểm chứng của con người, không chỉ dựa vào quan sát trực quan hoặc kết quả hỗ trợ từ công cụ số AI.</p></div>
+            <b>b) Nội dung</b><p>Các nhóm hệ thống các kiến thức hình vuông, hình thoi gồm định nghĩa, tính chất, dấu hiệu nhận biết sao cho dễ nhớ, dễ học.</p>
+            <b>c) Sản phẩm</b><p>Kiến thức về hình vuông, hình thoi (bài vè, sơ đồ tư duy).</p>
+          </div>
+          <div class="steps">
+            <div><b>Chuyển giao nhiệm vụ</b><p>Các em suy nghĩ độc lập trong 3 phút để thực hiện nhiệm vụ. Các sản phẩm nộp trên Padlet của lớp. GV gọi một số học sinh báo cáo.</p></div>
+            <div><b>Thực hiện nhiệm vụ</b><p>Học sinh thực hiện theo nhiệm vụ được giao.</p></div>
+            <div><b>Báo cáo, thảo luận</b><p>Gọi 3 học sinh báo cáo; các học sinh khác theo dõi và thảo luận.</p></div>
+            <div><b>Kết luận, nhận định</b><p>Chính xác hóa tính chất, dấu hiệu nhận biết hình thoi, hình vuông; khi sử dụng trí tuệ nhân tạo, học sinh phải biết kiểm tra sản phẩm.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="act" id="hd3">
+        <div class="ah"><h4>Hoạt động 3. Thực hiện bài tập</h4><span class="mono">10 phút</span></div>
+        <div class="ab">
+          <div class="abcd">
+            <b>a) Mục tiêu</b><div><p>Học sinh vận dụng kiến thức về hình vuông, hình thoi để giải bài tập.</p><p>Nêu được phương pháp chứng minh tứ giác là hình vuông, hình thoi.</p></div>
+            <b>b) Nội dung</b><div class="kbox"><p><b>Bài toán 1.</b> Cho hình chữ nhật ABCD (AB &gt; BC). Gọi O là giao điểm hai đường chéo hình chữ nhật và gọi M, N, P, Q là các trung điểm của các cạnh AB, BC, CD, AD tương ứng.</p><p>a) Chứng minh tứ giác MNPQ là hình thoi.</p><p>b) Kẻ đường thẳng d đi qua O và vuông góc với BD, cắt cạnh AB, CD tại E, F tương ứng. Chứng minh tứ giác EBFD là hình thoi.</p></div>
+            <b></b><div class="kbox sq"><p><b>Bài toán 2.</b> Cho hình vuông ABCD. Gọi O là giao điểm hai đường chéo AC và BD. Gọi M, N, P, Q là trung điểm của OA, OB, OC, OD tương ứng.</p><p>a) Chứng minh tứ giác MNPQ là hình vuông.</p><p>b) Gọi E, F, H, K là trung điểm của cạnh AB, BC, CD, DA tương ứng và U, V, T, S là trung điểm của đoạn OE, OF, OH, OK tương ứng. Chứng minh UVTS là hình vuông.</p></div>
+            <b>c) Sản phẩm</b><p>Phương pháp chứng minh tứ giác là hình thoi, hình vuông.</p>
+          </div>
+          <div class="steps">
+            <div><b>Chuyển giao nhiệm vụ</b><p>Chia lớp thành 4 nhóm: nhóm 1, 2 thực hiện Bài toán 1; nhóm 3, 4 thực hiện Bài toán 2; mỗi nhóm thực hiện nhiệm vụ được giao theo cặp. GV trình chiếu nội dung bài tập, thời gian thực hiện 10 phút.</p></div>
+            <div><b>Thực hiện nhiệm vụ</b><p>Học sinh thực hiện nhiệm vụ được giao theo cặp đôi.</p></div>
+            <div><b>Báo cáo, thảo luận</b><p>Đại diện cặp đôi lên báo cáo sản phẩm. Các cặp đôi còn lại theo dõi và thảo luận.</p></div>
+            <div><b>Kết luận, nhận định</b><p>Phương pháp chứng minh tứ giác là hình thoi và hình vuông.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="act" id="hd4">
+        <div class="ah"><h4>Hoạt động 4. Vận dụng thiết kế sản phẩm lễ hội Halloween</h4><span class="mono">10 phút</span></div>
+        <div class="ab">
+          <div class="abcd">
+            <b>a) Mục tiêu</b><div><p>Vận dụng tính chất và dấu hiệu nhận biết hình thoi, hình vuông để thiết kế các sản phẩm phục vụ lễ hội Halloween.</p><p>Học sinh biết kiểm chứng sản phẩm làm ra thông qua các tiêu chí đã xây dựng.</p></div>
+            <b>b) Nội dung</b><div><p>Các nhóm sử dụng giấy và vật liệu được cung cấp để thiết kế hộp đựng quà hoặc con diều theo chủ đề Halloween. Mỗi nhóm thực hiện các yêu cầu:</p><ul><li>Xác định vấn đề.</li><li>Nghiên cứu kiến thức nền và đề xuất giải pháp.</li><li>Chế tạo mẫu và thử nghiệm.</li><li>Chia sẻ, thảo luận, điều chỉnh.</li></ul></div>
+            <b>c) Sản phẩm</b><p>Bản vẽ hoặc sơ đồ thiết kế có chú thích kích thước và các chi tiết hình học. Sản phẩm hộp đựng quà, con diều… Phần giải thích kiến thức toán học đã vận dụng và cách kiểm tra sản phẩm. Quy trình thiết kế một sản phẩm STEM.</p>
+          </div>
+          <div class="steps">
+            <div><b>Chuyển giao nhiệm vụ</b><p>Nhóm 1, 2 làm sản phẩm con diều từ hình thoi; nhóm 3, 4 làm sản phẩm hộp kẹo từ hình vuông. Thời gian 10 phút.</p></div>
+            <div><b>Thực hiện nhiệm vụ</b><p>Các nhóm thực hiện theo nhiệm vụ được giao; đại diện nhóm trình bày phương án làm sản phẩm, các nhóm còn lại theo dõi.</p></div>
+            <div><b>Báo cáo, thảo luận</b><p>Đại diện nhóm trình bày phương án, chỉ ra kiến thức hình học đã vận dụng và giải thích cách kiểm tra sản phẩm. Mỗi nhóm báo cáo theo một hình thức:</p></div>
+          </div>
+          <div class="reports">
+            <div class="rep"><span class="k">Nhóm 1 · Diều hình thoi</span><h4>Kiểm định chất lượng</h4><span class="t">Nói 1 phút</span><p>Nhóm 1 mang đến chiếc diều hình thoi làm từ tờ giấy 80 × 60 cm. Sau đó nhóm 2 lên làm kiểm định viên: đo cạnh và hai xương rồi đọc to số đo.</p></div>
+            <div class="rep"><span class="k">Nhóm 2 · Diều cá đuối QPRM</span><h4>Mổ xẻ sản phẩm</h4><span class="t">Mở đầu 20 giây · giải thích 30 giây</span><p>Nhóm 2 giới thiệu diều cá đuối QPRM, cũng làm từ tờ giấy 80 × 60 cm. Cô bốc thăm một bộ phận, nhóm chỉ đúng trên sản phẩm và giải thích.</p></div>
+            <div class="rep"><span class="k">Nhóm 3 · Hộp kẹo Trick or Treat</span><h4>Thuyết minh như người bán hàng</h4><span class="t">Quảng cáo 1 phút</span><p>Cả lớp là khách hàng. Hộp kẹo gấp từ một tờ giấy vuông 20 × 20 cm, không cắt. Sau phần quảng cáo, khách hàng hỏi như khi đi mua.</p></div>
+            <div class="rep"><span class="k">Nhóm 4 · Hộp kẹo hình vuông</span><h4>Gọi vốn</h4><span class="t">Gọi vốn 1,5 phút · ghế nóng 20 giây</span><p>Cả lớp là nhà đầu tư. Cô chỉ vào một ô trên poster, một bạn ngồi ghế nóng trả lời. Nghe xong, nhà đầu tư bỏ phiếu.</p></div>
+          </div>
+          <div class="steps">
+            <div><b>Kết luận, nhận định</b><ul><li>Học sinh đã tạo ra bản thiết kế và làm sản phẩm theo đúng thiết kế.</li><li>Học sinh nắm vững quy trình làm một sản phẩm STEM.</li><li>Học sinh biết vận dụng kiến thức để tạo ra sản phẩm có ý nghĩa trong cuộc sống.</li></ul></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="act" id="hd5">
+        <div class="ah"><h4>Hoạt động 5. Mở rộng</h4><span class="mono">Giao về nhà</span></div>
+        <div class="ab">
+          <div class="abcd">
+            <b>a) Mục tiêu</b><p>Học sinh liên hệ được kiến thức để thực hiện bài toán tối ưu vật liệu trong thực tế cuộc sống.</p>
+            <b>b) Nội dung</b><p>GV trình chiếu Bài toán 1. So sánh diện tích của hai hình thoi trong phần a và phần b.</p>
+            <b>c) Sản phẩm</b><p>Học sinh biết cách tính diện tích hình thoi và so sánh được diện tích của hai hình thoi.</p>
+          </div>
+          <div class="steps">
+            <div><b>Chuyển giao nhiệm vụ</b><p>Học sinh quan sát lại Bài toán 1: “Hãy so sánh diện tích của hai hình thoi trong bài toán đó. Khi thiết kế chiếc diều từ tờ giấy hình chữ nhật này, sản phẩm đã tối ưu về nguyên vật liệu chưa?”</p></div>
+            <div><b>Thực hiện nhiệm vụ</b><p>Học sinh ghi chép lại nội dung câu hỏi, thực hiện nhiệm vụ về nhà. Tiết sau có thể chữa bằng <a href="#ban-dieu">Bàn so sánh hai cánh diều</a>.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LỜI GIẢI -->
+    <section id="loi-giai">
+      <h2>Gợi ý lời giải</h2>
+      <p class="note">Phần bổ sung trên trang web để thầy cô tham khảo, bản Word của kế hoạch bài dạy không có phần này.</p>
+      <details open><summary>Bài toán 1a · MNPQ là hình thoi</summary><div class="sol">
+        <p>MN là đường trung bình của tam giác ABC nên MN // AC, MN = AC : 2. Tương tự QP // AC, QP = AC : 2. Suy ra MNPQ là hình bình hành.</p>
+        <p>MQ là đường trung bình của tam giác ABD nên MQ = BD : 2. ABCD là hình chữ nhật nên AC = BD, do đó MN = MQ.</p>
+        <p>Hình bình hành có hai cạnh kề bằng nhau là hình thoi.</p></div></details>
+      <details><summary>Bài toán 1b · EBFD là hình thoi</summary><div class="sol">
+        <p>Xét tam giác OBE và tam giác ODF: OB = OD (tính chất đường chéo hình chữ nhật), góc BOE = góc DOF (đối đỉnh), góc OBE = góc ODF (so le trong, AB // CD). Suy ra tam giác OBE = tam giác ODF (g.c.g), nên OE = OF.</p>
+        <p>Tứ giác EBFD có hai đường chéo EF và BD cắt nhau tại trung điểm O của mỗi đường nên là hình bình hành; lại có EF ⊥ BD nên EBFD là hình thoi.</p></div></details>
+      <details><summary>Bài toán 2a · MNPQ là hình vuông</summary><div class="sol">
+        <p>MN là đường trung bình của tam giác OAB nên MN // AB, MN = AB : 2. Tương tự NP = BC : 2, PQ = CD : 2, QM = DA : 2. Bốn cạnh của ABCD bằng nhau nên MN = NP = PQ = QM, MNPQ là hình thoi.</p>
+        <p>MN // AB, NP // BC và AB ⊥ BC nên MN ⊥ NP. Hình thoi có một góc vuông là hình vuông.</p></div></details>
+      <details><summary>Bài toán 2b · UVTS là hình vuông</summary><div class="sol">
+        <p>E, O, H thẳng hàng và EH // AD; F, O, K thẳng hàng và FK // AB, nên EH ⊥ FK tại O. Gọi a là cạnh hình vuông: OE = OF = OH = OK = a : 2.</p>
+        <p>U, V, T, S là trung điểm của OE, OF, OH, OK nên OU = OV = OT = OS = a : 4, U và T nằm trên EH, V và S nằm trên FK.</p>
+        <p>Tứ giác UVTS có hai đường chéo UT, VS cắt nhau tại trung điểm O của mỗi đường, bằng nhau (cùng bằng a : 2) và vuông góc với nhau, nên UVTS là hình vuông.</p></div></details>
+      <details><summary>Hoạt động 5 · So sánh diện tích hai cánh diều</summary><div class="sol">
+        <p>Đặt AB = a, BC = b. Hình thoi MNPQ có hai đường chéo MP = BC = b, NQ = AB = a nên S<sub>MNPQ</sub> = ab : 2, đúng một nửa tờ giấy.</p>
+        <p>Hình thoi EBFD có ED = BE. Tam giác ADE vuông tại A: ED² = AE² + AD², tức BE² = (a − BE)² + b², suy ra BE = (a² + b²) : (2a). S<sub>EBFD</sub> = BE · BC = b(a² + b²) : (2a).</p>
+        <p>Vì a² + b² &gt; a² nên S<sub>EBFD</sub> &gt; S<sub>MNPQ</sub>. Với tờ giấy 80 × 60 cm: S<sub>MNPQ</sub> = 2 400 cm² (50% tờ giấy), BE = 62,5 cm, S<sub>EBFD</sub> = 3 750 cm² (khoảng 78% tờ giấy). Cánh diều EBFD tận dụng giấy tốt hơn.</p></div></details>
+    </section>
+
+    <div class="sign">
+      <div><b>DUYỆT CỦA TỔ CHUYÊN MÔN</b><i>(Kí, ghi rõ họ tên)</i></div>
+      <div><b>GIÁO VIÊN SOẠN</b><i>(Kí, ghi rõ họ tên)</i></div>
+    </div>
+  </article>
+</div>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const vn=(x,d=0)=>x.toLocaleString('vi-VN',{minimumFractionDigits:d,maximumFractionDigits:d});
+  function draw(){
+    let a=+$('ka').value,b=+$('kb').value;
+    if(b>=a){b=a-1;$('kb').value=b;}
+    $('kav').textContent=a;$('kbv').textContent=b;
+    const k=Math.min(260/a,190/b), w=a*k, h=b*k, x0=(300-w)/2, y0=(230-h)/2;
+    const A=[x0,y0],B=[x0+w,y0],C=[x0+w,y0+h],D=[x0,y0+h];
+    const be=(a*a+b*b)/(2*a), E=[x0+w-be*k,y0], F=[x0+be*k,y0+h];
+    const M=[x0+w/2,y0],N=[x0+w,y0+h/2],P=[x0+w/2,y0+h],Q=[x0,y0+h/2];
+    const pt=p=>p.map(v=>v.toFixed(1)).join(',');
+    const lab=(p,t,dx,dy)=>`<text x="${p[0]+dx}" y="${p[1]+dy}" font-family="JetBrains Mono, monospace" font-size="12" fill="#eef0ff">${t}</text>`;
+    const rect=`<rect x="${x0}" y="${y0}" width="${w}" height="${h}" fill="rgba(238,240,255,.04)" stroke="#aab1db" stroke-width="1.5"/>`+lab(A,'A',-14,0)+lab(B,'B',5,0)+lab(C,'C',5,10)+lab(D,'D',-14,10);
+    $('k1').innerHTML=rect+`<polygon points="${pt(M)} ${pt(N)} ${pt(P)} ${pt(Q)}" fill="rgba(85,211,195,.28)" stroke="#55d3c3" stroke-width="2.5"/>`+lab(M,'M',-4,-6)+lab(N,'N',5,4)+lab(P,'P',-4,16)+lab(Q,'Q',-14,4);
+    $('k2').innerHTML=rect+`<line x1="${pt(B).split(',')[0]}" y1="${B[1]}" x2="${D[0]}" y2="${D[1]}" stroke="#eef0ff" stroke-opacity=".45" stroke-dasharray="4 4"/>`
+      +`<polygon points="${pt(E)} ${pt(B)} ${pt(F)} ${pt(D)}" fill="rgba(255,138,61,.28)" stroke="#ff8a3d" stroke-width="2.5"/>`+lab(E,'E',-4,-6)+lab(F,'F',-4,16);
+    const s1=a*b/2, s2=b*be, r1=s1/(a*b)*100, r2=s2/(a*b)*100;
+    $('s1').textContent=vn(s1)+' cm²'; $('s2').textContent=vn(s2)+' cm²'; $('be').textContent=vn(be,1)+' cm';
+    $('kName').textContent='EBFD dùng '+vn(r2)+'% tờ giấy · MNPQ dùng '+vn(r1)+'%';
+    $('kWhy').textContent='S(EBFD) : S(MNPQ) = (AB² + BC²) : AB² = '+vn(s2/s1,2)+' > 1. Tờ giấy càng gần hình vuông, cánh diều EBFD càng gần phủ kín tờ giấy.';
+  }
+  ['ka','kb'].forEach(i=>$(i).addEventListener('input',draw)); draw();
+})();
+</script>
+<script>
+/* Hiệu ứng hiện dần khi cuộn và con số tự chạy */
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var sel='main section .head, .box, .form, .stage, .shift, .problem, .pillar, .doc, .mcell, .numbers > div, .stemband > div, .feature, .oneperiod, .act, .rep, .stem4 > div, .lesson, .principles > div, .build4 > div, .take';
+  var els=[].slice.call(document.querySelectorAll(sel));
+  if(!reduce){
+    els.forEach(function(e){e.classList.add('rv')});
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e)});
+  }
+  var nums=[].slice.call(document.querySelectorAll('.numbers b'));
+  var io2=new IntersectionObserver(function(es){es.forEach(function(x){
+    if(!x.isIntersecting) return; io2.unobserve(x.target);
+    var t=x.target.textContent.trim(); if(!/^\d+$/.test(t)||reduce) return;
+    var n=+t,i=0,st=performance.now();
+    (function f(now){var k=Math.min(1,(now-st)/900);x.target.textContent=Math.round(n*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f)})(st);
+  })});
+  nums.forEach(function(e){io2.observe(e)});
+})();
+</script>
+</body>
+</html>

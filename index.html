@@ -6,6 +6,12 @@
 <style>html{color-scheme:light}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Dạy học STEM · Võ Thị Sáu</title>
 <meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%23ff8a3d%22/%3E%3Cstop offset=%221%22 stop-color=%22%23a855f7%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon points=%2232,2 60,32 32,62 4,32%22 fill=%22url(%23g)%22/%3E%3Ctext x=%2232%22 y=%2240%22 font-size=%2220%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22 font-weight=%22bold%22%3ES%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#1c1250">
+<meta property="og:title" content="Dạy học STEM · THCS Võ Thị Sáu">
+<meta property="og:description" content="Chuyên đề dạy học môn Toán cấp thành phố Hải Phòng: phương pháp dạy học STEM trong từng tiết học, 18 bài học STEM của Tổ KHTN và tiết minh họa Hình thoi – Hình vuông.">
+<meta property="og:type" content="website">
+<meta name="description" content="Chuyên đề dạy học môn Toán cấp thành phố Hải Phòng: phương pháp dạy học STEM trong từng tiết học, 18 bài học STEM của Tổ KHTN và tiết minh họa Hình thoi – Hình vuông.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
@@ -375,6 +381,154 @@ footer b{color:var(--night-ink)}
 }
 @media (prefers-reduced-motion: reduce){ *{transition:none!important} }
 </style>
+<style id="hoi">.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.rv.in{opacity:1;transform:none}
+/* Một tiết STEM 45 phút */
+.oneperiod{display:grid;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:6px}
+.op-top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+.op-top b{font-family:var(--font-display);font-size:1.15rem}
+.op-top span{font-family:var(--font-mono);font-size:.74rem;color:var(--ink-soft)}
+.op-pre{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:center;font-size:.9rem;border:1px dashed var(--e-c);border-radius:10px;padding:10px 12px}
+.op-pre i{font-style:normal;font-family:var(--font-mono);font-size:.72rem;font-weight:700;color:#fff;background:var(--e-c);border-radius:6px;padding:3px 8px}
+.op-bar{display:flex;border-radius:12px;overflow:hidden;min-height:64px}
+.op-bar div{color:#fff;padding:8px 10px;display:grid;align-content:center;gap:2px;min-width:0}
+.op-bar b{font-family:var(--font-display);font-size:.98rem;line-height:1.2}
+.op-bar span{font-family:var(--font-mono);font-size:.72rem;opacity:.92}
+.op-bar .h1{background:#e8590c}.op-bar .h2{background:#0e9f8e}.op-bar .h3{background:#1d7fd6}.op-bar .h4{background:#8b3fd9}.op-bar .h5{background:#d6246e}
+.op-list{display:grid;gap:8px}
+.op-list div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;font-size:.92rem;border-top:1px solid var(--line);padding-top:8px}
+.op-list div > b{font-size:.9rem}
+.op-list .t1{color:#e8590c}.op-list .t2{color:#0e9f8e}.op-list .t3{color:#1d7fd6}.op-list .t4{color:#8b3fd9}.op-list .t5{color:#d6246e}
+.op-note{font-size:.84rem;color:var(--ink-soft)}
+.map{width:100%;border-collapse:collapse;font-size:.92rem;min-width:640px}
+.map th,.map td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+.map th{background:var(--hoi-soft);font-family:var(--font-display)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .op-list .t1,:root:not([data-theme="light"]) .op-list .t2,:root:not([data-theme="light"]) .op-list .t3,:root:not([data-theme="light"]) .op-list .t4,:root:not([data-theme="light"]) .op-list .t5{filter:brightness(1.5)}}
+@media (max-width:700px){.op-bar{flex-direction:column}.op-bar div{flex:none!important}.op-list div{grid-template-columns:1fr;gap:2px}}
+
+/* ===== Lớp màu "Đêm hội Kỹ sư nhí" — dùng chung cho mọi trang ===== */
+:root{--violet:#6d28d9;--magenta:#d6246e;--sun:#f5a300;--sky:#1d7fd6;--lime:#16a34a;
+  --hoi:linear-gradient(120deg,#ff8a3d 0%,#ff4f8b 45%,#a855f7 100%);
+  --hoi-soft:linear-gradient(120deg,rgba(255,138,61,.14),rgba(255,79,139,.12),rgba(168,85,247,.14));
+  --s-c:#0e9f8e;--t-c:#1d7fd6;--e-c:#8b3fd9;--m-c:#e8590c;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--s-c:#3dd6c3;--t-c:#5fb0ff;--e-c:#b98cff;--m-c:#ff9a52}}
+:root[data-theme="dark"]{--s-c:#3dd6c3;--t-c:#5fb0ff;--e-c:#b98cff;--m-c:#ff9a52}
+.grad{background:var(--hoi);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* Thanh điều hướng, thanh trên */
+nav.top,.topbar{background:linear-gradient(90deg,#140f33,#26145a 55%,#3a1450)!important;box-shadow:0 2px 0 0 rgba(255,138,61,.5)}
+nav.top a.brand{background:var(--hoi);color:#fff!important;border-radius:999px}
+
+/* Hero đêm hội */
+.hero{background:radial-gradient(900px 500px at 85% 10%,rgba(168,85,247,.45),transparent 60%),radial-gradient(700px 480px at 5% 100%,rgba(255,79,139,.35),transparent 60%),radial-gradient(500px 400px at 50% 50%,rgba(255,138,61,.18),transparent 70%),linear-gradient(160deg,#0f0b2e,#1c1250 50%,#2a0f3f)!important}
+.hero h1 .o{background:var(--hoi);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .morph{background:rgba(34,24,82,.72);backdrop-filter:blur(6px);border:1px solid rgba(255,138,61,.35);box-shadow:0 20px 60px -20px rgba(255,79,139,.55)}
+.sky{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.sky svg{position:absolute;opacity:.9;animation:bay 9s ease-in-out infinite}
+.sky .s1{left:4%;top:12%;width:46px;animation-delay:-2s}
+.sky .s2{right:14%;top:3%;width:30px;animation-delay:-5s}
+.sky .s3{right:6%;bottom:10%;width:40px;animation-delay:-1s}
+.sky .s4{left:50%;top:4%;width:26px;animation-delay:-7s}
+.sky .s5{right:40%;top:30%;width:18px;animation-delay:-3s}
+.sky .st{width:8px;height:8px;border-radius:50%;background:#ffe9a8;position:absolute;box-shadow:0 0 10px 2px rgba(255,220,140,.7);animation:nhay 3s ease-in-out infinite}
+@keyframes bay{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-14px) rotate(6deg)}}
+@keyframes nhay{0%,100%{opacity:.25}50%{opacity:1}}
+.school{display:inline-flex;align-items:center;gap:10px;margin-bottom:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 14px 6px 6px;font-weight:700;font-size:.9rem;color:#fff}
+.school i{width:30px;height:30px;border-radius:50%;background:var(--hoi);display:grid;place-items:center;font-style:normal;font-family:var(--font-display);font-weight:800;font-size:.8rem}
+.cta{background:var(--hoi)!important;color:#fff!important;box-shadow:0 10px 26px -10px rgba(255,79,139,.8);transition:transform .2s}
+.cta:hover{transform:translateY(-2px)}
+.cta.ghost{background:transparent!important;border:2px solid #ffb37d;color:#ffd9bd!important;box-shadow:none;margin-left:8px}
+.ctas{display:flex;flex-wrap:wrap;gap:0 4px;align-items:center}
+
+/* Dải S T E M */
+.stemband{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.stemband div{padding:20px 18px;color:#fff;display:grid;gap:4px;align-content:start;min-width:0}
+.stemband div:nth-child(1){background:linear-gradient(140deg,#0e9f8e,#0b7a6e)}
+.stemband div:nth-child(2){background:linear-gradient(140deg,#1d7fd6,#1660a8)}
+.stemband div:nth-child(3){background:linear-gradient(140deg,#8b3fd9,#6a28b0)}
+.stemband div:nth-child(4){background:linear-gradient(140deg,#f07a1f,#d6246e)}
+.stemband b{font-family:var(--font-display);font-size:2.6rem;line-height:1;font-weight:800}
+.stemband span{font-weight:700}
+.stemband p{font-size:.88rem;opacity:.92}
+
+/* Con số */
+.numbers{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:28px}
+.numbers div{background:var(--card);border-radius:16px;padding:18px 16px;border:1px solid var(--line);position:relative;overflow:hidden;min-width:0}
+.numbers div::before{content:"";position:absolute;inset:0 0 auto;height:5px;background:var(--hoi)}
+.numbers b{font-family:var(--font-display);font-size:2.4rem;line-height:1;font-weight:800;background:var(--hoi);-webkit-background-clip:text;background-clip:text;color:transparent;display:block}
+.numbers span{font-size:.88rem;color:var(--ink-soft)}
+
+/* Căn cứ văn bản */
+.canu{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:10px}
+.canu div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:12px 14px;display:grid;gap:4px;align-content:start;min-width:0}
+.canu .so{font-family:var(--font-mono);font-size:.76rem;font-weight:700;color:#ffb37d;letter-spacing:.03em}
+.canu b{color:#fff;font-size:.95rem;line-height:1.3}
+.canu p{font-size:.84rem!important;color:var(--night-soft)}
+.canu .new{border-color:#ff7eb0;background:rgba(255,79,139,.14)}
+.canu .new .so::after{content:" · MỚI";color:#ff7eb0}
+
+/* Tiêu đề mục, khối, thẻ */
+.head .num{display:inline-block;justify-self:start;background:var(--hoi);color:#fff!important;border-radius:999px;padding:3px 12px;font-size:.82rem}
+.head h2::after{content:"";display:block;width:84px;height:6px;border-radius:6px;background:var(--hoi);margin-top:12px}
+.part{background:radial-gradient(600px 300px at 100% 0%,rgba(255,79,139,.35),transparent 70%),linear-gradient(135deg,#1a1150,#3b1466)!important;box-shadow:0 24px 50px -28px rgba(109,40,217,.8)}
+.box,.form,.stage,.shift,.problem,.panel,.mcell,.doc,.sheet,.check label,.cycle div,.pillar,.rep,.act{transition:transform .2s,box-shadow .2s}
+.box:hover,.form:hover,.stage:hover,.shift:hover,.problem:hover,.pillar:hover,.doc:hover,.rep:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(109,40,217,.55)}
+.build4 > div:nth-child(1) .n,.smat div:nth-child(1) .L{color:var(--s-c)}
+.build4 > div:nth-child(2) .n,.smat div:nth-child(2) .L{color:var(--t-c)}
+.build4 > div:nth-child(3) .n,.smat div:nth-child(3) .L{color:var(--e-c)}
+.build4 > div:nth-child(4) .n,.smat div:nth-child(4) .L{color:var(--m-c)}
+.principles > div:nth-child(1){border-top:5px solid var(--s-c)}
+.principles > div:nth-child(2){border-top:5px solid var(--e-c)}
+.principles > div:nth-child(3){border-top:5px solid var(--m-c)}
+.observe div{background:linear-gradient(150deg,#1c1250,#3b1466)!important}
+.observe .n{background:var(--hoi);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+.doc .ic{background:var(--hoi)!important;color:#fff!important}
+footer{background:linear-gradient(120deg,#140f33,#3a1450)!important}
+
+/* Thẻ nổi bật: tiết minh họa */
+.feature{margin-top:18px;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:0;border-radius:20px;overflow:hidden;text-decoration:none;color:#fff;background:linear-gradient(135deg,#1c1250,#4a1670 60%,#a3245f);box-shadow:0 24px 50px -24px rgba(214,36,110,.7);transition:transform .2s}
+.feature:hover{transform:translateY(-3px)}
+.feature .ftxt{padding:24px 26px;display:grid;gap:10px;align-content:start}
+.feature .k{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:#ffb37d;font-weight:700}
+.feature h3{font-size:clamp(1.3rem,3vw,1.75rem);font-weight:800;color:#fff}
+.feature p{color:#e6dcff;font-size:.95rem}
+.feature .chips{display:flex;flex-wrap:wrap;gap:6px}
+.feature .chips span{font-size:.78rem;font-weight:700;border-radius:999px;padding:3px 10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2)}
+.feature .go{justify-self:start;background:var(--hoi);border-radius:10px;padding:9px 16px;font-weight:700}
+.feature .fart{display:grid;place-items:center;padding:18px;background:radial-gradient(circle at 50% 45%,rgba(255,138,61,.35),transparent 65%)}
+.feature .fart svg{width:100%;max-width:260px;height:auto}
+
+/* Trang kế hoạch bài dạy */
+article.sheet{box-shadow:0 30px 60px -40px rgba(109,40,217,.55)}
+.title .k{background:var(--hoi);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+.title h1{background:linear-gradient(120deg,var(--ink) 30%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+div.facts{border:0!important;background:var(--hoi-soft)}
+div.facts b{color:var(--ink)}
+section > h2{border-bottom:0!important;position:relative;padding-bottom:12px!important}
+section > h2::after{content:"";position:absolute;left:0;bottom:0;width:72px;height:5px;border-radius:5px;background:var(--hoi)}
+.lab > .lh h2::after,.lab h2::after{display:none}
+.part-hd{background:linear-gradient(110deg,#1c1250,#4a1670)!important}
+.part-hd.key{background:var(--hoi)!important}
+.act{border-left:5px solid var(--e-c)}
+.act:nth-of-type(5n+1){border-left-color:var(--m-c)}
+.act:nth-of-type(5n+2){border-left-color:var(--s-c)}
+.act:nth-of-type(5n+3){border-left-color:var(--t-c)}
+.act:nth-of-type(5n+4){border-left-color:var(--e-c)}
+.act:nth-of-type(5n){border-left-color:#d6246e}
+.act > .ah{background:var(--hoi-soft)!important}
+section.lab{background:radial-gradient(500px 260px at 100% 0%,rgba(255,79,139,.3),transparent 70%),linear-gradient(140deg,#140f33,#2c1460)!important}
+.toc a:hover{border-left-color:#ff4f8b!important}
+.stem4 div:nth-child(1){border-top-color:var(--s-c)!important}.stem4 div:nth-child(1) b{color:var(--s-c)}
+.stem4 div:nth-child(2){border-top-color:var(--t-c)!important}.stem4 div:nth-child(2) b{color:var(--t-c)}
+.stem4 div:nth-child(3){border-top-color:var(--e-c)!important}.stem4 div:nth-child(3) b{color:var(--e-c)}
+.stem4 div:nth-child(4){border-top-color:var(--m-c)!important}.stem4 div:nth-child(4) b{color:var(--m-c)}
+.rep{border-top:4px solid var(--e-c)}
+.rep:nth-child(1){border-top-color:var(--m-c)}.rep:nth-child(2){border-top-color:#d6246e}.rep:nth-child(3){border-top-color:var(--t-c)}.rep:nth-child(4){border-top-color:var(--s-c)}
+
+@media (max-width:860px){.stemband{grid-template-columns:repeat(2,minmax(0,1fr))}.numbers{grid-template-columns:repeat(2,minmax(0,1fr))}.canu{grid-template-columns:repeat(2,minmax(0,1fr))}.feature{grid-template-columns:1fr}.feature .fart{display:none}}
+@media (max-width:600px){.canu{grid-template-columns:1fr}.stemband b{font-size:2rem}.cta.ghost{margin-left:0}}
+@media (max-width:600px){.sky svg{opacity:.35}}
+@media (prefers-reduced-motion: reduce){.sky svg,.sky .st{animation:none!important}}
+</style>
 </head>
 <body>
 
@@ -384,9 +538,11 @@ footer b{color:var(--night-ink)}
     <a class="brand" href="#top">STEM · VTS</a>
     <a href="#stem-la-gi">STEM là gì</a>
     <a href="#quy-trinh">Quy trình</a>
+    <a href="#mot-tiet">Một tiết STEM 45′</a>
     <a href="#tieu-chi">Tiêu chí sản phẩm</a>
     <a href="#to-chuc">Phiếu · đánh giá</a>
     <a href="#thiet-ke">Tự lên khung bài</a>
+    <a href="tiet-minh-hoa.html" style="color:#ffd27d">★ Tiết minh họa ↗</a>
     <a href="bai-mau.html" style="color:var(--glow)">Bài mẫu Toán 8 ↗</a>
     <a href="#cach-lam">Cách làm của trường</a>
     <a href="#ban-do">Kế hoạch STEM của tổ</a>
@@ -401,8 +557,10 @@ footer b{color:var(--night-ink)}
 </nav>
 
 <header class="hero" id="top">
+  <div class="sky" aria-hidden="true"><svg class="s1" viewBox="0 0 40 60"><polygon points="20,2 38,24 20,58 2,24" fill="#ff8a3d" opacity=".85"/><line x1="20" y1="2" x2="20" y2="58" stroke="#fff" stroke-opacity=".6"/><line x1="2" y1="24" x2="38" y2="24" stroke="#fff" stroke-opacity=".6"/></svg><svg class="s2" viewBox="0 0 40 40"><rect x="4" y="8" width="32" height="28" rx="3" fill="#f5a300"/><rect x="2" y="4" width="36" height="8" rx="2" fill="#ff4f8b"/><rect x="18" y="4" width="4" height="32" fill="#fff" opacity=".8"/></svg><svg class="s3" viewBox="0 0 40 60"><polygon points="20,2 38,24 20,58 2,24" fill="#a855f7" opacity=".85"/><line x1="20" y1="2" x2="20" y2="58" stroke="#fff" stroke-opacity=".6"/><line x1="2" y1="24" x2="38" y2="24" stroke="#fff" stroke-opacity=".6"/></svg><svg class="s4" viewBox="0 0 40 40"><rect x="4" y="8" width="32" height="28" rx="3" fill="#f5a300"/><rect x="2" y="4" width="36" height="8" rx="2" fill="#ff4f8b"/><rect x="18" y="4" width="4" height="32" fill="#fff" opacity=".8"/></svg><svg class="s5" viewBox="0 0 40 60"><polygon points="20,2 38,24 20,58 2,24" fill="#ff4f8b" opacity=".85"/><line x1="20" y1="2" x2="20" y2="58" stroke="#fff" stroke-opacity=".6"/><line x1="2" y1="24" x2="38" y2="24" stroke="#fff" stroke-opacity=".6"/></svg><i class="st" style="left:12%;top:40%;animation-delay:-1s"></i><i class="st" style="left:28%;top:18%;animation-delay:-2s"></i><i class="st" style="left:55%;top:30%;animation-delay:-0s"></i><i class="st" style="left:70%;top:8%;animation-delay:-1.5s"></i><i class="st" style="left:90%;top:40%;animation-delay:-2.5s"></i><i class="st" style="left:62%;top:88%;animation-delay:-0.5s"></i><i class="st" style="left:20%;top:85%;animation-delay:-2s"></i><i class="st" style="left:80%;top:70%;animation-delay:-1s"></i></div>
   <div class="wrap">
     <div>
+      <span class="school"><i>VTS</i>Trường THCS Võ Thị Sáu · Hải Phòng</span>
       <p class="kicker">Chuyên đề dạy học môn Toán cấp thành phố · Hải Phòng · 2026</p>
       <h1>Dạy học <span class="o">STEM</span> trong từng tiết học</h1>
       <p class="sub">Phương pháp chung · Minh chứng qua môn Toán: chuyên đề "Kết nối Toán học với thực tiễn qua hoạt động STEM – Hình thoi, Hình vuông – Sắc màu Halloween"</p>
@@ -411,7 +569,7 @@ footer b{color:var(--night-ink)}
         <span>Xây dựng kế hoạch: <b>Phạm Nguyễn Phương Thủy</b> (Phó Hiệu trưởng), <b>Ngô Thị Phương</b> (Tổ trưởng Tổ KHTN) và nhóm Toán</span>
         <span>Thực hiện tiết dạy: <b>Cô Đỗ Thị Quyên</b> cùng học sinh khối 8</span>
       </div>
-      <a class="cta" href="bai-mau.html">Xem bài STEM mẫu Toán 8 →</a>
+      <div class="ctas"><a class="cta" href="tiet-minh-hoa.html">★ Xem tiết dạy minh họa →</a><a class="cta ghost" href="bai-mau.html">Bài STEM mẫu 2 tiết</a></div>
     </div>
     <figure class="morph" style="margin:0" aria-label="Hình thoi biến thành hình vuông khi có một góc vuông">
       <div class="row">
@@ -425,6 +583,8 @@ footer b{color:var(--night-ink)}
   </div>
 </header>
 
+<div class="stemband" aria-label="Bốn lĩnh vực STEM"><div><b>S</b><span>Khoa học · Science</span><p>Quan sát, thử nghiệm, giải thích hiện tượng.</p></div><div><b>T</b><span>Công nghệ · Technology</span><p>Công cụ số, phần mềm hình học, AI có kiểm chứng.</p></div><div><b>E</b><span>Kĩ thuật · Engineering</span><p>Thiết kế, chế tạo, thử nghiệm, cải tiến sản phẩm.</p></div><div><b>M</b><span>Toán học · Mathematics</span><p>Lập luận, đo đạc, tính toán làm căn cứ cho thiết kế.</p></div></div>
+
 <div class="asks">
   <div class="wrap">
     <a href="#cach-lam"><span class="q">CÂU HỎI 1</span><b>Nhà trường đã triển khai STEM như thế nào?</b></a>
@@ -437,10 +597,13 @@ footer b{color:var(--night-ink)}
 <main>
 <div class="wrap">
 
+<div class="numbers"><div><b>18</b><span>bài học STEM có kế hoạch bài dạy, năm học 2026 – 2027</span></div><div><b>4</b><span>môn: Toán, KHTN, Công nghệ, Tin học</span></div><div><b>34</b><span>giáo viên Tổ Khoa học tự nhiên</span></div><div><b>7</b><span>nhóm chuyên môn cùng thiết kế, dạy thử, góp ý</span></div><div><b>6 – 9</b><span>đủ 4 khối lớp</span></div></div>
+
 <div class="part">
   <span class="eyebrow">Phần A</span>
   <h2>Phương pháp dạy học STEM</h2>
-  <p>Theo Công văn 3089/BGDĐT-GDTrH ngày 14/8/2020 của Bộ GDĐT về triển khai giáo dục STEM trong giáo dục trung học. Dùng được cho Toán, Khoa học tự nhiên, Công nghệ, Tin học và các môn muốn làm bài học liên môn.</p>
+  <p>Theo Công văn 3089/BGDĐT-GDTrH ngày 14/8/2020 của Bộ GDĐT về triển khai giáo dục STEM trong giáo dục trung học. Dùng được cho Toán, Khoa học tự nhiên, Công nghệ, Tin học và các môn muốn làm bài học liên môn. Cập nhật theo hướng dẫn nhiệm vụ năm học 2026 – 2027 của Bộ GDĐT.</p>
+  <div class="canu"><div><span class="so">CV 3089/BGDĐT-GDTrH · 14/8/2020</span><b>Triển khai giáo dục STEM trong giáo dục trung học</b><p>3 hình thức STEM, bài học STEM 5 hoạt động, quy trình thiết kế kĩ thuật 8 bước. Văn bản hướng dẫn STEM trung học đang áp dụng.</p></div><div class="new"><span class="so">CV 5208/BGDĐT-GDPT · 07/8/2026</span><b>Nhiệm vụ giáo dục phổ thông năm học 2026 – 2027</b><p>Triển khai STEM kết hợp phát triển năng lực số, công cụ số và AI; tránh chạy theo phong trào, nặng trình diễn, phát sinh chi phí.</p></div><div><span class="so">TT 02/2025/TT-BGDĐT</span><b>Khung năng lực số cho người học</b><p>Căn cứ ghi mục tiêu năng lực số trong bài học STEM (lớp 8, 9: mức Trung cấp 2).</p></div><div><span class="so">CV 5512/BGDĐT-GDTrH · Phụ lục IV</span><b>Khung kế hoạch bài dạy</b><p>Mỗi hoạt động: mục tiêu, nội dung, sản phẩm, tổ chức thực hiện.</p></div></div>
 </div>
 
 <!-- A1 -->
@@ -483,6 +646,28 @@ footer b{color:var(--night-ink)}
       </tbody>
     </table>
   </div>
+
+  <div class="subhead"><h3>Gói bài học STEM vào một tiết học</h3><p class="muted">Tiến trình chuẩn cho tiết dạy STEM 45 phút ở THCS. Xem tiết thực tế: <a href="tiet-minh-hoa.html#chuan">Tiết dạy minh họa</a>.</p></div>
+  <div class="oneperiod" id="mot-tiet">
+    <div class="op-top"><b>Bài học STEM trong 1 tiết 45 phút ở THCS</b><span>Theo CV 3089/BGDĐT-GDTrH, mục IV.2 · khung KHBD Phụ lục IV CV 5512</span></div>
+    <div class="op-pre"><i>TRƯỚC TIẾT</i><p>Giao vấn đề và <b>tiêu chí sản phẩm</b> từ tiết trước; các nhóm nghiên cứu, phác thảo và <b>chế tạo mẫu ngoài giờ</b> (CV 3089 cho phép Hoạt động 4, 5 linh hoạt trong và ngoài lớp). Phần ngoài giờ ghi rõ hạn nộp, không giao bước nguy hiểm về nhà.</p></div>
+    <div class="op-bar" role="img" aria-label="Phân bổ 45 phút cho 5 hoạt động">
+      <div class="h1" style="flex:4"><b>HĐ1</b><span>4′</span></div>
+      <div class="h2" style="flex:8"><b>HĐ2 · Kiến thức nền</b><span>8′</span></div>
+      <div class="h3" style="flex:10"><b>HĐ3 · Lựa chọn giải pháp</b><span>10′</span></div>
+      <div class="h4" style="flex:10"><b>HĐ4 · Thử nghiệm, đánh giá</b><span>10′</span></div>
+      <div class="h5" style="flex:13"><b>HĐ5 · Chia sẻ, điều chỉnh</b><span>13′</span></div>
+    </div>
+    <div class="op-list">
+      <div><b class="t1">HĐ1 · Xác định vấn đề</b><p><b>Mở đầu.</b> Tình huống thực tiễn, nhắc lại nhiệm vụ và tiêu chí sản phẩm. Sản phẩm: học sinh nêu được cần dùng kiến thức gì.</p></div>
+      <div><b class="t2">HĐ2 · Nghiên cứu kiến thức nền, đề xuất giải pháp</b><p><b>Hình thành kiến thức.</b> Kiến thức của bài bám SGK; tiết luyện tập thì hệ thống hóa, kiểm chứng. Kết luận dựa trên lập luận, không dựa vào hình vẽ hay kết quả AI.</p></div>
+      <div><b class="t3">HĐ3 · Lựa chọn giải pháp</b><p><b>Hình thành kiến thức / Luyện tập.</b> Học sinh trình bày, bảo vệ bản thiết kế có thuyết minh bằng kiến thức (bài toán, chứng minh, tính toán); giáo viên góp ý, xác nhận tính đúng của kiến thức.</p></div>
+      <div><b class="t4">HĐ4 · Chế tạo mẫu, thử nghiệm, đánh giá</b><p><b>Luyện tập.</b> Mẫu làm sẵn ngoài giờ; trên lớp đo kiểm, thử theo tiêu chí, ghi số liệu.</p></div>
+      <div><b class="t5">HĐ5 · Chia sẻ, thảo luận, điều chỉnh</b><p><b>Vận dụng.</b> Báo cáo, phản biện mang tính bộ môn, nêu một điều chỉnh có lí do; giáo viên chốt kiến thức, giao phần vận dụng, mở rộng.</p></div>
+    </div>
+    <p class="op-note">Số phút là gợi ý của tổ chuyên môn cho tiết 45 phút; CV 3089 không quy định thời lượng từng hoạt động. Mỗi hoạt động trong KHBD ghi đủ: a) mục tiêu, b) nội dung, c) sản phẩm, d) tổ chức thực hiện (giao nhiệm vụ → thực hiện → báo cáo, thảo luận → kết luận, nhận định).</p>
+  </div>
+
 
   <div class="subhead"><h3>Quy trình thiết kế kĩ thuật học sinh đi qua</h3><p class="muted">Đây là "đường đi" của nhóm học sinh khi làm sản phẩm. Giáo viên dùng nó để kiểm tra nhóm đang ở bước nào.</p></div>
   <div class="cycle">
@@ -626,7 +811,7 @@ Nắp hộp vừa khít đáy</textarea><span class="hint">Viết bằng số đ
   <div class="pillars">
     <div class="pillar"><div><span class="k">Quản lí, chỉ đạo</span><h3>Có trong kế hoạch từ đầu năm</h3></div><p>STEM nằm trong kế hoạch giáo dục của nhà trường và kế hoạch tổ chuyên môn. Hiệu trưởng phụ trách chung, Phó Hiệu trưởng chuyên môn chỉ đạo trực tiếp, Tổ KHTN xây dựng nội dung. Bài học STEM của các nhóm môn được kiểm tra qua dự giờ và hồ sơ chuyên môn.</p></div>
     <div class="pillar"><div><span class="k">Tổ chuyên môn</span><h3>Bản đồ bài học STEM</h3></div><p><a href="#ban-do">Xem 18 bài học STEM của tổ năm học 2026 – 2027.</a> Tổ KHTN gồm 34 giáo viên thuộc 7 nhóm chuyên môn, rà soát chương trình từng khối để xác định bài nào, tiết nào thiết kế được thành bài học STEM. Sinh hoạt chuyên môn theo nghiên cứu bài học: cùng thiết kế, dạy thử, dự giờ, góp ý, điều chỉnh.</p></div>
-    <div class="pillar"><div><span class="k">Tổ chức dạy học</span><h3>5 hoạt động · 2 buổi/ngày</h3></div><div><p>Theo 5 hoạt động của Công văn 3089/BGDĐT-GDTrH. Điểm riêng của trường: tiết chính khóa dành cho kiến thức, luyện tập, báo cáo, phản biện; buổi học thứ hai để học sinh thiết kế, chế tạo theo nhóm có giáo viên hướng dẫn. Mỗi em một vai, em nào cũng phải dùng đến Toán:</p><div class="roles"><span>Trưởng nhóm</span><span>Kĩ sư thiết kế</span><span>Thư kí tính toán</span><span>Thợ chế tạo</span><span>Người thuyết trình</span></div></div></div>
+    <div class="pillar"><div><span class="k">Tổ chức dạy học</span><h3>Bài 2 tiết · hoạt động STEM</h3></div><div><p>Theo các hoạt động STEM của Công văn 3089/BGDĐT-GDTrH. Bài minh họa gồm 2 tiết: Tiết 1 lý thuyết, cuối tiết giao các nhóm làm sản phẩm ở nhà; Tiết 2 luyện tập – làm STEM, đi từ kiến thức đến thiết kế, kiểm chứng, cải tiến sản phẩm. Lớp chia 2 nhóm (Hình thoi, Hình vuông). Mỗi em một vai, em nào cũng phải dùng đến Toán:</p><div class="roles"><span>Trưởng nhóm</span><span>Kĩ sư thiết kế</span><span>Thư kí tính toán</span><span>Thợ chế tạo</span><span>Người thuyết trình</span></div></div></div>
     <div class="pillar"><div><span class="k">Kiểm tra, đánh giá</span><h3>Rubric ba phần</h3></div><p>Kiến thức Toán được vận dụng (bản vẽ, số đo, lời giải); chất lượng sản phẩm (đúng hình, chắc chắn, thẩm mĩ, tiết kiệm vật liệu); báo cáo, phản biện, hợp tác. Kết hợp giáo viên đánh giá, nhóm đánh giá lẫn nhau và học sinh tự đánh giá. Bài tự luận trong tiết luyện tập là căn cứ đánh giá từng em.</p></div>
     <div class="pillar"><div><span class="k">Chuyển đổi số, ngoại ngữ</span><h3>Thành học liệu dùng chung</h3></div><p>Bài học và sản phẩm học sinh được số hóa, đưa lên trang học tập của lớp và cổng học liệu số của trường. Tiếng Anh vào nhẹ nhàng qua thuật ngữ: <span class="en">Rhombus</span>, <span class="en">Square</span>, <span class="en">Diagonal</span>, <span class="en">Side</span>, <span class="en">Right angle</span>.</p></div>
   </div>
@@ -664,7 +849,7 @@ Nắp hộp vừa khít đáy</textarea><span class="hint">Viết bằng số đ
   <div class="scroll">
     <div class="matrix">
       <div class="mrow mtop"><div></div><div>Lớp 6</div><div>Lớp 7</div><div>Lớp 8</div><div>Lớp 9</div></div>
-      <div class="mrow" data-m="toan"><div class="mhead"><span class="mdot"></span>Toán</div><div class="mstack"><a class="mcell" href="bai-hoc.html#toan6"><span class="mno mono">01</span><b>Bản đồ lớp học thu nhỏ</b><span class="msp">Sản phẩm: Sơ đồ lớp học vẽ theo tỉ lệ 1 : 50</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#toan7"><span class="mno mono">02</span><b>Pizza Toán học – Chia sẻ công bằng</b><span class="msp">Sản phẩm: Mô hình bánh pizza giấy chia phần theo tỉ lệ đóng góp</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#toan8a"><span class="mno mono">03</span><b>Thống kê và biểu đồ vui nhộn</b><span class="msp">Sản phẩm: Biểu đồ khảo sát lớp (bản giấy A1 hoặc bản số)</span><span class="mgo">Xem bài dạy →</span></a><a class="mcell" href="bai-hoc.html#toan8b"><span class="mno mono">04</span><b>Ứng dụng hàm số bậc nhất vào thiết kế cầu</b><span class="msp">Sản phẩm: Mô hình cầu giấy có hai dốc dẫn</span><span class="mgo">Xem bài dạy →</span></a><a class="mcell star" href="bai-mau.html"><span class="mno mono">★ Chuyên đề thành phố</span><b>Kỹ sư nhí và đêm hội Halloween: Hình thoi – Hình vuông</b><span class="msp">Sản phẩm: diều hình thoi, hộp quà hình vuông</span><span class="mgo">Xem bài mẫu →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#toan9"><span class="mno mono">05</span><b>Thiết kế cầu vòm parabol với hàm số y = ax²</b><span class="msp">Sản phẩm: Mô hình cầu vòm bằng bìa carton</span><span class="mgo">Xem bài dạy →</span></a></div></div><div class="mrow" data-m="khtn"><div class="mhead"><span class="mdot"></span>KHTN</div><div class="mstack"><a class="mcell" href="bai-hoc.html#khtn6"><span class="mno mono">06</span><b>Cầu giấy chịu lực</b><span class="msp">Sản phẩm: Mô hình cầu giấy</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#khtn7"><span class="mno mono">07</span><b>Kính tiềm vọng – phản xạ ánh sáng trên gương phẳng</b><span class="msp">Sản phẩm: Kính tiềm vọng từ hộp giấy và hai gương phẳng nhỏ</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#khtn8a"><span class="mno mono">08</span><b>Mô hình hệ tuần hoàn</b><span class="msp">Sản phẩm: Mô hình hệ tuần hoàn có thể mô phỏng dòng máu</span><span class="mgo">Xem bài dạy →</span></a><a class="mcell" href="bai-hoc.html#khtn8b"><span class="mno mono">09</span><b>Sự nở vì nhiệt của kim loại</b><span class="msp">Sản phẩm: Mô hình băng kép báo nhiệt bật đèn LED</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#khtn9"><span class="mno mono">10</span><b>Nước rửa tay sinh học từ thảo mộc</b><span class="msp">Sản phẩm: Dung dịch rửa tay từ quả bồ hòn và tinh dầu sả</span><span class="mgo">Xem bài dạy →</span></a></div></div><div class="mrow" data-m="cn"><div class="mhead"><span class="mdot"></span>Công nghệ</div><div class="mstack"><a class="mcell" href="bai-hoc.html#cn6"><span class="mno mono">11</span><b>Bao bì sinh học từ lá sen</b><span class="msp">Sản phẩm: Mẫu bao bì gói thực phẩm từ lá sen</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#cn7"><span class="mno mono">12</span><b>Trồng rau thủy canh trong chai nhựa</b><span class="msp">Sản phẩm: Mô hình trồng rau thủy canh tĩnh</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#cn8"><span class="mno mono">13</span><b>Nhà chống bão mini từ vật liệu tái chế</b><span class="msp">Sản phẩm: Mô hình nhà chống bão tỉ lệ 1 : 50</span><span class="mgo">Xem bài dạy →</span></a><a class="mcell" href="bai-hoc.html#cn8b"><span class="mno mono">14</span><b>Hệ thống tưới nước nhỏ giọt tự động</b><span class="msp">Sản phẩm: Mô hình hệ thống tưới cây tự động (nhỏ giọt, tùy chọn cảm biến độ ẩm)</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><div class="mcell mempty"><b>Đang hoàn thiện</b><span class="msp">Tổ chọn bài theo mô đun Công nghệ 9 nhà trường dạy</span></div></div></div><div class="mrow" data-m="tin"><div class="mhead"><span class="mdot"></span>Tin học</div><div class="mstack"><a class="mcell" href="bai-hoc.html#tin6"><span class="mno mono">15</span><b>Lập trình trò chơi học tập bằng Scratch</b><span class="msp">Sản phẩm: Trò chơi đố vui ôn tập trên Scratch</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#tin7"><span class="mno mono">16</span><b>Thiết kế poster STEM bằng Canva</b><span class="msp">Sản phẩm: Poster số giới thiệu một sản phẩm STEM của trường</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#tin8"><span class="mno mono">17</span><b>Lập trình mô phỏng chuyển động</b><span class="msp">Sản phẩm: Chương trình mô phỏng quả bóng rơi và nảy</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#tin9"><span class="mno mono">18</span><b>Ứng dụng AI phân loại rác</b><span class="msp">Sản phẩm: Mô hình AI nhận dạng ảnh phân loại rác</span><span class="mgo">Xem bài dạy →</span></a></div></div>
+      <div class="mrow" data-m="toan"><div class="mhead"><span class="mdot"></span>Toán</div><div class="mstack"><a class="mcell" href="bai-hoc.html#toan6"><span class="mno mono">01</span><b>Bản đồ lớp học thu nhỏ</b><span class="msp">Sản phẩm: Sơ đồ lớp học vẽ theo tỉ lệ 1 : 50</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#toan7"><span class="mno mono">02</span><b>Pizza Toán học – Chia sẻ công bằng</b><span class="msp">Sản phẩm: Mô hình bánh pizza giấy chia phần theo tỉ lệ đóng góp</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#toan8a"><span class="mno mono">03</span><b>Thống kê và biểu đồ vui nhộn</b><span class="msp">Sản phẩm: Biểu đồ khảo sát lớp (bản giấy A1 hoặc bản số)</span><span class="mgo">Xem bài dạy →</span></a><a class="mcell" href="bai-hoc.html#toan8b"><span class="mno mono">04</span><b>Ứng dụng hàm số bậc nhất vào thiết kế cầu</b><span class="msp">Sản phẩm: Mô hình cầu giấy có hai dốc dẫn</span><span class="mgo">Xem bài dạy →</span></a><a class="mcell star" href="bai-mau.html"><span class="mno mono">★ Chuyên đề thành phố</span><b>Kỹ sư nhí và đêm hội Halloween: Hình thoi – Hình vuông</b><span class="msp">Sản phẩm: diều hình thoi, hộp quà hình vuông</span><span class="mgo">Xem bài mẫu →</span></a><a class="mcell star" href="tiet-minh-hoa.html"><span class="mno mono">★ Tiết minh họa · 8B1</span><b>Vận dụng tính chất hình thoi, hình vuông trong thiết kế sản phẩm STEM</b><span class="msp">1 tiết · 4 nhóm báo cáo diều, hộp kẹo</span><span class="mgo">Xem tiết dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#toan9"><span class="mno mono">05</span><b>Thiết kế cầu vòm parabol với hàm số y = ax²</b><span class="msp">Sản phẩm: Mô hình cầu vòm bằng bìa carton</span><span class="mgo">Xem bài dạy →</span></a></div></div><div class="mrow" data-m="khtn"><div class="mhead"><span class="mdot"></span>KHTN</div><div class="mstack"><a class="mcell" href="bai-hoc.html#khtn6"><span class="mno mono">06</span><b>Cầu giấy chịu lực</b><span class="msp">Sản phẩm: Mô hình cầu giấy</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#khtn7"><span class="mno mono">07</span><b>Kính tiềm vọng – phản xạ ánh sáng trên gương phẳng</b><span class="msp">Sản phẩm: Kính tiềm vọng từ hộp giấy và hai gương phẳng nhỏ</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#khtn8a"><span class="mno mono">08</span><b>Mô hình hệ tuần hoàn</b><span class="msp">Sản phẩm: Mô hình hệ tuần hoàn có thể mô phỏng dòng máu</span><span class="mgo">Xem bài dạy →</span></a><a class="mcell" href="bai-hoc.html#khtn8b"><span class="mno mono">09</span><b>Sự nở vì nhiệt của kim loại</b><span class="msp">Sản phẩm: Mô hình băng kép báo nhiệt bật đèn LED</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#khtn9"><span class="mno mono">10</span><b>Nước rửa tay sinh học từ thảo mộc</b><span class="msp">Sản phẩm: Dung dịch rửa tay từ quả bồ hòn và tinh dầu sả</span><span class="mgo">Xem bài dạy →</span></a></div></div><div class="mrow" data-m="cn"><div class="mhead"><span class="mdot"></span>Công nghệ</div><div class="mstack"><a class="mcell" href="bai-hoc.html#cn6"><span class="mno mono">11</span><b>Bao bì sinh học từ lá sen</b><span class="msp">Sản phẩm: Mẫu bao bì gói thực phẩm từ lá sen</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#cn7"><span class="mno mono">12</span><b>Trồng rau thủy canh trong chai nhựa</b><span class="msp">Sản phẩm: Mô hình trồng rau thủy canh tĩnh</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#cn8"><span class="mno mono">13</span><b>Nhà chống bão mini từ vật liệu tái chế</b><span class="msp">Sản phẩm: Mô hình nhà chống bão tỉ lệ 1 : 50</span><span class="mgo">Xem bài dạy →</span></a><a class="mcell" href="bai-hoc.html#cn8b"><span class="mno mono">14</span><b>Hệ thống tưới nước nhỏ giọt tự động</b><span class="msp">Sản phẩm: Mô hình hệ thống tưới cây tự động (nhỏ giọt, tùy chọn cảm biến độ ẩm)</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><div class="mcell mempty"><b>Đang hoàn thiện</b><span class="msp">Tổ chọn bài theo mô đun Công nghệ 9 nhà trường dạy</span></div></div></div><div class="mrow" data-m="tin"><div class="mhead"><span class="mdot"></span>Tin học</div><div class="mstack"><a class="mcell" href="bai-hoc.html#tin6"><span class="mno mono">15</span><b>Lập trình trò chơi học tập bằng Scratch</b><span class="msp">Sản phẩm: Trò chơi đố vui ôn tập trên Scratch</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#tin7"><span class="mno mono">16</span><b>Thiết kế poster STEM bằng Canva</b><span class="msp">Sản phẩm: Poster số giới thiệu một sản phẩm STEM của trường</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#tin8"><span class="mno mono">17</span><b>Lập trình mô phỏng chuyển động</b><span class="msp">Sản phẩm: Chương trình mô phỏng quả bóng rơi và nảy</span><span class="mgo">Xem bài dạy →</span></a></div><div class="mstack"><a class="mcell" href="bai-hoc.html#tin9"><span class="mno mono">18</span><b>Ứng dụng AI phân loại rác</b><span class="msp">Sản phẩm: Mô hình AI nhận dạng ảnh phân loại rác</span><span class="mgo">Xem bài dạy →</span></a></div></div>
     </div>
   </div>
   <p style="margin-top:12px"><a class="cta" style="margin-top:0" href="bai-hoc.html">Xem toàn bộ 18 kế hoạch bài dạy →</a></p>
@@ -674,40 +859,41 @@ Nắp hộp vừa khít đáy</textarea><span class="hint">Viết bằng số đ
 <section id="bai-hoc">
   <div class="head">
     <span class="num">B3 · Bài học minh họa</span>
-    <h2>Hai tiết Toán, một buổi chế tạo</h2>
-    <p class="muted">Học sinh nhận "đơn đặt hàng" làm đồ chơi, quà tặng cho đêm hội Halloween: nhóm 1 làm diều hình thoi, nhóm 2 làm hộp quà hình vuông "Trick or Treat". Kế hoạch bài dạy đầy đủ: <a href="bai-mau.html">Bài STEM mẫu Toán 8</a>.</p>
+    <h2>Hai tiết Toán: lý thuyết, rồi luyện tập – làm STEM</h2>
+    <p class="muted">Học sinh nhận "đơn đặt hàng" làm đồ chơi, quà tặng cho đêm hội Halloween: nhóm Hình thoi làm diều hình thoi, nhóm Hình vuông làm hộp quà hình vuông "Trick or Treat". Kế hoạch bài dạy đầy đủ: <a href="bai-mau.html">Bài STEM mẫu Toán 8</a>.</p>
+  <a class="feature" href="tiet-minh-hoa.html"><div class="ftxt"><span class="k">★ Tiết dạy minh họa tại chuyên đề · lớp 8B1 · cô Đỗ Thị Quyên</span><h3>Vận dụng tính chất hình thoi, hình vuông trong thiết kế sản phẩm STEM</h3><p>Một tiết 45 phút, 5 hoạt động: khởi động bằng video lễ hội, hệ thống kiến thức trên Padlet, giải hai bài toán chứng minh, bốn nhóm báo cáo sản phẩm theo bốn cách, rồi bài toán tối ưu giấy làm diều.</p><div class="chips"><span>Kiểm định chất lượng</span><span>Mổ xẻ sản phẩm</span><span>Người bán hàng</span><span>Gọi vốn</span></div><span class="go">Xem kế hoạch bài dạy →</span></div><div class="fart"><svg viewBox="0 0 200 200" aria-hidden="true"><polygon points="100,12 176,92 100,188 24,92" fill="rgba(255,138,61,.35)" stroke="#ff8a3d" stroke-width="4"/><line x1="100" y1="12" x2="100" y2="188" stroke="#fff" stroke-opacity=".7" stroke-width="2"/><line x1="24" y1="92" x2="176" y2="92" stroke="#fff" stroke-opacity=".7" stroke-width="2"/><rect x="118" y="120" width="62" height="62" rx="4" fill="#a855f7" stroke="#fff" stroke-width="3" transform="rotate(8 149 151)"/><path d="M100 188 q-20 6 -10 -2 q10 -8 -6 4" stroke="#ffd27d" fill="none" stroke-width="2"/></svg></div></a>
   </div>
   <div class="stages">
     <article class="stage">
-      <span class="when">Tiết 1 · chính khóa</span>
-      <h3>Xác định vấn đề, kiến thức nền</h3>
-      <span class="hd">HĐ1 · HĐ2</span>
+      <span class="when">Tiết 1 · lý thuyết</span>
+      <h3>Đặt vấn đề, hình thành kiến thức</h3>
+      <span class="hd">HĐ 1.1 · 1.2 · 1.3</span>
       <ul>
         <li>Nhận đơn đặt hàng và tiêu chí sản phẩm.</li>
         <li>Gấp, cắt giấy để tự khám phá định nghĩa, tính chất, dấu hiệu nhận biết hình thoi, hình vuông.</li>
-        <li>Nhận nhiệm vụ thiết kế theo nhóm.</li>
+        <li>Phân vai, phác thảo ý tưởng, nhận việc làm sản phẩm ở nhà.</li>
       </ul>
     </article>
     <article class="stage">
-      <span class="when">Buổi học thứ hai</span>
-      <h3>Lựa chọn giải pháp, chế tạo, thử nghiệm</h3>
-      <span class="hd">HĐ3 · HĐ4</span>
+      <span class="when">Ở nhà · giữa hai tiết</span>
+      <h3>Các nhóm làm sản phẩm</h3>
+      <span class="hd">Chế tạo, thử nghiệm</span>
       <ul>
-        <li>Lập bản vẽ, tính toán số đo.</li>
-        <li>Chế tạo, thả thử diều, đóng thử hộp, sửa lại.</li>
+        <li>Hoàn thiện bản vẽ có kích thước, chế tạo.</li>
+        <li>Thả thử diều, đóng thử hộp, sửa lại.</li>
         <li>Ghi lại quá trình bằng ảnh, video.</li>
       </ul>
     </article>
     <article class="stage key">
       <span class="badge">Theo góp ý của chuyên viên Sở</span>
-      <span class="when">Tiết 2 · tiết luyện tập</span>
-      <h3>Luyện tập, chia sẻ, phản biện, điều chỉnh</h3>
-      <span class="hd">HĐ5</span>
+      <span class="when">Tiết 2 · luyện tập – làm STEM</span>
+      <h3>Từ kiến thức đến sản phẩm</h3>
+      <span class="hd">HĐ 2.1 · 2.2 · 2.3 · 2.4</span>
       <ul>
+        <li><b>Huy động</b> kiến thức đã học (tích hợp tiếng Anh).</li>
+        <li><b>Hệ thống hóa, kiểm chứng</b> tính chất, dấu hiệu nhận biết (tích hợp năng lực số).</li>
         <li><b>Giải bài tập tự luận</b> làm căn cứ toán học cho thiết kế.</li>
-        <li>Nhóm Diều báo cáo bằng tiểu phẩm; nhóm Hộp quà báo cáo bằng video quá trình.</li>
-        <li>Các nhóm phản biện lẫn nhau bằng ngôn ngữ toán học.</li>
-        <li>Giáo viên chốt kiến thức, định hướng cải tiến sản phẩm.</li>
+        <li><b>Vận dụng</b> kết quả vào thiết kế, kiểm chứng, cải tiến; hai nhóm báo cáo, phản biện bằng ngôn ngữ toán học.</li>
       </ul>
     </article>
   </div>
@@ -803,7 +989,7 @@ Nắp hộp vừa khít đáy</textarea><span class="hint">Viết bằng số đ
     <div class="take"><span class="n">1</span><h3>Cách chọn bài</h3><p>Đi từ yêu cầu cần đạt, chọn nội dung "nhìn thấy, cầm nắm được" trong đời sống, đặt vào tiết luyện tập, vận dụng có sẵn.</p></div>
     <div class="take"><span class="n">2</span><h3>Cách thiết kế nhiệm vụ</h3><p>Một bối cảnh gần gũi với học sinh, một sản phẩm buộc học sinh phải dùng kiến thức Toán mới làm đúng.</p></div>
     <div class="take"><span class="n">3</span><h3>Cách giữ "chất Toán"</h3><p>Bài tập tự luận làm căn cứ thiết kế; phản biện bằng ngôn ngữ toán học. Mỗi con số trên sản phẩm là một kiến thức đã vận dụng.</p></div>
-    <div class="take"><span class="n">4</span><h3>Cách tổ chức thời gian và nhóm</h3><p>Chia hợp lí giữa tiết chính khóa và buổi học thứ hai; phân vai trong nhóm; đánh giá bằng rubric công khai.</p></div>
+    <div class="take"><span class="n">4</span><h3>Cách tổ chức thời gian và nhóm</h3><p>Chia hợp lí giữa tiết học trên lớp và phần làm sản phẩm ở nhà; phân vai trong nhóm; đánh giá bằng rubric công khai.</p></div>
     <div class="take"><span class="n">5</span><h3>Cách làm trong tổ chuyên môn</h3><p>Cùng thiết kế, dạy thử, góp ý, điều chỉnh; số hóa sản phẩm thành học liệu dùng chung.</p></div>
   </div>
 </section>
@@ -856,7 +1042,7 @@ Nắp hộp vừa khít đáy</textarea><span class="hint">Viết bằng số đ
     <table class="trouble">
       <thead><tr><th>Khó khăn</th><th>Cách nhà trường khắc phục</th></tr></thead>
       <tbody>
-        <tr><td>Thời gian</td><td>Đặt bài học STEM vào tiết luyện tập có sẵn, dùng buổi học thứ hai cho phần chế tạo. Trường học 1 buổi/ngày có thể giao phần chế tạo thành nhiệm vụ ở nhà trong 1–2 tuần.</td></tr>
+        <tr><td>Thời gian</td><td>Bài chỉ 2 tiết, đặt vào tiết luyện tập có sẵn; phần chế tạo giao các nhóm làm ở nhà, chỉ gồm các bước không nguy hiểm, có hướng dẫn và báo cha mẹ học sinh.</td></tr>
         <tr><td>Kinh phí, vật liệu</td><td>Ưu tiên vật liệu tái chế, sẵn có: bìa các-tông, que tre, giấy màu.</td></tr>
         <tr><td>Học sinh chênh lệch trình độ</td><td>Phân vai trong nhóm, giao nhiệm vụ vừa sức từng em.</td></tr>
         <tr><td>Đánh giá công bằng trong nhóm</td><td>Rubric công khai từ đầu; kết hợp đánh giá đồng đẳng, tự đánh giá và bài tự luận cá nhân.</td></tr>
@@ -875,7 +1061,10 @@ Nắp hộp vừa khít đáy</textarea><span class="hint">Viết bằng số đ
   </div>
   <div class="docs">
     <a class="doc link" href="bai-mau.html"><span class="ic">WEB</span><div><b>Kế hoạch bài dạy 2 tiết · xem trên web ↗</b><span>Bài STEM mẫu Toán 8, có Xưởng kiểm định để trình chiếu</span></div></a>
-    <a class="doc link" href="tai-lieu/01_KHBD_STEM_Toan8_Hinh-thoi-Hinh-vuong.docx" download><span class="ic">KHBD</span><div><b>Kế hoạch bài dạy 2 tiết (Word)</b><span>Theo 5 hoạt động STEM, khung Phụ lục IV · tải về</span></div></a>
+    <a class="doc link" href="to-gioi-thieu.html"><span class="ic">QR</span><div><b>Tờ giới thiệu A4 kèm mã QR ↗</b><span>In hoặc lưu PDF để phát cho đại biểu, gửi các trường</span></div></a>
+    <a class="doc link" href="tiet-minh-hoa.html"><span class="ic">★</span><div><b>Tiết dạy minh họa · xem trên web ↗</b><span>1 tiết lớp 8B1, có Bàn so sánh hai cánh diều và gợi ý lời giải</span></div></a>
+    <a class="doc link" href="tai-lieu/06_KHBD_Tiet-minh-hoa_Hinh-thoi-Hinh-vuong.docx" download><span class="ic">KHBD</span><div><b>Kế hoạch bài dạy tiết minh họa (Word)</b><span>Bản 24/10/2026 · 5 hoạt động · tải về</span></div></a>
+    <a class="doc link" href="tai-lieu/01_KHBD_STEM_Toan8_Hinh-thoi-Hinh-vuong.docx" download><span class="ic">KHBD</span><div><b>Kế hoạch bài dạy 2 tiết (Word)</b><span>Tiết 1 lý thuyết, Tiết 2 luyện tập – làm STEM, khung Phụ lục IV · tải về</span></div></a>
     <a class="doc link" href="tai-lieu/02_Phieu-hoc-tap_STEM_Toan8.docx" download><span class="ic">PHT</span><div><b>Phiếu học tập 1–5 (Word)</b><span>Vấn đề, kiến thức nền, bản thiết kế, thử nghiệm, tự đánh giá · tải về</span></div></a>
     <a class="doc link" href="tai-lieu/03_Bai-tap-tu-luan_kem-dap-an.docx" download><span class="ic">BT</span><div><b>Bài tập tự luận kèm đáp án (Word)</b><span>Gắn với sản phẩm, có câu hỏi phản biện · tải về</span></div></a>
     <a class="doc link" href="tai-lieu/04_Rubric-danh-gia_STEM_Toan8.docx" download><span class="ic">RUB</span><div><b>Rubric đánh giá (Word)</b><span>Kiến thức Toán, sản phẩm, báo cáo và hợp tác · tải về</span></div></a>
@@ -1114,5 +1303,27 @@ Nắp hộp vừa khít đáy</textarea><span class="hint">Viết bằng số đ
 })();
 </script>
 
+<script>
+/* Hiệu ứng hiện dần khi cuộn và con số tự chạy */
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var sel='main section .head, .box, .form, .stage, .shift, .problem, .pillar, .doc, .mcell, .numbers > div, .stemband > div, .feature, .oneperiod, .act, .rep, .stem4 > div, .lesson, .principles > div, .build4 > div, .take';
+  var els=[].slice.call(document.querySelectorAll(sel));
+  if(!reduce){
+    els.forEach(function(e){e.classList.add('rv')});
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e)});
+  }
+  var nums=[].slice.call(document.querySelectorAll('.numbers b'));
+  var io2=new IntersectionObserver(function(es){es.forEach(function(x){
+    if(!x.isIntersecting) return; io2.unobserve(x.target);
+    var t=x.target.textContent.trim(); if(!/^\d+$/.test(t)||reduce) return;
+    var n=+t,i=0,st=performance.now();
+    (function f(now){var k=Math.min(1,(now-st)/900);x.target.textContent=Math.round(n*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f)})(st);
+  })});
+  nums.forEach(function(e){io2.observe(e)});
+})();
+</script>
 </body>
 </html>

@@ -4,6 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Bài STEM mẫu Toán 8</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%23ff8a3d%22/%3E%3Cstop offset=%221%22 stop-color=%22%23a855f7%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon points=%2232,2 60,32 32,62 4,32%22 fill=%22url(%23g)%22/%3E%3Ctext x=%2232%22 y=%2240%22 font-size=%2220%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22 font-weight=%22bold%22%3ES%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#1c1250">
+<meta property="og:title" content="Bài STEM mẫu Toán 8 · Kỹ sư nhí">
+<meta property="og:description" content="Kế hoạch bài dạy 2 tiết "Kỹ sư nhí và đêm hội Halloween": hình thoi, hình vuông, có Xưởng kiểm định trình chiếu.">
+<meta property="og:type" content="website">
+<meta name="description" content="Kế hoạch bài dạy 2 tiết "Kỹ sư nhí và đêm hội Halloween": hình thoi, hình vuông, có Xưởng kiểm định trình chiếu.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
@@ -151,11 +157,138 @@ details[open] summary{margin-bottom:8px}
   .sign{grid-template-columns:1fr}
 }
 </style>
+<style id="hoi">.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.rv.in{opacity:1;transform:none}
+
+/* ===== Lớp màu "Đêm hội Kỹ sư nhí" — dùng chung cho mọi trang ===== */
+:root{--violet:#6d28d9;--magenta:#d6246e;--sun:#f5a300;--sky:#1d7fd6;--lime:#16a34a;
+  --hoi:linear-gradient(120deg,#ff8a3d 0%,#ff4f8b 45%,#a855f7 100%);
+  --hoi-soft:linear-gradient(120deg,rgba(255,138,61,.14),rgba(255,79,139,.12),rgba(168,85,247,.14));
+  --s-c:#0e9f8e;--t-c:#1d7fd6;--e-c:#8b3fd9;--m-c:#e8590c;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--s-c:#3dd6c3;--t-c:#5fb0ff;--e-c:#b98cff;--m-c:#ff9a52}}
+:root[data-theme="dark"]{--s-c:#3dd6c3;--t-c:#5fb0ff;--e-c:#b98cff;--m-c:#ff9a52}
+.grad{background:var(--hoi);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* Thanh điều hướng, thanh trên */
+nav.top,.topbar{background:linear-gradient(90deg,#140f33,#26145a 55%,#3a1450)!important;box-shadow:0 2px 0 0 rgba(255,138,61,.5)}
+nav.top a.brand{background:var(--hoi);color:#fff!important;border-radius:999px}
+
+/* Hero đêm hội */
+.hero{background:radial-gradient(900px 500px at 85% 10%,rgba(168,85,247,.45),transparent 60%),radial-gradient(700px 480px at 5% 100%,rgba(255,79,139,.35),transparent 60%),radial-gradient(500px 400px at 50% 50%,rgba(255,138,61,.18),transparent 70%),linear-gradient(160deg,#0f0b2e,#1c1250 50%,#2a0f3f)!important}
+.hero h1 .o{background:var(--hoi);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .morph{background:rgba(34,24,82,.72);backdrop-filter:blur(6px);border:1px solid rgba(255,138,61,.35);box-shadow:0 20px 60px -20px rgba(255,79,139,.55)}
+.sky{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.sky svg{position:absolute;opacity:.9;animation:bay 9s ease-in-out infinite}
+.sky .s1{left:4%;top:12%;width:46px;animation-delay:-2s}
+.sky .s2{right:14%;top:3%;width:30px;animation-delay:-5s}
+.sky .s3{right:6%;bottom:10%;width:40px;animation-delay:-1s}
+.sky .s4{left:50%;top:4%;width:26px;animation-delay:-7s}
+.sky .s5{right:40%;top:30%;width:18px;animation-delay:-3s}
+.sky .st{width:8px;height:8px;border-radius:50%;background:#ffe9a8;position:absolute;box-shadow:0 0 10px 2px rgba(255,220,140,.7);animation:nhay 3s ease-in-out infinite}
+@keyframes bay{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-14px) rotate(6deg)}}
+@keyframes nhay{0%,100%{opacity:.25}50%{opacity:1}}
+.school{display:inline-flex;align-items:center;gap:10px;margin-bottom:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 14px 6px 6px;font-weight:700;font-size:.9rem;color:#fff}
+.school i{width:30px;height:30px;border-radius:50%;background:var(--hoi);display:grid;place-items:center;font-style:normal;font-family:var(--font-display);font-weight:800;font-size:.8rem}
+.cta{background:var(--hoi)!important;color:#fff!important;box-shadow:0 10px 26px -10px rgba(255,79,139,.8);transition:transform .2s}
+.cta:hover{transform:translateY(-2px)}
+.cta.ghost{background:transparent!important;border:2px solid #ffb37d;color:#ffd9bd!important;box-shadow:none;margin-left:8px}
+.ctas{display:flex;flex-wrap:wrap;gap:0 4px;align-items:center}
+
+/* Dải S T E M */
+.stemband{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.stemband div{padding:20px 18px;color:#fff;display:grid;gap:4px;align-content:start;min-width:0}
+.stemband div:nth-child(1){background:linear-gradient(140deg,#0e9f8e,#0b7a6e)}
+.stemband div:nth-child(2){background:linear-gradient(140deg,#1d7fd6,#1660a8)}
+.stemband div:nth-child(3){background:linear-gradient(140deg,#8b3fd9,#6a28b0)}
+.stemband div:nth-child(4){background:linear-gradient(140deg,#f07a1f,#d6246e)}
+.stemband b{font-family:var(--font-display);font-size:2.6rem;line-height:1;font-weight:800}
+.stemband span{font-weight:700}
+.stemband p{font-size:.88rem;opacity:.92}
+
+/* Con số */
+.numbers{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:28px}
+.numbers div{background:var(--card);border-radius:16px;padding:18px 16px;border:1px solid var(--line);position:relative;overflow:hidden;min-width:0}
+.numbers div::before{content:"";position:absolute;inset:0 0 auto;height:5px;background:var(--hoi)}
+.numbers b{font-family:var(--font-display);font-size:2.4rem;line-height:1;font-weight:800;background:var(--hoi);-webkit-background-clip:text;background-clip:text;color:transparent;display:block}
+.numbers span{font-size:.88rem;color:var(--ink-soft)}
+
+/* Căn cứ văn bản */
+.canu{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:10px}
+.canu div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:12px 14px;display:grid;gap:4px;align-content:start;min-width:0}
+.canu .so{font-family:var(--font-mono);font-size:.76rem;font-weight:700;color:#ffb37d;letter-spacing:.03em}
+.canu b{color:#fff;font-size:.95rem;line-height:1.3}
+.canu p{font-size:.84rem!important;color:var(--night-soft)}
+.canu .new{border-color:#ff7eb0;background:rgba(255,79,139,.14)}
+.canu .new .so::after{content:" · MỚI";color:#ff7eb0}
+
+/* Tiêu đề mục, khối, thẻ */
+.head .num{display:inline-block;justify-self:start;background:var(--hoi);color:#fff!important;border-radius:999px;padding:3px 12px;font-size:.82rem}
+.head h2::after{content:"";display:block;width:84px;height:6px;border-radius:6px;background:var(--hoi);margin-top:12px}
+.part{background:radial-gradient(600px 300px at 100% 0%,rgba(255,79,139,.35),transparent 70%),linear-gradient(135deg,#1a1150,#3b1466)!important;box-shadow:0 24px 50px -28px rgba(109,40,217,.8)}
+.box,.form,.stage,.shift,.problem,.panel,.mcell,.doc,.sheet,.check label,.cycle div,.pillar,.rep,.act{transition:transform .2s,box-shadow .2s}
+.box:hover,.form:hover,.stage:hover,.shift:hover,.problem:hover,.pillar:hover,.doc:hover,.rep:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(109,40,217,.55)}
+.build4 > div:nth-child(1) .n,.smat div:nth-child(1) .L{color:var(--s-c)}
+.build4 > div:nth-child(2) .n,.smat div:nth-child(2) .L{color:var(--t-c)}
+.build4 > div:nth-child(3) .n,.smat div:nth-child(3) .L{color:var(--e-c)}
+.build4 > div:nth-child(4) .n,.smat div:nth-child(4) .L{color:var(--m-c)}
+.principles > div:nth-child(1){border-top:5px solid var(--s-c)}
+.principles > div:nth-child(2){border-top:5px solid var(--e-c)}
+.principles > div:nth-child(3){border-top:5px solid var(--m-c)}
+.observe div{background:linear-gradient(150deg,#1c1250,#3b1466)!important}
+.observe .n{background:var(--hoi);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+.doc .ic{background:var(--hoi)!important;color:#fff!important}
+footer{background:linear-gradient(120deg,#140f33,#3a1450)!important}
+
+/* Thẻ nổi bật: tiết minh họa */
+.feature{margin-top:18px;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:0;border-radius:20px;overflow:hidden;text-decoration:none;color:#fff;background:linear-gradient(135deg,#1c1250,#4a1670 60%,#a3245f);box-shadow:0 24px 50px -24px rgba(214,36,110,.7);transition:transform .2s}
+.feature:hover{transform:translateY(-3px)}
+.feature .ftxt{padding:24px 26px;display:grid;gap:10px;align-content:start}
+.feature .k{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:#ffb37d;font-weight:700}
+.feature h3{font-size:clamp(1.3rem,3vw,1.75rem);font-weight:800;color:#fff}
+.feature p{color:#e6dcff;font-size:.95rem}
+.feature .chips{display:flex;flex-wrap:wrap;gap:6px}
+.feature .chips span{font-size:.78rem;font-weight:700;border-radius:999px;padding:3px 10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2)}
+.feature .go{justify-self:start;background:var(--hoi);border-radius:10px;padding:9px 16px;font-weight:700}
+.feature .fart{display:grid;place-items:center;padding:18px;background:radial-gradient(circle at 50% 45%,rgba(255,138,61,.35),transparent 65%)}
+.feature .fart svg{width:100%;max-width:260px;height:auto}
+
+/* Trang kế hoạch bài dạy */
+article.sheet{box-shadow:0 30px 60px -40px rgba(109,40,217,.55)}
+.title .k{background:var(--hoi);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+.title h1{background:linear-gradient(120deg,var(--ink) 30%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+div.facts{border:0!important;background:var(--hoi-soft)}
+div.facts b{color:var(--ink)}
+section > h2{border-bottom:0!important;position:relative;padding-bottom:12px!important}
+section > h2::after{content:"";position:absolute;left:0;bottom:0;width:72px;height:5px;border-radius:5px;background:var(--hoi)}
+.lab > .lh h2::after,.lab h2::after{display:none}
+.part-hd{background:linear-gradient(110deg,#1c1250,#4a1670)!important}
+.part-hd.key{background:var(--hoi)!important}
+.act{border-left:5px solid var(--e-c)}
+.act:nth-of-type(5n+1){border-left-color:var(--m-c)}
+.act:nth-of-type(5n+2){border-left-color:var(--s-c)}
+.act:nth-of-type(5n+3){border-left-color:var(--t-c)}
+.act:nth-of-type(5n+4){border-left-color:var(--e-c)}
+.act:nth-of-type(5n){border-left-color:#d6246e}
+.act > .ah{background:var(--hoi-soft)!important}
+section.lab{background:radial-gradient(500px 260px at 100% 0%,rgba(255,79,139,.3),transparent 70%),linear-gradient(140deg,#140f33,#2c1460)!important}
+.toc a:hover{border-left-color:#ff4f8b!important}
+.stem4 div:nth-child(1){border-top-color:var(--s-c)!important}.stem4 div:nth-child(1) b{color:var(--s-c)}
+.stem4 div:nth-child(2){border-top-color:var(--t-c)!important}.stem4 div:nth-child(2) b{color:var(--t-c)}
+.stem4 div:nth-child(3){border-top-color:var(--e-c)!important}.stem4 div:nth-child(3) b{color:var(--e-c)}
+.stem4 div:nth-child(4){border-top-color:var(--m-c)!important}.stem4 div:nth-child(4) b{color:var(--m-c)}
+.rep{border-top:4px solid var(--e-c)}
+.rep:nth-child(1){border-top-color:var(--m-c)}.rep:nth-child(2){border-top-color:#d6246e}.rep:nth-child(3){border-top-color:var(--t-c)}.rep:nth-child(4){border-top-color:var(--s-c)}
+
+@media (max-width:860px){.stemband{grid-template-columns:repeat(2,minmax(0,1fr))}.numbers{grid-template-columns:repeat(2,minmax(0,1fr))}.canu{grid-template-columns:repeat(2,minmax(0,1fr))}.feature{grid-template-columns:1fr}.feature .fart{display:none}}
+@media (max-width:600px){.canu{grid-template-columns:1fr}.stemband b{font-size:2rem}.cta.ghost{margin-left:0}}
+@media (max-width:600px){.sky svg{opacity:.35}}
+@media (prefers-reduced-motion: reduce){.sky svg,.sky .st{animation:none!important}}
+</style>
 </head>
 <body>
 
 <div class="topbar"><div class="in">
   <a href="./">← Về trang Dạy học STEM</a>
+  <a href="tiet-minh-hoa.html" style="color:#ffd27d">★ Tiết dạy minh họa</a>
   <a href="tai-lieu/01_KHBD_STEM_Toan8_Hinh-thoi-Hinh-vuong.docx" download>Tải bản Word ↓</a>
 </div></div>
 
@@ -167,13 +300,14 @@ details[open] summary{margin-bottom:8px}
     <a href="#thiet-bi">II. Thiết bị, học liệu</a>
     <a href="#tien-trinh">III. Tiến trình</a>
     <a class="sub" href="#tiet-1">Tiết 1</a>
-    <a class="sub" href="#buoi-2">Buổi học thứ hai</a>
-    <a class="sub" href="#tiet-2">Tiết 2 · Luyện tập</a>
+    <a class="sub" href="#buoi-2">Ở nhà · làm sản phẩm</a>
+    <a class="sub" href="#tiet-2">Tiết 2 · Luyện tập – làm STEM</a>
     <a href="#phieu">IV. Phiếu học tập</a>
     <a href="#bai-tap">V. Bài tập tự luận</a>
     <a href="#phan-bien">VI. Câu hỏi phản biện</a>
     <a href="#rubric">VII. Rubric</a>
     <a href="#an-toan">VIII. An toàn, vật liệu</a>
+    <a href="tiet-minh-hoa.html">★ Tiết minh họa ↗</a>
   </nav>
 
   <article class="sheet">
@@ -189,13 +323,15 @@ details[open] summary{margin-bottom:8px}
     </div>
 
     <div class="facts">
-      <div><span>Thời lượng</span><b>2 tiết + 1 buổi chế tạo</b></div>
+      <div><span>Thời lượng</span><b>2 tiết · sản phẩm làm ở nhà</b></div>
       <div><span>Kiểu bài STEM</span><b>Thiết kế kĩ thuật</b></div>
       <div><span>Sản phẩm</span><b>Diều hình thoi · Hộp quà hình vuông</b></div>
-      <div><span>Tổ chức</span><b>4 nhóm · 2 nhiệm vụ</b></div>
+      <div><span>Tổ chức</span><b>2 nhóm (Hình thoi · Hình vuông) · 2 nhiệm vụ</b></div>
     </div>
 
     <p class="flag">Nội dung kiến thức đối chiếu SGK Toán 8 tập 1 (Kết nối tri thức, NXB Giáo dục Việt Nam): Bài 14. Hình thoi và hình vuông, tr.67–72; Luyện tập chung, tr.73. Định lí Pythagore học sinh đã học ở tiết đầu học kì I theo kế hoạch dạy học (phân phối chương trình) đã thống nhất của tổ.</p>
+
+    <p class="note">★ Kế hoạch bài dạy của <b>tiết lên lớp tại buổi chuyên đề</b> (1 tiết, lớp 8B1): <a href="tiet-minh-hoa.html">Tiết dạy minh họa</a>.</p>
 
     <!-- XƯỞNG -->
     <section class="lab" id="xuong">
@@ -266,7 +402,7 @@ details[open] summary{margin-bottom:8px}
       <h2>II. Thiết bị dạy học và học liệu</h2>
       <ul>
         <li><b>Giáo viên:</b> máy chiếu, bài trình chiếu; Phiếu học tập 1–5; tờ tiêu chí và rubric; giấy màu A4; thước, ê ke, compa; diều và hộp mẫu chưa hoàn chỉnh để đặt vấn đề (không phát bản vẽ đáp án).</li>
-        <li><b>Học sinh (mỗi nhóm):</b> kéo đầu tròn, thước kẻ, ê ke, bút chì; giấy A4; nan tre, chỉ hoặc dây gai; bìa carton tái chế; băng dính giấy, hồ dán; điện thoại của giáo viên để quay video (buổi học thứ hai).</li>
+        <li><b>Học sinh (mỗi nhóm):</b> kéo đầu tròn, thước kẻ, ê ke, bút chì; giấy A4; nan tre, chỉ hoặc dây gai; bìa carton tái chế; băng dính giấy, hồ dán; điện thoại để quay video quá trình làm sản phẩm ở nhà.</li>
         <li><b>Học liệu số:</b> web-app "Xưởng thiết kế hộp quà Halloween"; bàn tính diều, hộp trên trang Dạy học STEM.</li>
       </ul>
     </section>
@@ -274,16 +410,16 @@ details[open] summary{margin-bottom:8px}
     <!-- III -->
     <section id="tien-trinh">
       <h2>III. Tiến trình dạy học</h2>
-      <p class="note">Năm hoạt động STEM theo CV 3089 ứng với khung Phụ lục IV: Mở đầu → HĐ1; Hình thành kiến thức → HĐ2, HĐ3; Luyện tập → HĐ4, HĐ5; Vận dụng → phần giao về nhà. Mỗi nhóm có 5 vai: trưởng nhóm, kĩ sư thiết kế, thư kí tính toán, thợ chế tạo, người thuyết trình.</p>
+      <p class="note">Bài học 2 tiết, vận dụng các hoạt động STEM theo CV 3089 và khung Phụ lục IV (CV 5512). Tiết 1 (lý thuyết): mở đầu và hình thành kiến thức, cuối tiết giao việc làm sản phẩm ở nhà. Tiết 2 (luyện tập – làm STEM): 4 hoạt động đi từ huy động kiến thức, hệ thống hóa và kiểm chứng, giải bài tập tự luận đến vận dụng kết quả toán học vào thiết kế, kiểm chứng, cải tiến sản phẩm. Lớp chia 2 nhóm: nhóm Hình thoi làm diều, nhóm Hình vuông làm hộp quà. Mỗi em trong nhóm giữ 1 trong 5 vai: trưởng nhóm, kĩ sư thiết kế, thư kí tính toán, thợ chế tạo, người thuyết trình.</p>
 
-      <div class="part-hd" id="tiet-1"><h3>TIẾT 1 · Xác định vấn đề, kiến thức nền</h3><span>45 phút · chính khóa</span></div>
+      <div class="part-hd" id="tiet-1"><h3>TIẾT 1 · Lý thuyết: hình thành kiến thức, giao việc làm sản phẩm</h3><span>45 phút · chính khóa</span></div>
 
       <div class="act">
-        <div class="ah"><h4>Hoạt động 1. Xác định vấn đề (Mở đầu)</h4><span class="mono">7 phút</span></div>
+        <div class="ah"><h4>Hoạt động 1.1. Đặt vấn đề (Mở đầu)</h4><span class="mono">7 phút</span></div>
         <div class="ab">
           <div class="abcd">
             <b>a) Mục tiêu</b><p>Học sinh nhận nhiệm vụ thực tiễn, thấy cần kiến thức về hình thoi, hình vuông để làm sản phẩm.</p>
-            <b>b) Nội dung</b><p>"Đơn đặt hàng đêm hội Halloween": nhóm 1, 3 làm diều hình thoi bay được; nhóm 2, 4 làm hộp quà "Trick or Treat" đáy hình vuông, có nắp vừa khít. Đọc Phiếu 1 và tiêu chí sản phẩm.</p>
+            <b>b) Nội dung</b><p>"Đơn đặt hàng đêm hội Halloween": nhóm Hình thoi làm diều hình thoi bay được; nhóm Hình vuông làm hộp quà "Trick or Treat" đáy hình vuông, có nắp vừa khít. Đọc Phiếu 1 và tiêu chí sản phẩm.</p>
             <b>c) Sản phẩm</b><p>Phiếu 1 điền phần "Để đạt tiêu chí, em cần biết kiến thức gì?".</p>
           </div>
           <div class="steps">
@@ -296,7 +432,7 @@ details[open] summary{margin-bottom:8px}
       </div>
 
       <div class="act">
-        <div class="ah"><h4>Hoạt động 2. Nghiên cứu kiến thức nền (Hình thành kiến thức)</h4><span class="mono">28 phút</span></div>
+        <div class="ah"><h4>Hoạt động 1.2. Hình thành kiến thức</h4><span class="mono">28 phút</span></div>
         <div class="ab">
           <div class="abcd">
             <b>a) Mục tiêu</b><p>Nắm định nghĩa, tính chất, dấu hiệu nhận biết hình thoi, hình vuông.</p>
@@ -326,92 +462,102 @@ details[open] summary{margin-bottom:8px}
       </div>
 
       <div class="act">
-        <div class="ah"><h4>Hoạt động 3 (phần 1). Đề xuất giải pháp, giao bài toán thiết kế</h4><span class="mono">10 phút</span></div>
+        <div class="ah"><h4>Hoạt động 1.3. Phác thảo ý tưởng, giao việc làm sản phẩm ở nhà</h4><span class="mono">10 phút</span></div>
         <div class="ab">
           <div class="abcd">
-            <b>a) Mục tiêu</b><p>Học sinh chuyển nhiệm vụ thành bài toán, tự chọn kích thước, phác thảo.</p>
-            <b>b) Nội dung</b><p>Nhận bài tập tự luận 1 hoặc 2 (mục V); phân vai trong nhóm; phác thảo trên Phiếu 3.</p>
+            <b>a) Mục tiêu</b><p>Học sinh nhận nhiệm vụ làm sản phẩm ở nhà, phân vai và phác thảo ý tưởng ban đầu.</p>
+            <b>b) Nội dung</b><p>Phân vai trong nhóm; phác thảo ý tưởng trên Phiếu 3; nhận tờ tiêu chí và rubric.</p>
             <b>c) Sản phẩm</b><p>Phiếu 3 phần phác thảo và bảng phân vai.</p>
           </div>
           <div class="steps">
-            <div><b>Giao nhiệm vụ</b><p>GV phát bài tự luận theo nhiệm vụ nhóm và tờ rubric. Nhấn mạnh: mỗi thông số trên bản vẽ phải ghi rõ lấy từ câu nào của lời giải.</p></div>
-            <div><b>Thực hiện</b><p>Nhóm phân vai, phác thảo, bắt đầu giải bài.</p></div>
+            <div><b>Giao nhiệm vụ</b><p>GV phát tờ tiêu chí và rubric. Nhấn mạnh: các thông số của sản phẩm sẽ được kiểm chứng bằng kết quả bài toán ở Tiết 2.</p></div>
+            <div><b>Thực hiện</b><p>Nhóm phân vai, phác thảo ý tưởng.</p></div>
             <div><b>Báo cáo, thảo luận</b><p>GV đi các nhóm, hỏi nhanh "Nhóm định dùng dấu hiệu nào để kiểm tra?".</p></div>
-            <div><b>Kết luận</b><p>Giao việc buổi học thứ hai và hạn mang sản phẩm đến tiết 2.</p></div>
+            <div><b>Kết luận</b><p>Giao việc làm sản phẩm ở nhà và hạn mang sản phẩm đến Tiết 2.</p></div>
           </div>
         </div>
       </div>
 
-      <div class="part-hd" id="buoi-2"><h3>BUỔI HỌC THỨ HAI · Lựa chọn giải pháp, chế tạo, thử nghiệm</h3><span>khoảng 90 phút · có GV hướng dẫn</span></div>
+      <div class="part-hd" id="buoi-2"><h3>Ở NHÀ · Các nhóm làm sản phẩm</h3><span>giữa Tiết 1 và Tiết 2 · ngoài giờ học</span></div>
 
       <div class="act">
-        <div class="ah"><h4>Hoạt động 3 (phần 2) và Hoạt động 4</h4><span class="mono">90 phút</span></div>
+        <div class="ah"><h4>Hoạt động ở nhà. Chế tạo, thử nghiệm, ghi lại quá trình</h4><span class="mono">ngoài giờ học</span></div>
         <div class="ab">
           <div class="abcd">
             <b>a) Mục tiêu</b><p>Hoàn thiện bản thiết kế, chế tạo, thử nghiệm, điều chỉnh sản phẩm theo tiêu chí.</p>
-            <b>b) Nội dung</b><p>Nhóm hoàn thành lời giải, bản vẽ có kích thước; chế tạo; diều thả thử, hộp đóng thử; ghi Phiếu 4; quay video quá trình (nhóm hộp quà).</p>
+            <b>b) Nội dung</b><p>Nhóm hoàn thiện bản vẽ có kích thước; chế tạo; diều thả thử, hộp đóng thử; ghi Phiếu 4; quay video quá trình (nhóm Hình vuông); chuẩn bị tiểu phẩm (nhóm Hình thoi).</p>
             <b>c) Sản phẩm</b><p>Phiếu 3 hoàn chỉnh, Phiếu 4, sản phẩm, video 2–3 phút.</p>
           </div>
           <div class="steps">
-            <div><b>Bước 1 · 20'</b><p>Hoàn thiện lời giải và bản vẽ. GV duyệt nhanh bản vẽ (chỉ góp ý kiến thức, không vẽ hộ).</p></div>
-            <div><b>Bước 2 · 45'</b><p>Chế tạo. Thợ chế tạo cắt, buộc, dán; kĩ sư thiết kế đo kiểm theo bản vẽ; thư kí ghi số liệu.</p></div>
-            <div><b>Bước 3 · 20'</b><p>Thử nghiệm ngoài sân (diều) hoặc đóng thử nắp (hộp); ghi kết quả, sửa ít nhất một lần nếu chưa đạt.</p></div>
-            <div><b>Bước 4 · 5'</b><p>Thu dọn, cất dụng cụ; người thuyết trình chuẩn bị báo cáo (nhóm diều dựng tiểu phẩm).</p></div>
+            <div><b>Bước 1</b><p>Hoàn thiện bản vẽ có kích thước. Nhóm có thắc mắc về kiến thức thì hỏi giáo viên (chỉ góp ý kiến thức, không vẽ hộ).</p></div>
+            <div><b>Bước 2</b><p>Chế tạo. Thợ chế tạo cắt, buộc, dán; kĩ sư thiết kế đo kiểm theo bản vẽ; thư kí ghi số liệu.</p></div>
+            <div><b>Bước 3</b><p>Thử nghiệm ngoài sân (diều) hoặc đóng thử nắp (hộp); ghi kết quả, sửa ít nhất một lần nếu chưa đạt.</p></div>
+            <div><b>Bước 4</b><p>Thu dọn, cất dụng cụ; người thuyết trình chuẩn bị báo cáo (nhóm Hình thoi dựng tiểu phẩm).</p></div>
           </div>
-          <p class="note">Trường học 1 buổi/ngày: giao phần chế tạo thành nhiệm vụ ở nhà trong 1–2 tuần, chỉ gồm các bước không nguy hiểm, báo cha mẹ học sinh.</p>
+          <p class="note">Chỉ giao các bước không nguy hiểm; dụng cụ cắt do người lớn hỗ trợ; báo cha mẹ học sinh; mang sản phẩm đến Tiết 2.</p>
         </div>
       </div>
 
-      <div class="part-hd key" id="tiet-2"><h3>TIẾT 2 · Luyện tập · Chia sẻ, thảo luận, điều chỉnh</h3><span>45 phút · chính khóa</span></div>
+      <div class="part-hd key" id="tiet-2"><h3>TIẾT 2 · Luyện tập – làm STEM</h3><span>45 phút · chính khóa</span></div>
+
+      <p class="note">Tiết luyện tập vẫn bảo đảm kiến thức, rèn luyện và phát triển năng lực cho học sinh. Quy trình: huy động kiến thức → hệ thống hóa và kiểm chứng → giải bài tập tự luận → vận dụng kết quả toán học vào thiết kế, kiểm chứng, cải tiến sản phẩm (theo góp ý của chuyên viên Sở GDĐT). STEM không tách rời nội dung luyện tập mà là bối cảnh để học sinh vận dụng kiến thức đã học.</p>
 
       <div class="act">
-        <div class="ah"><h4>Hoạt động 5.1. Luyện tập: chữa bài tập tự luận</h4><span class="mono">12 phút</span></div>
+        <div class="ah"><h4>Hoạt động 2.1. Huy động kiến thức đã học</h4><span class="mono">5 phút</span></div>
         <div class="ab">
           <div class="abcd">
-            <b>a) Mục tiêu</b><p>Củng cố tính chất, dấu hiệu nhận biết qua bài tập là căn cứ thiết kế sản phẩm.</p>
-            <b>b) Nội dung</b><p>Bài 1, Bài 2 (mục V) gắn với sản phẩm và Bài 4 (bài 3.36, SGK tr.73) về khung tre bị xô lệch. Học sinh nhóm khác lên bảng giải để kiểm tra lời giải của nhóm làm sản phẩm.</p>
-            <b>c) Sản phẩm</b><p>Lời giải trên bảng, vở học sinh.</p>
+            <b>a) Mục tiêu</b><p>Học sinh nhận diện hình thoi, hình vuông; nhắc lại một số tính chất và dấu hiệu nhận biết; giáo viên nhanh chóng phát hiện nội dung còn nhầm lẫn để điều chỉnh các hoạt động sau.</p>
+            <b>b) Nội dung</b><p>Câu hỏi ngắn, hình vẽ hoặc tình huống trực quan. Tích hợp tiếng Anh bằng từ vựng gắn trực tiếp với nội dung Toán: square, rhombus, diagonal, parallel, perpendicular, equal sides.</p>
+            <b>c) Sản phẩm</b><p>Câu trả lời của học sinh, thẻ từ; danh sách chỗ còn nhầm do giáo viên ghi nhận.</p>
           </div>
           <div class="steps">
-            <div><b>Giao nhiệm vụ</b><p>Chiếu đề Bài 1, Bài 2. Mỗi học sinh tự làm câu a vào vở (3 phút).</p></div>
-            <div><b>Thực hiện</b><p>Hai học sinh lên bảng (một của nhóm diều, một của nhóm hộp); cả lớp làm vào vở.</p></div>
-            <div><b>Báo cáo, thảo luận</b><p>Lớp nhận xét lời giải; GV hỏi "Câu này dùng dấu hiệu nào?".</p></div>
-            <div><b>Kết luận</b><p>GV chốt lập luận và kết quả. Giữ lời giải trên bảng suốt phần báo cáo để đối chiếu.</p></div>
+            <div><b>Giao nhiệm vụ</b><p>GV chiếu các tứ giác (hình thoi, hình vuông, hình bình hành, hình chữ nhật) kèm câu hỏi ngắn: “Hình nào là hình thoi? Vì sao?”. Phát thẻ từ tiếng Anh.</p></div><div><b>Thực hiện</b><p>Học sinh trả lời nhanh, giơ thẻ từ (rhombus, square…).</p></div><div><b>Báo cáo, thảo luận</b><p>Một vài học sinh giải thích; lớp bổ sung.</p></div><div><b>Kết luận</b><p>GV ghi nhận chỗ còn nhầm để điều chỉnh. Từ vựng tiếng Anh dùng trong câu hỏi, thẻ từ, không thành một hoạt động học tiếng Anh riêng.</p></div>
           </div>
         </div>
       </div>
 
       <div class="act">
-        <div class="ah"><h4>Hoạt động 5.2. Đo kiểm chéo sản phẩm</h4><span class="mono">8 phút</span></div>
+        <div class="ah"><h4>Hoạt động 2.2. Hệ thống hóa và kiểm chứng kiến thức</h4><span class="mono">7 phút</span></div>
         <div class="ab">
+          <div class="abcd">
+            <b>a) Mục tiêu</b><p>Học sinh kết nối tính chất và dấu hiệu nhận biết của hình thoi, hình vuông; biết chọn căn cứ phù hợp để giải thích hoặc kiểm chứng một nhận định hình học.</p>
+            <b>b) Nội dung</b><p>So sánh, phát hiện và sửa nhầm lẫn thường gặp (ví dụ nhận định “Tứ giác có hai đường chéo vuông góc là hình thoi”). Tích hợp năng lực số: dùng phần mềm hình học động hoặc hình ảnh trực quan để thay đổi hình, quan sát đường chéo, kiểm tra tính chất.</p>
+            <b>c) Sản phẩm</b><p>Sơ đồ quan hệ hình bình hành → hình thoi, hình chữ nhật → hình vuông; kết luận kèm căn cứ.</p>
+          </div>
           <div class="steps">
-            <div><b>Thực hiện</b><p>Nhóm diều đo hộp của nhóm bạn và ngược lại: đo bốn cạnh, hai đường chéo, một góc. Ghi Phiếu 4, nhập số đo vào "Máy thẩm định" ở đầu trang để cả lớp thấy kết luận và dấu hiệu nhận biết được dùng.</p></div>
-            <div><b>Kết luận</b><p>GV ghi nhanh kết quả lên bảng, chỉ ra chỗ lệch để đưa vào phần phản biện.</p></div>
+            <div><b>Giao nhiệm vụ</b><p>GV nêu nhận định cần kiểm chứng; các nhóm chọn căn cứ để khẳng định hoặc bác bỏ.</p></div><div><b>Thực hiện</b><p>Nhóm quan sát trên phần mềm hình học (hoặc hình trực quan), kiểm tra rồi ghi căn cứ.</p></div><div><b>Báo cáo, thảo luận</b><p>Đại diện nhóm nêu kết luận và căn cứ; lớp phản hồi.</p></div><div><b>Kết luận</b><p>GV nhấn mạnh: công cụ số hỗ trợ quan sát và kiểm chứng, kết luận toán học vẫn dựa trên tính chất, dấu hiệu nhận biết hoặc lập luận. Không kéo dài thành bài giảng lý thuyết mới.</p></div>
           </div>
         </div>
       </div>
 
       <div class="act">
-        <div class="ah"><h4>Hoạt động 5.3. Báo cáo và phản biện</h4><span class="mono">17 phút</span></div>
+        <div class="ah"><h4>Hoạt động 2.3. Luyện tập thông qua bài tập tự luận</h4><span class="mono">13 phút</span></div>
         <div class="ab">
+          <div class="abcd">
+            <b>a) Mục tiêu</b><p>Đánh giá mức độ hiểu và khả năng vận dụng: học sinh chuyển từ dữ kiện bài toán sang lập luận có căn cứ, không chỉ nhận diện hình qua quan sát.</p>
+            <b>b) Nội dung</b><p>Bài toán về vùng trung tâm hình chữ nhật và thảm hoa hình thoi <mark>[bổ sung đề bài]</mark>; Bài 1 (khung diều), Bài 2 (hộp quà) mục V gắn với sản phẩm; Bài 4 (bài 3.36, SGK tr.73) nếu còn thời gian. Học sinh trình bày lập luận, chứng minh, giải thích vì sao chọn tính chất hoặc dấu hiệu đó.</p>
+            <b>c) Sản phẩm</b><p>Lời giải tự luận trong vở và trên bảng. Kết quả là căn cứ toán học cho hoạt động thiết kế sản phẩm tiếp theo.</p>
+          </div>
           <div class="steps">
-            <div><b>Nhóm Diều · 7'</b><p>Báo cáo bằng tiểu phẩm "Kỹ sư nhí thả diều đêm hội". Bắt buộc có đoạn chứng minh khung là hình thoi và nêu số đo cạnh.</p></div>
-            <div><b>Nhóm Hộp quà · 7'</b><p>Chiếu video quá trình thiết kế, chế tạo; trình bày cách kiểm tra đáy là hình vuông và cách tính cạnh nắp.</p></div>
-            <div><b>Phản biện · 3'</b><p>Các nhóm đặt câu hỏi theo gợi ý mục VI. GV chỉ chấp nhận câu hỏi và câu trả lời dựa trên kiến thức Toán.</p></div>
+            <div><b>Giao nhiệm vụ</b><p>Chiếu đề. Mỗi học sinh tự làm câu a vào vở (3 phút); nhóm Hình thoi giải Bài 1, nhóm Hình vuông giải Bài 2.</p></div><div><b>Thực hiện</b><p>Hai học sinh lên bảng (một của mỗi nhóm); cả lớp làm vào vở. Có thể dùng hình vẽ động hoặc công cụ đo, dựng hình để kiểm tra giả thuyết; công cụ không thay yêu cầu trình bày lời giải tự luận.</p></div><div><b>Báo cáo, thảo luận</b><p>Lớp nhận xét lời giải; GV hỏi “Câu này dùng dấu hiệu nào?”.</p></div><div><b>Kết luận</b><p>GV chốt lập luận và kết quả. Giữ lời giải trên bảng suốt Hoạt động 2.4 để đối chiếu.</p></div>
           </div>
         </div>
       </div>
 
       <div class="act">
-        <div class="ah"><h4>Hoạt động 5.4. Điều chỉnh, tự đánh giá, chốt kiến thức</h4><span class="mono">8 phút</span></div>
+        <div class="ah"><h4>Hoạt động 2.4. Vận dụng kết quả giải toán vào thiết kế, kiểm chứng, cải tiến sản phẩm</h4><span class="mono">20 phút</span></div>
         <div class="ab">
+          <div class="abcd">
+            <b>a) Mục tiêu</b><p>Học sinh dùng kiến thức và kết quả giải toán để phân tích, kiểm tra, hoàn thiện sản phẩm gắn với chủ đề Halloween (cánh diều, hộp quà); báo cáo, phản biện và cải tiến dựa trên số đo.</p>
+            <b>b) Nội dung</b><p>Mỗi nhóm làm rõ bốn điều: yêu cầu thiết kế (hình dạng, kích thước, tính đối xứng, khả năng sử dụng); căn cứ toán học (kết quả nào ở 2.1–2.3 giải thích thiết kế); kiểm chứng (sản phẩm có đáp ứng tiêu chí không, dựa vào đâu để kết luận); cải tiến (một điều chỉnh và lý do). Tích hợp năng lực số: ảnh, bản vẽ số, bản trình bày ngắn, phần mềm hình học.</p>
+            <b>c) Sản phẩm</b><p>Phiếu 4 (thử nghiệm và đo kiểm), Phiếu 5 (tự đánh giá); báo cáo của nhóm bằng tiểu phẩm hoặc video; điều chỉnh đề xuất.</p>
+          </div>
           <div class="steps">
-            <div><b>Điều chỉnh · 3'</b><p>Mỗi nhóm nêu một điều chỉnh dựa trên số đo (ví dụ: dịch điểm buộc về đúng trung điểm, cắt lại nắp rộng hơn 2 mm).</p></div>
-            <div><b>Tự đánh giá · 3'</b><p>Học sinh làm Phiếu 5; nhóm góp ý nhóm bạn theo tiêu chí.</p></div>
-            <div><b>Chốt · 2'</b><p>GV chốt sơ đồ quan hệ: hình bình hành → hình thoi, hình chữ nhật → hình vuông. Giao về nhà: Bài 3 (mục V), bài 3.31, 3.32 (SGK tr.72) và hoàn thiện sản phẩm theo điều chỉnh.</p></div>
+            <div><b>Giao nhiệm vụ · Đo kiểm chéo (3 phút)</b><p>Nhóm Hình thoi đo hộp của nhóm Hình vuông và ngược lại: đo bốn cạnh, hai đường chéo, một góc; ghi Phiếu 4, có thể nhập số đo vào “Máy thẩm định” trên trang web chuyên đề. GV ghi nhanh kết quả, chỉ ra chỗ lệch để đưa vào phản biện.</p></div><div><b>Thực hiện · Báo cáo (10 phút)</b><p>Nhóm Hình thoi (5 phút): tiểu phẩm “Kỹ sư nhí thả diều đêm hội”, bắt buộc có đoạn chứng minh khung là hình thoi và nêu số đo cạnh. Nhóm Hình vuông (5 phút): chiếu video quá trình thiết kế, chế tạo; trình bày cách kiểm tra đáy là hình vuông và cách tính cạnh nắp.</p></div><div><b>Báo cáo, thảo luận · Phản biện (2 phút)</b><p>Hai nhóm đặt câu hỏi cho nhau theo gợi ý mục VI. GV chỉ chấp nhận câu hỏi và câu trả lời dựa trên kiến thức Toán.</p></div><div><b>Kết luận · Điều chỉnh, tự đánh giá, chốt (5 phút)</b><p>Mỗi nhóm nêu một điều chỉnh dựa trên số đo (ví dụ: dịch điểm buộc về đúng trung điểm, cắt lại nắp rộng hơn 2 mm); học sinh làm Phiếu 5. GV chốt sơ đồ quan hệ: hình bình hành → hình thoi, hình chữ nhật → hình vuông. Giao về nhà: Bài 3 (mục V), bài 3.31, 3.32 (SGK tr.72) và hoàn thiện sản phẩm theo điều chỉnh.</p></div>
           </div>
         </div>
       </div>
+
     </section>
 
     <!-- IV -->
@@ -633,6 +779,28 @@ details[open] summary{margin-bottom:8px}
     $('vName').textContent=n; $('vWhy').textContent=w;
   }
   ids.concat('sTol').forEach(i=>$(i).addEventListener('input',judge)); judge();
+})();
+</script>
+<script>
+/* Hiệu ứng hiện dần khi cuộn và con số tự chạy */
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var sel='main section .head, .box, .form, .stage, .shift, .problem, .pillar, .doc, .mcell, .numbers > div, .stemband > div, .feature, .oneperiod, .act, .rep, .stem4 > div, .lesson, .principles > div, .build4 > div, .take';
+  var els=[].slice.call(document.querySelectorAll(sel));
+  if(!reduce){
+    els.forEach(function(e){e.classList.add('rv')});
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e)});
+  }
+  var nums=[].slice.call(document.querySelectorAll('.numbers b'));
+  var io2=new IntersectionObserver(function(es){es.forEach(function(x){
+    if(!x.isIntersecting) return; io2.unobserve(x.target);
+    var t=x.target.textContent.trim(); if(!/^\d+$/.test(t)||reduce) return;
+    var n=+t,i=0,st=performance.now();
+    (function f(now){var k=Math.min(1,(now-st)/900);x.target.textContent=Math.round(n*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f)})(st);
+  })});
+  nums.forEach(function(e){io2.observe(e)});
 })();
 </script>
 </body>
