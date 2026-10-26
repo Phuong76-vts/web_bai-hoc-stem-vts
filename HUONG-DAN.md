@@ -1,6 +1,8 @@
 # Web chuyên đề STEM – THCS Võ Thị Sáu
 
-Gồm: index.html (trang chính), to-gioi-thieu.html (tờ giới thiệu A4 có mã QR), tiet-minh-hoa.html (tiết dạy minh họa 8B1 – mới 26/10/2026), bai-mau.html (bài STEM mẫu Toán 8), bai-hoc.html (18 bài học STEM của tổ), thư mục tai-lieu/ (6 file Word, file .zip trọn bộ và thư mục bai-hoc/ chứa 18 file Word).
+Chuyên đề cấp thành phố: "Tổ chức dạy học môn Toán theo định hướng STEM nhằm phát triển năng lực vận dụng kiến thức toán học vào thực tiễn".
+
+Gồm: index.html (trang chính), to-gioi-thieu.html (tờ giới thiệu A4 có mã QR), tiet-minh-hoa.html (bài giảng minh họa: Vận dụng tính chất hình thoi, hình vuông trong thiết kế sản phẩm STEM – lớp 8B1), bai-mau.html (bài STEM mẫu Toán 8), bai-hoc.html (18 bài học STEM của tổ), thư mục tai-lieu/ (6 file Word, file .zip trọn bộ và thư mục bai-hoc/ chứa 18 file Word).
 Giữ nguyên cấu trúc thư mục khi tải lên thì các nút "tải về" mới hoạt động.
 
 1. Tạo repo GitHub mới (ví dụ: stem-toan-vts). Kéo thả cả index.html, tiet-minh-hoa.html, bai-mau.html, bai-hoc.html và thư mục tai-lieu lên.

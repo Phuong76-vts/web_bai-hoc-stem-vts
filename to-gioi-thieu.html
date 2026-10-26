@@ -39,26 +39,26 @@ p{margin:0}
 .school{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:4px 12px 4px 4px;font-weight:700;font-size:10.5pt}
 .school i{width:24px;height:24px;border-radius:50%;background:var(--hoi);display:grid;place-items:center;font-style:normal;font-family:var(--font-display);font-weight:800;font-size:7pt}
 .kick{margin-top:4mm;font-family:var(--font-body);font-size:8pt;letter-spacing:.1em;text-transform:uppercase;color:#ffb37d;font-weight:600}
-.top h1{margin-top:2mm;font-size:30pt;font-weight:800;letter-spacing:-.02em}
+.top h1{margin-top:1.5mm;font-size:27pt;font-weight:800;letter-spacing:-.02em}
 .grad{color:#ff8a3d}
-.top .sub{margin-top:3mm;font-size:10.5pt;color:#d9d3ff;max-width:125mm;line-height:1.45}
+.top .sub{margin-top:2.5mm;font-size:10pt;color:#d9d3ff;max-width:125mm;line-height:1.45}
 .kites{position:absolute;right:12mm;top:9mm;width:40mm}
 
 .stem{display:grid;grid-template-columns:repeat(4,1fr)}
-.stem div{padding:3mm 4mm;color:#fff}
-.stem b{font-family:var(--font-display);font-size:20pt;line-height:1;display:block}
+.stem div{padding:2.2mm 4mm;color:#fff}
+.stem b{font-family:var(--font-display);font-size:17pt;line-height:1;display:block}
 .stem span{font-size:8pt;font-weight:600}
 .stem div:nth-child(1){background:var(--s)}.stem div:nth-child(2){background:var(--t)}.stem div:nth-child(3){background:var(--e)}.stem div:nth-child(4){background:linear-gradient(140deg,#f07a1f,#d6246e)}
 
-.mid{padding:6mm 14mm 4.5mm;display:grid;gap:4mm;align-content:start}
-.lead{font-size:10.5pt;line-height:1.5;color:var(--soft)}
+.mid{padding:5mm 14mm 4mm;display:grid;gap:3.5mm;align-content:start}
+.lead{font-size:10pt;line-height:1.45;color:var(--soft)}
 .lead b{color:var(--ink)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:4mm}
 .card{border:1px solid var(--line);border-radius:4mm;padding:3.5mm 4.5mm;display:grid;gap:1.5mm;align-content:start;position:relative;overflow:hidden}
 .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1.6mm;background:var(--c)}
 .card .k{font-family:var(--font-body);font-size:7.5pt;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--c)}
 .card h3{font-size:12pt;font-weight:800}
-.card p{font-size:9pt;line-height:1.45;color:var(--soft)}
+.card p{font-size:8.6pt;line-height:1.4;color:var(--soft)}
 .card .n{font-family:var(--font-display);font-size:22pt;font-weight:800;line-height:1;color:var(--c)}
 .c1{--c:var(--m)}.c2{--c:#d6246e}.c3{--c:var(--t)}.c4{--c:var(--s)}
 
@@ -86,6 +86,8 @@ p{margin:0}
   .bottom{grid-template-columns:1fr;margin:0 16px 20px;justify-items:start}
   .foot{margin:0 16px 20px}
 }
+.top .bg-name{margin-top:2.5mm;font-family:var(--font-display);font-weight:700;font-size:12.5pt;color:#fff;border-left:1.2mm solid #ff8a3d;padding-left:3mm;max-width:128mm;line-height:1.3}
+.top .bg-name span{display:block;font-family:var(--font-body);font-size:7.5pt;letter-spacing:.1em;text-transform:uppercase;color:#ffb37d;font-weight:700}
 @page{size:A4;margin:0}
 @media print{
   body{background:#fff}
@@ -118,7 +120,8 @@ p{margin:0}
       <span class="school"><i>VTS</i>Trường THCS Võ Thị Sáu · Hải Phòng</span>
       <p class="kick">Chuyên đề dạy học môn Toán cấp thành phố · 2026</p>
       <h1>Dạy học <span class="grad">STEM</span><br>trong từng tiết học</h1>
-      <p class="sub">"Kết nối Toán học với thực tiễn qua hoạt động STEM – Hình thoi, Hình vuông – Sắc màu Halloween". Một cách làm STEM thường xuyên trong giờ chính khóa, dùng được cho mọi môn.</p>
+      <p class="sub">Chuyên đề: “Tổ chức dạy học môn Toán theo định hướng STEM nhằm phát triển năng lực vận dụng kiến thức toán học vào thực tiễn”</p>
+      <p class="bg-name"><span>Bài giảng minh họa</span>Vận dụng tính chất hình thoi, hình vuông trong thiết kế sản phẩm STEM</p>
     </div>
     <div class="stem" aria-hidden="true">
       <div><b>S</b><span>Khoa học</span></div><div><b>T</b><span>Công nghệ</span></div><div><b>E</b><span>Kĩ thuật</span></div><div><b>M</b><span>Toán học</span></div>
@@ -129,7 +132,7 @@ p{margin:0}
     <p class="lead">Mời thầy cô đến xem một tiết dạy và mang về một cách làm. Trang web của chuyên đề ghi lại <b>phương pháp dạy học STEM theo Công văn 3089/BGDĐT-GDTrH</b>, cập nhật theo hướng dẫn nhiệm vụ năm học 2026 – 2027 của Bộ GDĐT, và cách Tổ Khoa học tự nhiên đã triển khai.</p>
 
     <div class="cards">
-      <div class="card c1"><span class="k">Tiết dạy minh họa · lớp 8B1</span><h3>Vận dụng tính chất hình thoi, hình vuông trong thiết kế sản phẩm STEM</h3><p>Diều hình thoi, hộp kẹo hình vuông. Bốn nhóm báo cáo theo bốn cách: kiểm định chất lượng, mổ xẻ sản phẩm, người bán hàng, gọi vốn.</p></div>
+      <div class="card c1"><span class="k">Bài giảng minh họa · lớp 8B1</span><h3>Diều hình thoi · Hộp kẹo hình vuông</h3><p>Năm hoạt động trong một tiết 45 phút. Bốn nhóm báo cáo theo bốn cách: kiểm định chất lượng, mổ xẻ sản phẩm, người bán hàng, gọi vốn.</p></div>
       <div class="card c2"><span class="k">Kế hoạch STEM của tổ</span><span class="n">18 bài học</span><p>Toán, Khoa học tự nhiên, Công nghệ, Tin học lớp 6 – 9, năm học 2026 – 2027. Xem trên web và tải bản Word.</p></div>
       <div class="card c3"><span class="k">Công cụ trình chiếu</span><h3>Xưởng kiểm định · Bàn so sánh cánh diều</h3><p>Học sinh nhập số đo sản phẩm thật để kiểm tra hình thoi, hình vuông; so sánh cách cắt giấy tiết kiệm vật liệu.</p></div>
       <div class="card c4"><span class="k">Tài liệu tải về</span><h3>Kế hoạch bài dạy · phiếu học tập · rubric</h3><p>Bài tập tự luận kèm đáp án, khung thiết kế bài học STEM để tổ chuyên môn dùng cho mọi môn.</p></div>
@@ -146,7 +149,7 @@ p{margin:0}
       <div class="qrbox" id="qr"><p class="ph">Dán link web vào ô phía trên để tạo mã QR</p></div>
       <div>
         <h2>Quét mã để xem và tải tài liệu</h2>
-        <p>Mở bằng camera điện thoại hoặc Zalo. Trang web có tiết dạy minh họa, 18 kế hoạch bài dạy STEM và trọn bộ tài liệu của chuyên đề.</p>
+        <p>Mở bằng camera điện thoại hoặc Zalo. Trang web có bài giảng minh họa, 18 kế hoạch bài dạy STEM và trọn bộ tài liệu của chuyên đề.</p>
         <span class="url" id="urlText">…</span>
       </div>
     </div>
